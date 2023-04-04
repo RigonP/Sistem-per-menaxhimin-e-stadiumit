@@ -20,7 +20,7 @@ function Navbar(){
                 </button>
             </nav>
             <button className="nav-btn" onClick ={showNavbar}>
-                <FaBars/>
+                <FaBars />
             </button>
         </header>
     );

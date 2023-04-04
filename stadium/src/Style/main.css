@@ -62,7 +62,7 @@ header .nav-btn{
         transition: 1s;
         transform: translateY(-100vh);
     }
-    header .responsive-nav{
+    header .responsive_nav{
         transform: none;
     }
     
