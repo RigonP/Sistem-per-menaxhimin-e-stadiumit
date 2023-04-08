@@ -22,6 +22,11 @@
     --cardBg:rgb(255,255,255);
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
+
 a{
     text-decoration: none;
 }
@@ -87,10 +92,24 @@ body{
 
 
 /* Default style to all the sections */
+/*Media queries */
+@media screen and (min-width:1240px) {
+    .container{
+        width: 80% !important;
+        margin: auto !important;
+    }
+
+    .section{
+        padding: 6rem 0 4rem;
+    }
+}
 
 
-
-
+@media screen and (min-width: 2650px) {
+    body{
+        zoom: 1.7;
+    }
+}
 
 
 
