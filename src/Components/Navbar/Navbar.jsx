@@ -3,6 +3,7 @@ import './navbar.css'
 import {AiFillCloseCircle} from 'react-icons/ai';
 import {TbGridDots} from 'react-icons/tb';
 import {MdOutlineStadium} from 'react-icons/md';
+import {AiOutlineSearch} from 'react-icons/ai'
 
 const Navbar = () => {
     
@@ -25,7 +26,7 @@ const Navbar = () => {
         <header className="header flex">
             <div className="logoDiv">
                 <a href="#" className="logo flex">
-                    <h1><MdOutlineStadium className="icon"/> Travel.</h1>
+                    <h1><MdOutlineStadium className="icon"/> Kosovo Stadium.</h1>
                 </a>
             </div>
 
@@ -33,11 +34,23 @@ const Navbar = () => {
                 <ul className="navLists flex">
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Home</a>
+                        <a href="#" className="navLink">Eventet</a>
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Packages</a>
+                        <a href="#" className="navLink">Stadiumi</a>
+                    </li>
+
+                    <li className="navItem">
+                        <a href="#" className="navLink">Tours</a>
+                    </li>
+
+                    <li className="navItem">
+                        <a href="#" className="navLink">Fans</a>
+                    </li>
+
+                    <li className="navItem">
+                        <a href="#" className="navLink">Tiketat</a>
                     </li>
 
                     <li className="navItem">
@@ -45,24 +58,16 @@ const Navbar = () => {
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">About</a>
-                    </li>
-
-                    <li className="navItem">
-                        <a href="#" className="navLink">Pages</a>
-                    </li>
-
-                    <li className="navItem">
-                        <a href="#" className="navLink">News</a>
-                    </li>
-
-                    <li className="navItem">
-                        <a href="#" className="navLink">Contact</a>
+                        <a href="#" className="navLink">Kontakt</a>
                     </li>
 
                     <button className='btn'>
-                        <a href="#">BOOK NOW</a>
+                        <a href="#">LOGIN</a>
                     </button>
+
+                    <li className="navItem">
+                        <a href="" ><AiOutlineSearch /></a>
+                    </li>
                 </ul>
 
                 <div onClick={removeNavbar} className="closeNavBar">

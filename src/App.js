@@ -5,13 +5,15 @@ import Home from './Components/Home/Home';
 import Main from './Components/Main/Main';
 import Footer from './Components/Footer/Footer';
 
+import Homeslider from './Components/Slider/homeslider/slider';
 
 const App = () => {
   return (
     <>
     <Navbar />
-    <Home />
+    <Homeslider />
     <Main />
+    <Home />
     <Footer />
     </>
   )
