@@ -1,14 +1,13 @@
 import React, {useEffect} from 'react'
 import './footer.css'
-import video2 from '../../Assets/video2.mp4'
+import video2 from '../../Assets/Kosovo_Flag_Loop.mp4'
 import {FiSend} from 'react-icons/fi'
-import {MdOutlineTravelExplore} from 'react-icons/md'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import {AiFillYoutube} from 'react-icons/ai'
 import {AiFillInstagram} from 'react-icons/ai'
 import {FaTripadvisor} from 'react-icons/fa'
 import {FiChevronRight} from 'react-icons/fi'
-
+import {BiFootball} from 'react-icons/bi'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -32,14 +31,14 @@ const Footer = () => {
       <div className="secContent container">
         <div className="contactDiv flex">
           <div data-aos="fade-up" className="text">
-            <small>Keep in touch</small>
-            <h2>Travel with us</h2>
+            <small>Na shkruani</small>
+            <h2>KOSOVA</h2>
           </div>
 
           <div className="inputDiv flex">
-            <input data-aos="fade-up"  type="text" placeholder='Enter email' />
+            <input data-aos="fade-up"  type="text" placeholder='Shkruani email' />
             <button  data-aos="fade-up" className='btn flex' type="submit">
-              SEND <FiSend className='icon' />
+              DERGO <FiSend className='icon' />
             </button>
           </div>
         </div>
@@ -48,16 +47,14 @@ const Footer = () => {
           <div className="footerIntro flex">
             <div className="logoDiv">
               <a href="#" className="logo flex">
-                <MdOutlineTravelExplore className="icon" />Travel.
+                <BiFootball className="icon" />KOSOVO - Stadium.
               </a>
             </div>
 
             <div data-aos="fade-up" className="footerParagraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dolor velit, 
-            vehicula sit amet tempor vitae, 
-            tincidunt ut quam. Quisque hendrerit eget magna dictum dignissim. 
-            Nunc cursus risus ante, vitae maximus felis tincidunt id. 
-            Sed eget diam et lectus vulputate eleifend vel eu lorem. Morbi non finibus odio. 
+            Topi i parë i futbollit në Kosovë mendohet se është sjellë nga një student i Grenoblit më 1919, 
+            por burime tjera japin një version se më 1914 është zhvilluar ndeshja e parë e futbollit në Kosovë, 
+            ku kanë luajtur Austro-Hungarezët, të cilët kanë shërbyer në atë kohë në vendin tonë. 
             </div>
 
             <div className="footerSocials flex">
@@ -73,32 +70,32 @@ const Footer = () => {
             {/*Grupi i pare */}
             <div data-aos="fade-up" data-aos-duration="3000" className="linkGroup">
               <span className="groupTitle">
-                Our agency
+                EVENTET
               </span>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Services
+                Lorem
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Insurance
+                Lorem
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Agency
+                Lorem
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Tourism
+                Lorem
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Payment
+                Lorem
               </li>
 
             </div>
@@ -106,12 +103,12 @@ const Footer = () => {
             {/*Grupi i dyte */}
             <div data-aos="fade-up" data-aos-duration="4000" className="linkGroup">
               <span className="groupTitle">
-                PARTNERS
+                PARTNERET
               </span>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Bookings
+                STADIUMI
               </li>
 
               <li className="footerList flex">

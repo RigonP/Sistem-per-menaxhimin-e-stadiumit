@@ -5,15 +5,15 @@ import {HiOutlineClipboardCheck} from 'react-icons/hi'
 
 
 //import the images 
-import img from '../../Assets/img.jpg'
-import img2 from '../../Assets/img2.jpg'
-import img3 from '../../Assets/img3.jpg'
-import img4 from '../../Assets/img4.jpg'
-import img5 from '../../Assets/img5.jpg'
-import img6 from '../../Assets/img6.jpg'
-import img7 from '../../Assets/img7.jpg'
-import img8 from '../../Assets/img8.jpg'
-import img9 from '../../Assets/img9.jpg'
+import Kos1 from '../../Assets/kosova1.jpg'
+import Kos2 from '../../Assets/kosova2.jpg'
+import Kos3 from '../../Assets/kosova3.avif'
+import Kos4 from '../../Assets/kosovaSw4.png'
+import Kos5 from '../../Assets/kosovaRomania.jpg'
+import Kos6 from '../../Assets/kosovaAndora.jpg'
+import Kos7 from '../../Assets/swissKosova.jpg'
+import Kos8 from '../../Assets/belarusKosova.jpg'
+
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -22,7 +22,7 @@ import 'aos/dist/aos.css'
 const Data = [
   {
     id:1,
-    imgSrc:img,
+    imgSrc:Kos1,
     destTitle:'Kosova vs Romania',
     location: 'Kosove',
     grade: '16 Qershor 2023',
@@ -32,7 +32,7 @@ const Data = [
 
   {
     id:2,
-    imgSrc:img2,
+    imgSrc:Kos2,
     destTitle:'Belarus vs Kosova',
     location: 'Belarus',
     grade: '19 Qershor 2023',
@@ -42,7 +42,7 @@ const Data = [
 
   {
     id:3,
-    imgSrc:img3,
+    imgSrc:Kos4,
     destTitle:'Kosova vs Switzerland',
     location: 'Kosove',
     grade: '9 Shtator 2023',
@@ -52,7 +52,7 @@ const Data = [
 
   {
     id:4,
-    imgSrc:img4,
+    imgSrc:Kos5,
     destTitle:'Romania vs Kosovo',
     location: 'Romani',
     grade: '12 Shtator 2023',
@@ -62,7 +62,7 @@ const Data = [
 
   {
     id:5,
-    imgSrc:img5,
+    imgSrc:Kos6,
     destTitle:'Andora vs Kosova',
     location: 'Andora',
     grade: '12 Tetor 2023',
@@ -72,7 +72,7 @@ const Data = [
 
   {
     id:6,
-    imgSrc:img6,
+    imgSrc:Kos3,
     destTitle:'Kosova vs Izrael',
     location: 'Kosova',
     grade: '15 Tetor 2023',
@@ -82,7 +82,7 @@ const Data = [
   
   {
     id:7,
-    imgSrc:img7,
+    imgSrc:Kos7,
     destTitle:'Switzerland vs Kosova',
     location: 'Switzerland',
     grade: '18 Nentor 2023',
@@ -92,7 +92,7 @@ const Data = [
 
   {
     id:8,
-    imgSrc:img8,
+    imgSrc:Kos8,
     destTitle:'Kosova vs Belarus',
     location: 'Kosova',
     grade: '21 Nentor 2023',
@@ -100,15 +100,7 @@ const Data = [
     description: 'Lorem ipsum dolor sit'
   },
 
-  {
-    id:9,
-    imgSrc:img9,
-    destTitle:'Bali Island',
-    location: 'Indonesia',
-    grade: 'Cultural relax',
-    fees: '$500',
-    description: 'Lorem ipsum dolor sit'
-  },
+
 ]
 
 
@@ -164,7 +156,7 @@ const Main = () => {
                   </div>
 
                   <button className='btn flex'>
-                    DETAILS <HiOutlineClipboardCheck className='icon' />
+                    LEXO ME SHUME <HiOutlineClipboardCheck className='icon' />
                   </button>
                 </div>
               </div>
