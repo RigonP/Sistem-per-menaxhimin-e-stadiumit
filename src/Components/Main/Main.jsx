@@ -23,80 +23,80 @@ const Data = [
   {
     id:1,
     imgSrc:img,
-    destTitle:'Bora Bora',
-    location: 'New Zeland',
-    grade: 'Cultural relax',
-    fees: '$700',
+    destTitle:'Kosova vs Romania',
+    location: 'Kosove',
+    grade: '16 Qershor 2023',
+    fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
 
   {
     id:2,
     imgSrc:img2,
-    destTitle:'Machu Picchu',
-    location: 'Peru',
-    grade: 'Cultural relax',
-    fees: '$600',
+    destTitle:'Belarus vs Kosova',
+    location: 'Belarus',
+    grade: '19 Qershor 2023',
+    fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
 
   {
     id:3,
     imgSrc:img3,
-    destTitle:'Great Barrier Reef',
-    location: 'Australia',
-    grade: 'Cultural relax',
-    fees: '$700',
+    destTitle:'Kosova vs Switzerland',
+    location: 'Kosove',
+    grade: '9 Shtator 2023',
+    fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
 
   {
     id:4,
     imgSrc:img4,
-    destTitle:'Cappadocia',
-    location: 'Turkey',
-    grade: 'Cultural relax',
-    fees: '$800',
+    destTitle:'Romania vs Kosovo',
+    location: 'Romani',
+    grade: '12 Shtator 2023',
+    fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
 
   {
     id:5,
     imgSrc:img5,
-    destTitle:'Guanajuato',
-    location: 'Mexico',
-    grade: 'Cultural relax',
-    fees: '$1100',
+    destTitle:'Andora vs Kosova',
+    location: 'Andora',
+    grade: '12 Tetor 2023',
+    fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
 
   {
     id:6,
     imgSrc:img6,
-    destTitle:'Cinque Terre',
-    location: 'Italy',
-    grade: 'Cultural relax',
-    fees: '$840',
+    destTitle:'Kosova vs Izrael',
+    location: 'Kosova',
+    grade: '15 Tetor 2023',
+    fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
   
   {
     id:7,
     imgSrc:img7,
-    destTitle:'Angkor Wat',
-    location: 'Cambodia',
-    grade: 'Cultural relax',
-    fees: '$790',
+    destTitle:'Switzerland vs Kosova',
+    location: 'Switzerland',
+    grade: '18 Nentor 2023',
+    fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
 
   {
     id:8,
     imgSrc:img8,
-    destTitle:'Taj Mahal',
-    location: 'India',
-    grade: 'Cultural relax',
-    fees: '$900',
+    destTitle:'Kosova vs Belarus',
+    location: 'Kosova',
+    grade: '21 Nentor 2023',
+    fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
 
@@ -127,7 +127,7 @@ const Main = () => {
 
       <div className="secTitle">
         <h3 data-aos="fade-right"  className="title">
-          Most visited destinations
+          NDESHJET E ARDHSHME
         </h3>
       </div>
 
@@ -151,11 +151,12 @@ const Main = () => {
 
                   <div className="fees flex">
                     <div className="grade">
-                      <span>{grade}<small>+1</small></span>
+                      <span>{grade}</span>
                     </div>
                     <div className="price">
-                      <h5>{fees}</h5>
+                      <span>{fees}</span>
                     </div>
+ 
                   </div>
 
                   <div className="desc">
