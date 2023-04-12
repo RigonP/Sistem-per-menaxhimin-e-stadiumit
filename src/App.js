@@ -4,7 +4,7 @@ import Navbar from './Components/Navbar/Navbar';
 import Home from './Components/Home/Home';
 import Main from './Components/Main/Main';
 import Footer from './Components/Footer/Footer';
-
+import Programs from './Components/Programs/Programs';
 import Homeslider from './Components/Slider/homeslider/slider';
 
 const App = () => {
@@ -14,6 +14,7 @@ const App = () => {
     <Homeslider />
     <Main />
     <Home />
+    <Programs />
     <Footer />
     </>
   )
