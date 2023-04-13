@@ -38,7 +38,7 @@ const Home = () => {
 
           </div>
 
-          <div data-aos="fade-up" className="cardDiv grid">
+          {/* <div data-aos="fade-up" className="cardDiv grid">
             <div className="destinationInput">
               <label htmlFor="city">Search your destination:</label>
               <div className="input flex">
@@ -69,7 +69,7 @@ const Home = () => {
               <HiFilter className="icon"/>
               <span>More filters</span>
             </div>
-          </div>
+          </div> */}
 
           <div data-aos="fade-up" className="homeFooterIcons flex">
             <div className="rightIcons">

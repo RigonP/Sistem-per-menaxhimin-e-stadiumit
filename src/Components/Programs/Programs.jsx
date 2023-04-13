@@ -10,7 +10,7 @@ const Programs = () => {
         {/* header */}
         <div className="programs-header">
             <span className='stroke-text'>Plan </span>
-            <span>Your</span>
+            <span id='textColor'>Your</span>
             <span className='stroke-text'>Visit</span>
         </div>
 
