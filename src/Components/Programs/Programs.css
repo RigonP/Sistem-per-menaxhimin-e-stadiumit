@@ -84,7 +84,7 @@
 }
 
 .category:hover{
-    background: var(--planCard);
+    background: linear-gradient(to right, hsl(187,85%,43%), hsl(199,100%,33%));
     cursor: pointer;
 }
 

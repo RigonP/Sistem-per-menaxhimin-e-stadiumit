@@ -4,6 +4,7 @@ import {AiFillCloseCircle} from 'react-icons/ai';
 import {TbGridDots} from 'react-icons/tb';
 import {MdOutlineStadium} from 'react-icons/md';
 import {AiOutlineSearch} from 'react-icons/ai'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     
@@ -25,48 +26,47 @@ const Navbar = () => {
     <section className='navBarSection'>
         <header className="header flex">
             <div className="logoDiv">
-                <a href="#" className="logo flex">
+                <Link to="/logo" className="logo flex" >
                     <h1><MdOutlineStadium className="icon"/> Kosovo Stadium.</h1>
-                </a>
+                </Link>
             </div>
-
             <div className={active}>
                 <ul className="navLists flex">
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Eventet</a>
+                        <Link to="/eventet" className="navLink">Eventet</Link>
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Stadiumi</a>
+                        <Link to="/stadiumi" className="navLink" >Stadiumi</Link>
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Tours</a>
+                        <Link to="/tours" className="navLink">Tours</Link>
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Fans</a>
+                        <Link to="/fans" className="navLink">Fans</Link>
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Tiketat</a>
+                        <Link to="/tiketat" className="navLink">Tiketat</Link>
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Shop</a>
+                        <Link to="/shop" className="navLink">Shop</Link>
                     </li>
 
                     <li className="navItem">
-                        <a href="#" className="navLink">Kontakt</a>
+                        <Link to="/contact" className="navLink">Kontakt</Link>
                     </li>
 
                     <button className='btn'>
-                        <a href="#">LOGIN</a>
+                        <Link to="/login" className="navLink">LOGIN</Link>
                     </button>
 
                     <li className="navItem">
-                        <a href="" ><AiOutlineSearch /></a>
+                        <Link to="/login" ><AiOutlineSearch /></Link>
                     </li>
                 </ul>
 
