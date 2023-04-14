@@ -13,9 +13,9 @@ const App = () => {
   return (
     <Router>
 	    <Navbar />
-	    {/* <Routes>
+	    <Routes>
 		    <Route path='/eventet' element={<Eventet/>} />
-	    </Routes> */}
+	    </Routes>
       <Homeslider />
       <Main />
       <Home />
