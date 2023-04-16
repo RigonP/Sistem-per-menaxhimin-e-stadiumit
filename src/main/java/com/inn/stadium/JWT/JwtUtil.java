@@ -13,10 +13,12 @@ public class JwtUtil {
     private String secret = "--bMdai43IMFSDdsklanjhKJhkhJy6";
 
     public String extractUsername(String token){
+
         return  extractClamis(token, Claims::getSubject);
     }
 
     public Date extractExpiration(String token){
+
         return extractClamis(token,Claims::getExpiration);
     }
 
@@ -30,6 +32,6 @@ public class JwtUtil {
     }
 
     private Boolean isTokenExpired(String token){
-        return extractExpiration()
+        return extractExpiration(token).before(new Date());
     }
 }

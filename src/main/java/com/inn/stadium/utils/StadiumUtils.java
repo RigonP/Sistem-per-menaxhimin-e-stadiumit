@@ -8,7 +8,6 @@ public class StadiumUtils {
     private StadiumUtils(){
 
     }
-
     public static ResponseEntity <String> getResponseEntity(String responseMessage, HttpStatus httpStatus){
         return  new ResponseEntity<String >("{\"messag\":\" " + responseMessage + "\"}", httpStatus);
     }
