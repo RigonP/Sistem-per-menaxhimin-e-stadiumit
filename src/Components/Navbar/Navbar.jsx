@@ -58,7 +58,8 @@ const Navbar = () => {
                     </li>
 
                     <li className="navItem">
-                        <Link to="/contact" className="navLink">Kontakt</Link>
+                    <Link to="/contact" className="navLink" target="_blank">Contact</Link>
+
                     </li>
 
                     <button className='btn'>
