@@ -1,4 +1,4 @@
-package com.inn.stadium.dao;
+package com.inn.stadium.repository;
 
 import com.inn.stadium.POJO.User;
 import org.springframework.data.jpa.repository.JpaRepository;
