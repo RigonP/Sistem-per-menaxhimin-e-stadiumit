@@ -46,7 +46,7 @@ const Footer = () => {
         <div className="footerCard flex">
           <div className="footerIntro flex">
             <div className="logoDiv">
-              <a href="#" className="logo flex">
+            <a href="/" className="logo flex">
                 <BiFootball className="icon" />KOSOVO - Stadium.
               </a>
             </div>
