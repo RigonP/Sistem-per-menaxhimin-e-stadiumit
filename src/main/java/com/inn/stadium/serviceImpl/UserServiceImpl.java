@@ -10,6 +10,7 @@ import com.inn.stadium.service.UserService;
 import com.inn.stadium.utils.StadiumUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,8 +18,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+
 import java.util.Map;
 import java.util.Objects;
+
+
 
 @Slf4j
 @Service
@@ -28,13 +32,14 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Autowired
-    AuthenticationManager authenticationManager;
+    public AuthenticationManager authenticationManager;
 
     @Autowired
     JwtUtil jwtUtil;
 
     @Autowired
     CustomerUserDetailsService customerUserDetailsService;
+
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
 
