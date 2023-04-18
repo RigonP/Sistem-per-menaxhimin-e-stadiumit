@@ -3,6 +3,7 @@ import './main.css'
 import {HiOutlineLocationMarker} from 'react-icons/hi'
 import {HiOutlineClipboardCheck} from 'react-icons/hi'
 
+import { Link } from "react-router-dom";
 
 //import the images 
 import Kos1 from '../../Assets/kosova1.jpg'
@@ -156,7 +157,10 @@ const Main = () => {
                   </div>
 
                   <button className='btn flex'>
-                    LEXO ME SHUME <HiOutlineClipboardCheck className='icon' />
+                  <Link to="/tiketat">
+                    BLEJ TIKETEN <HiOutlineClipboardCheck className='icon' />
+                  </Link>
+                    {/*<HiOutlineClipboardCheck className='icon' /> */}
                   </button>
                 </div>
               </div>
