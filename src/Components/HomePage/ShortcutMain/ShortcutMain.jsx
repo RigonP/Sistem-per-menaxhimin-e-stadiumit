@@ -68,7 +68,56 @@ const ShortcutMain = () => {
         </h3>
       </div>
 
-      
+      <div className="secContent grid">
+        
+        {
+          Data.map(({id, imgSrc, destTitle, location, grade, fees, description})=>{
+            return( 
+              <div key={id} className="singleDestination" data-aos="fade-up">
+                
+                <div className="imageDiv">
+                  <img src={imgSrc} alt={destTitle} />
+                </div>
+
+                <div className="cardInfo">
+                  <h4 className="destTitle">{destTitle}</h4>
+                  <span className="continent flex">
+                    <HiOutlineLocationMarker className='icon' />
+                    <span className="name">{location}</span>
+                  </span>
+
+                  <div className="fees flex">
+                    <div className="grade">
+                      <span>{grade}</span>
+                    </div>
+                    <div className="price">
+                      <span>{fees}</span>
+                    </div>
+ 
+                  </div>
+
+                  <div className="desc">
+                    <p>{description}</p>
+                  </div>
+
+                  <button className='btn flex'>
+                  <Link to="/tiketat">
+                    BLEJ TIKETEN <HiOutlineClipboardCheck className='icon' />
+                  </Link>
+                    {/*<HiOutlineClipboardCheck className='icon' /> */}
+                  </button>
+                </div>
+              </div>
+            )
+          })
+        }
+
+      </div>
+        <button data-aos="fade-up" className='btn flex' style={{marginTop: '30px', marginLeft: 'auto', marginRight: '0'}}>
+            <Link to="/eventet">
+                Kliko per te lexuar me shume
+            </Link>
+        </button>
     </section>
     
   )
