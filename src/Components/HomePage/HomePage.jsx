@@ -9,6 +9,7 @@ import Programs from '../Programs/Programs'
 import Footer from '../Footer/Footer'
 // import {Routes, Route} from 'react-router-dom';
 import Testimonials from '../Testimonials/Testimonials'
+import ShortcutMain from './ShortcutMain/ShortcutMain';
 const HomePage = () => {
   return (
     <>
@@ -17,6 +18,7 @@ const HomePage = () => {
       <Route path='/eventet' element={<Eventet/>} />
     </Routes> */}
     <Homeslider />
+    <ShortcutMain />
     <Testimonials />
     <Home />
     <Programs />
