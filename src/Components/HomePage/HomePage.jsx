@@ -10,6 +10,7 @@ import Footer from '../Footer/Footer'
 // import {Routes, Route} from 'react-router-dom';
 import Testimonials from '../Testimonials/Testimonials'
 import ShortcutMain from './ShortcutMain/ShortcutMain';
+import Map from './Map/Map'
 const HomePage = () => {
   return (
     <>
@@ -22,6 +23,7 @@ const HomePage = () => {
     <Testimonials />
     <Home />
     <Programs />
+    <Map />
     <Footer />
     </>
   )
