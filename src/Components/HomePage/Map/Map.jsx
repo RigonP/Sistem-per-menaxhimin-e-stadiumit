@@ -1,8 +1,17 @@
-import React from 'react';
+import React, {useEffect}  from 'react';
 import './Map.css';
 import { Link } from 'react-router-dom';
 
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
+
 const Map = () => {
+    useEffect(() => {
+        Aos.init({duration: 2100})
+    },[])
+
+      
 return (
     <div className="map-container">
         <div className="map-info">
@@ -13,7 +22,7 @@ return (
                 rreth 13,500 vendeve dhe është vendi ku luajnë ndeshjet kryesore ekipet kombëtare 
                 dhe klube të futbollit të Kosovës. Ai është emëruar pas legjendës së futbollit të Kosovës, 
                 Fadil Vokrrit, i cili kishte kontribuar në arritjen e shumë sukseseve për futbollin në Kosovë.</p>
-                <button className='btn flex' style={{marginTop: '30px', marginLeft: 'auto', marginRight: '0'}}>
+                <button data-aos="fade-up" className='btn flex' style={{marginTop: '30px', marginLeft: 'auto', marginRight: '0'}}>
                     <Link to="/contact">
                         Shih kontaktin
                     </Link>
