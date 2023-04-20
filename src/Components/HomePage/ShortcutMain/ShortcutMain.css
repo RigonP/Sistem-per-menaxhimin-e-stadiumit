@@ -21,7 +21,7 @@
     position: relative;
     width: -moz-max-content;
     width: max-content;
-    color: black;
+    color: var(--textColor);
     margin: 1rem 0;
     z-index: 2;
   }
