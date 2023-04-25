@@ -7,7 +7,9 @@ import com.inn.stadium.POJO.User;
 import com.inn.stadium.konstantet.StadiumConstants;
 import com.inn.stadium.repository.UserDao;
 import com.inn.stadium.service.UserService;
+import com.inn.stadium.utils.EmailUtils;
 import com.inn.stadium.utils.StadiumUtils;
+import com.inn.stadium.wrapper.UserWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,9 +21,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 
-import java.util.Map;
-import java.util.Objects;
-
+import java.util.*;
 
 
 @Slf4j
@@ -36,6 +36,12 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     JwtUtil jwtUtil;
+
+    @Autowired
+    JwtFilter jwtFilter;
+
+    @Autowired
+    EmailUtils emailUtils;
 
     @Autowired
     CustomerUserDetailsService customerUserDetailsService;
@@ -110,6 +116,68 @@ public class UserServiceImpl implements UserService {
         return  new ResponseEntity<String>("{\"message\":\""+"Bad Credentials" + "\"}",
                 HttpStatus.BAD_REQUEST);
     }
+
+    @Override
+    public ResponseEntity<List<UserWrapper>> getAllUser() {
+        try{
+
+            if(jwtFilter.isAdmin()){
+
+                return  new ResponseEntity<>(userDao.getAllUser(),HttpStatus.OK);
+
+            }else{
+                return  new ResponseEntity<>(new ArrayList<>(),HttpStatus.UNAUTHORIZED);
+            }
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(),HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<String> update(Map<String, String> requestMap) {
+        try{
+            if(jwtFilter.isAdmin()){
+               Optional<User> optional = userDao.findById(Integer.parseInt(requestMap.get("id")));
+               if(!optional.isEmpty()){
+                    userDao.updateStatus(requestMap.get("status"),Integer.parseInt(requestMap.get("id")));
+                    sendMailToAllAdmin(requestMap.get("status"),optional.get().getEmail(),userDao.getAllAdmin());
+                    return StadiumUtils.getResponseEntity("User Status Updated Successfully", HttpStatus.OK);
+               }else{
+                   return StadiumUtils.getResponseEntity("User id doesn't exist",HttpStatus.OK);
+                }
+
+
+            }else{
+                return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS,HttpStatus.UNAUTHORIZED);
+            }
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    private void sendMailToAllAdmin(String status, String user, List<String> allAdmin) {
+
+        allAdmin.remove(jwtFilter.getCurrentUser());
+        if(status!=null && status.equalsIgnoreCase("true")){
+
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Approved ","USER:- " + user + " \n is approved by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
+
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Disabled ","USER:- " + user + " \n is disabled by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
+
+
+        }else{
+
+
+        }
+
+
+
+    }
+
 
 }
 
