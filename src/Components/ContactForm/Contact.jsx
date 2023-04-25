@@ -15,6 +15,7 @@ const Contact = () => {
     return (
         <>
         <Navbar/>
+        
         <div className="contactUs">
           <div className="title">
             <h2>KONTAKTI</h2>
