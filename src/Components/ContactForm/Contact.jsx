@@ -8,6 +8,9 @@ import {FaFacebookF} from 'react-icons/fa'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import {FiInstagram} from 'react-icons/fi'
 
+import { validateName, validateSurname, validateEmail, validatePhone, validateMessage, validateForm } from './script';
+
+
 const Contact = () => {
     return (
         <>
