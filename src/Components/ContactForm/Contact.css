@@ -1,7 +1,8 @@
 
 .contactUs{
-    /*position: relative;*/
+    position: relative;
     width: 100%;
+    top: 77px;
     padding: 40px 100px;
     background: linear-gradient(-60deg, #88bdbc, #88bdbc 30%, #42899b 30%,#42899b 100%)
 }
