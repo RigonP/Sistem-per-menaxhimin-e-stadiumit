@@ -1,0 +1,116 @@
+
+
+.height{
+
+    height: 10rem;
+}
+
+.form{
+
+    position: relative;
+}
+
+.form .fa-search{
+
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+
+}
+
+.form span{
+
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+
+}
+
+.left-pan{
+    padding-left: 7px;
+}
+
+.left-pan i{
+   
+   padding-left: 10px;
+}
+
+.form-input{
+
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.form-input:focus{
+
+    box-shadow: none;
+    border:none;
+}
+
+
+hr{
+    margin: 0;
+}
+
+.nav-style{
+    
+    padding-bottom: 1rem;
+}
+
+.kits{
+    font-size: 20px;
+    font-weight:500;
+}
+
+.shbp{
+    font-size: 20px;
+    font-weight:500;
+}
+
+.sale{
+    font-size: 20px;
+    font-weight:500;
+}
+
+.kit-show{
+    padding-top: 10rem;
+}
+
+
+.snap-scroll-container{
+    padding-top: 5rem;
+}
+
+.snap-scroll-images{
+    height: 400px;
+}
+
+.card-img-top{
+    width: auto;
+}
+
+.snap-scroll-container {
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: #999999 #FFFFFF;
+  }
+
+  .snap-scroll-container::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .snap-scroll-container::-webkit-scrollbar-track {
+    background: #FFFFFF;
+  }
+
+  .snap-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #999999;
+    border-radius: 20px;
+    border: 3px solid #FFFFFF;
+  }
+

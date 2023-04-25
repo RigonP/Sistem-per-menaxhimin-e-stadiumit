@@ -26,7 +26,7 @@ const Navbar = () => {
     <section className='navBarSection'>
         <header className="header flex">
             <div className="logoDiv">
-                <Link to="/logo" className="logo flex" >
+                <Link to="/" className="logo flex" >
                     <h1><MdOutlineStadium className="icon"/> Kosovo Stadium.</h1>
                 </Link>
             </div>

@@ -1,14 +1,18 @@
 import React from 'react'
 import './Eventet.css'
 import Footer from '../Footer/Footer'
+import Navbar from '../Navbar/Navbar'
+import Main from '../Main/Main'
 
 const Eventet = () => {
   return (
     <>
+    <Navbar />
       <div className="events">
-        <h2>EVENTS</h2>
+        <h2>EVENTET</h2>
       </div>
-      <Footer />
+    <Main />
+    <Footer />
     </>
   )
 }

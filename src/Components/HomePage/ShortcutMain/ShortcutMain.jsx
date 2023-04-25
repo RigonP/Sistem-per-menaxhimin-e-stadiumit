@@ -1,19 +1,15 @@
 import React, {useEffect} from 'react'
-import './main.css'
+import './ShortcutMain.css'
 import {HiOutlineLocationMarker} from 'react-icons/hi'
 import {HiOutlineClipboardCheck} from 'react-icons/hi'
 
 import { Link } from "react-router-dom";
 
 //import the images 
-import Kos1 from '../../Assets/kosova1.jpg'
-import Kos2 from '../../Assets/kosova2.jpg'
-import Kos3 from '../../Assets/kosova3.avif'
-import Kos4 from '../../Assets/kosovaSw4.png'
-import Kos5 from '../../Assets/kosovaRomania.jpg'
-import Kos6 from '../../Assets/kosovaAndora.jpg'
-import Kos7 from '../../Assets/swissKosova.jpg'
-import Kos8 from '../../Assets/belarusKosova.jpg'
+import Kos1 from '../../../Assets/kosova1.jpg'
+import Kos2 from '../../../Assets/kosova2.jpg'
+import Kos4 from '../../../Assets/kosovaSw4.png'
+
 
 
 import Aos from 'aos'
@@ -50,63 +46,11 @@ const Data = [
     fees: '8:45PM',
     description: 'Lorem ipsum dolor sit'
   },
-
-  {
-    id:4,
-    imgSrc:Kos5,
-    destTitle:'Romania vs Kosovo',
-    location: 'Romani',
-    grade: '12 Shtator 2023',
-    fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
-  },
-
-  {
-    id:5,
-    imgSrc:Kos6,
-    destTitle:'Andora vs Kosova',
-    location: 'Andora',
-    grade: '12 Tetor 2023',
-    fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
-  },
-
-  {
-    id:6,
-    imgSrc:Kos3,
-    destTitle:'Kosova vs Izrael',
-    location: 'Kosova',
-    grade: '15 Tetor 2023',
-    fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
-  },
-  
-  {
-    id:7,
-    imgSrc:Kos7,
-    destTitle:'Switzerland vs Kosova',
-    location: 'Switzerland',
-    grade: '18 Nentor 2023',
-    fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
-  },
-
-  {
-    id:8,
-    imgSrc:Kos8,
-    destTitle:'Kosova vs Belarus',
-    location: 'Kosova',
-    grade: '21 Nentor 2023',
-    fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
-  },
-
-
 ]
 
 
 
-const Main = () => {
+const ShortcutMain = () => {
   
   //create a react hook to add scroll animation
   useEffect(() => {
@@ -169,8 +113,14 @@ const Main = () => {
         }
 
       </div>
+        <button data-aos="fade-up" className='btn flex' style={{marginTop: '30px', marginLeft: 'auto', marginRight: '0'}}>
+            <Link to="/eventet">
+                Kliko per te lexuar me shume
+            </Link>
+        </button>
     </section>
+    
   )
 }
 
-export default Main
+export default ShortcutMain
