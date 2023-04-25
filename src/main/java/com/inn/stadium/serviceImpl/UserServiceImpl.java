@@ -164,9 +164,9 @@ public class UserServiceImpl implements UserService {
         allAdmin.remove(jwtFilter.getCurrentUser());
         if(status!=null && status.equalsIgnoreCase("true")){
 
-            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Approved ","USER:- " + user + " \n is approved by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Approved by Admin ","USER:- " + user + " \n is approved by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
 
-            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Disabled ","USER:- " + user + " \n is disabled by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Disabled by Admin ","USER:- " + user + " \n is disabled by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
 
 
         }else{

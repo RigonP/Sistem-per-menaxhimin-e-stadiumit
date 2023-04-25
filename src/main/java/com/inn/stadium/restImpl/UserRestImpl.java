@@ -34,7 +34,7 @@ public class UserRestImpl implements UserRest {
     @Override
     public ResponseEntity<String> login(Map<String, String> requestMap) {
         try{
-            return  userService.login(requestMap);
+            return  userService.login (requestMap);
         }catch (Exception ex){
             ex.printStackTrace();
         }
