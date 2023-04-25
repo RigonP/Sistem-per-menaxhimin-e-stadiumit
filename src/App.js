@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Eventet from './Components/Eventet/Eventet' //
+import Eventet from './Components/Eventet/Eventet' 
 import Form from './Components/Contact/Form';  
 import Shop from './Components/Shop/Shop'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
