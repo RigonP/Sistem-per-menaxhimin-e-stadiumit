@@ -120,8 +120,8 @@ const Fans = () => {
         }
 
       </div>
-      <Footer/>
     </section>
+    <Footer/>
     </>
   )
 }
