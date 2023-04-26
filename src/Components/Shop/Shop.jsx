@@ -13,6 +13,7 @@ import img3 from '../../images/download.jpeg'
 import img4 from '../../images/galerie_bg.jpg'
 import img5 from '../../images/kosovo-2021-2022-fourteen-kit-1.webp'
 import img6 from '../../images/vedat-muriqi.jpg'
+import img7 from '../../images/pod_home_535x.webp'
 import MyNavbar from './ShopNav'
 import Footer from '../Footer/Footer'
 
@@ -139,7 +140,43 @@ function Shop(){
       </div>
 
 
-    
+    <div className='container kits-container'>
+      <div className='row justify-content-center'>
+      <div class="card col-md-4 kits-card border-0">
+        <img src={img7} class="card-img-top" alt="..."/>
+        <div class="card-body kits-card-body">
+          <p class="card-title card-text">Home Kit 22/23</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card col-md-4 kits-card border-0">
+        <img src={img7} class="card-img-top" alt="..."/>
+        <div class="card-body kits-card-body">
+          <p class="card-title card-text">Home Kit 22/23</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div className='container kits-container'>
+      <div className='row justify-content-center'>
+      <div class="card col-md-4 kits-card border-0">
+        <img src={img7} class="card-img-top" alt="..."/>
+        <div class="card-body kits-card-body">
+          <p class="card-title card-text">Home Kit 22/23</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card col-md-4 kits-card border-0">
+        <img src={img7} class="card-img-top" alt="..."/>
+        <div class="card-body kits-card-body">
+          <p class="card-title card-text">Home Kit 22/23</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>
+    </div>
 
 
 
