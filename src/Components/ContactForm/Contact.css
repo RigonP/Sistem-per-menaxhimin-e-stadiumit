@@ -4,7 +4,7 @@
     width: 100%;
     top: 77px;
     padding: 40px 100px;
-    background: linear-gradient(-60deg, #88bdbc, #88bdbc 30%, #42899b 30%,#42899b 100%)
+    background: linear-gradient(to right, hsl(187,85%,43%), hsl(199,100%,33%));
 }
 
 .contactUs .title{
