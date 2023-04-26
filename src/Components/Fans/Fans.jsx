@@ -64,7 +64,9 @@ const Fans = () => {
   return (
 <>
 <Navbar/>
-    
+<div class="events">
+          <h2 data-aos='fade-right'>FANS</h2>
+        </div>
     <section className='main container section'>
 
       <div className="secTitle">
