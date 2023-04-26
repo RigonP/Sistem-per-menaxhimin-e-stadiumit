@@ -15,7 +15,7 @@ import 'aos/dist/aos.css'
 const Home = () => {
   //create a react hook to add scroll animation
   useEffect(() => {
-    Aos.init({duration: 2000})
+    Aos.init({duration: 4000})
   },[])
 
 
@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <section className="home">
       <div className="overlay"></div>
-        <video src={video} muted autoPlay loop type="Kosovo-1min/mp4"></video>
+        <video src={video} muted autoPlay loop type="Kosovo-1min/mp4" data-aos='zoom-in' ></video>
 
         <div className="homeContent container">
           <div className="textDiv">

@@ -1,20 +1,28 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Programs.css'
 import {programsData} from './data/programsData'
 import {AiOutlineArrowRight} from 'react-icons/ai'
 
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const Programs = () => {
+
+    useEffect(() => {
+        Aos.init({duration: 2000, easing: 'ease-in-quint'})
+    },[])
+
+
   return (
     <div className="Programs" id="programs">
         {/* header */}
-        <div className="programs-header">
+        <div className="programs-header" data-aos='fade-right'>
             <span className='stroke-text'>Plan </span>
             <span id='textColor'>Your</span>
             <span className='stroke-text'>Visit</span>
         </div>
 
-        <div className="program-categories">
+        <div className="program-categories" data-aos='slide-left'>
             {programsData.map((program) =>(
                 <div className="category">
                     {program.image}

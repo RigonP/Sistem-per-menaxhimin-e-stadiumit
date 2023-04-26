@@ -1,5 +1,6 @@
 package com.inn.stadium.serviceImpl;
 
+import com.google.common.base.Strings;
 import com.inn.stadium.JWT.CustomerUserDetailsService;
 import com.inn.stadium.JWT.JwtFilter;
 import com.inn.stadium.JWT.JwtUtil;
@@ -147,8 +148,6 @@ public class UserServiceImpl implements UserService {
                }else{
                    return StadiumUtils.getResponseEntity("User id doesn't exist",HttpStatus.OK);
                 }
-
-
             }else{
                 return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS,HttpStatus.UNAUTHORIZED);
             }
@@ -158,6 +157,7 @@ public class UserServiceImpl implements UserService {
         }
         return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
     }
+    
 
     private void sendMailToAllAdmin(String status, String user, List<String> allAdmin) {
 
@@ -165,19 +165,50 @@ public class UserServiceImpl implements UserService {
         if(status!=null && status.equalsIgnoreCase("true")){
 
             emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Approved by Admin ","USER:- " + user + " \n is approved by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
-
-            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Disabled by Admin ","USER:- " + user + " \n is disabled by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
-
-
         }else{
-
-
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Disabled by Admin ","USER:- " + user + " \n is disabled by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
         }
-
-
-
+    }
+    
+    @Override
+    public ResponseEntity<String> checkToken() {
+        return StadiumUtils.getResponseEntity("true",HttpStatus.OK);
     }
 
+    @Override
+    public ResponseEntity<String> changePassword(Map<String, String> requestMap) {
+        try{
+            User userObj = userDao.findByEmail(jwtFilter.getCurrentUser());
+            if(!userObj.equals(null)){
 
+                if(userObj.getPassword().equals(requestMap.get("oldPassword"))){
+                    userObj.setPassword(requestMap.get("newPassword"));
+                    userDao.save(userObj);
+                    return StadiumUtils.getResponseEntity("Password Updated Successfully",HttpStatus.OK);
+                }
+                return StadiumUtils.getResponseEntity("Incorrect Old Password",HttpStatus.BAD_REQUEST);
+            }
+            return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<String> forgotPassword(Map<String, String> requestMap) {
+        try{
+
+            User user= userDao.findByEmail(requestMap.get("email"));
+
+            if(!Objects.isNull(user) && !Strings.isNullOrEmpty(user.getEmail()))
+                emailUtils.forgetMail(user.getEmail(),"Credentials by Stadium Menagement Stadium",user.getPassword());
+                return StadiumUtils.getResponseEntity("Check your mail for Credentials ", HttpStatus.OK);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
 
