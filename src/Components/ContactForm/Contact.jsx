@@ -84,9 +84,9 @@ const Contact = () => {
                   <a href="tel: +38344111222">+383 44 111 222</a>
                 </div>
                 <ul className="sci">
-                <li><a href=""><FaFacebookF/></a></li>
-                <li><a href=""><AiOutlineTwitter/></a></li>
-                <li><a href=""><FiInstagram /></a></li>
+                <li><a href="https://github.com/RigonP/Sistem-per-menaxhimin-e-stadiumit"><FaFacebookF/></a></li>
+                <li><a href="https://github.com/RigonP/Sistem-per-menaxhimin-e-stadiumit"><AiOutlineTwitter/></a></li>
+                <li><a href="https://github.com/RigonP/Sistem-per-menaxhimin-e-stadiumit"><FiInstagram /></a></li>
               </ul>
             </div>
           </div>
