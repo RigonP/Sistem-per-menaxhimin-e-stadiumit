@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './Contact.css';
 import Navbar from '../Navbar/Navbar'
@@ -15,11 +16,10 @@ const Contact = () => {
     return (
         <>
         <Navbar/>
-        
+        <div class="events">
+          <h2>KONTAKT</h2>
+        </div>
         <div className="contactUs">
-          <div className="title">
-            <h2>KONTAKTI</h2>
-          </div>
           <div className="box">
             <div className="contact form">
               <h3>Shkruani mesazh</h3>
@@ -66,7 +66,7 @@ const Contact = () => {
               <div className="infoBox">
                 <div>
                   <span><GrMapLocation /></span>
-                  <p>Prishtine <br /> Kosovë</p>
+                  <p>Prishtinë, Kosovë</p>
                 </div>
                 <div>
                   <span><HiOutlineMailOpen/></span>
