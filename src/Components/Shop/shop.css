@@ -114,3 +114,27 @@ hr{
     border: 3px solid #FFFFFF;
   }
 
+  .logo-text {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .header-div{
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .header-kits{
+    font-size: 50px;
+    font-weight: 700;
+    padding-right: 150px;
+  }
+
+  .header-lines{
+    font-size: 50px;
+    font-weight: bold;
+    transform: scaleX(2); 
+  }
+
+  
+  
