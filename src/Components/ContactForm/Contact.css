@@ -99,15 +99,19 @@
     margin-bottom: 10px
 }
 
-.inputBox input[type="button"]{
-    background: #ff578b;
+.inputBox input[type="submit"]{
+    background: #e98074;
     color: #fff;
     border: none;
     font-size: 1.1em;
-    max-width: 120px;
+    max-width: 100%;
     font-weight: 500;
     cursor: pointer;
     padding: 14px 15px;
+}
+
+.inputBox input[type="submit"]:hover{
+  background: #e7321e;
 }
 
 .inputBox::placeholder{
