@@ -42,7 +42,7 @@ function Shop(){
 
         <hr />
 
-      <div id="carouselExampleCaptions" class="carousel slide container" data-ride="carousel">
+      <div id="carouselExampleCaptions" class="slide container" data-ride="">
             <div className="carousel-inner">
                 <div className="carousel-item active container-fluid">
                     <img src={img6} class="d-block" alt="..."/>
@@ -58,7 +58,7 @@ function Shop(){
       <div class="container snap-scroll-container">
         <div class="row">
           <div class="col-12">
-            <div class="overflow-auto" style={{ whiteSpace: "nowrap"}}>
+            <div class="overflow-auto vertical-scroll" style={{ whiteSpace: "nowrap"}}>
               <div class="d-inline-block mx-2 card">
                 <img class="snap-scroll-images" src={img1} alt="Image 1"/>
                 <div class="card-body">
@@ -142,14 +142,14 @@ function Shop(){
 
     <div className='container kits-container'>
       <div className='row justify-content-center'>
-      <div class="card col-md-4 kits-card border-0">
+      <div class="card col-md-4 kits-card border-0 mb-20">
         <img src={img7} class="card-img-top" alt="..."/>
         <div class="card-body kits-card-body">
           <p class="card-title card-text">Home Kit 22/23</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      <div class="card col-md-4 kits-card border-0">
+      <div class="card col-md-4 kits-card border-0 mb-20">
         <img src={img7} class="card-img-top" alt="..."/>
         <div class="card-body kits-card-body">
           <p class="card-title card-text">Home Kit 22/23</p>
@@ -161,14 +161,14 @@ function Shop(){
 
     <div className='container kits-container'>
       <div className='row justify-content-center'>
-      <div class="card col-md-4 kits-card border-0">
+      <div class="card col-md-4 kits-card border-0 mb-20">
         <img src={img7} class="card-img-top" alt="..."/>
         <div class="card-body kits-card-body">
           <p class="card-title card-text">Home Kit 22/23</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      <div class="card col-md-4 kits-card border-0">
+      <div class="card col-md-4 kits-card border-0 mb-20">
         <img src={img7} class="card-img-top" alt="..."/>
         <div class="card-body kits-card-body">
           <p class="card-title card-text">Home Kit 22/23</p>
