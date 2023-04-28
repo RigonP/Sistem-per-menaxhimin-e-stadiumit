@@ -9,7 +9,7 @@ import Sponsor5 from '../../../Assets/nike.jpg'
 const Sponsors = () => {
   return (
     <div className="sponsors-container">
-      <h2>Our Sponsors</h2>
+      <h2>Sponzorët tanë</h2>
       <div className="sponsors-list">
         <div className="sponsor-item">
           <img src={Sponsor1} alt="Sponsor 1" />
