@@ -3,6 +3,7 @@ import './Eventet.css'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
 import Main from '../Main/Main'
+import Sponsors from './Sponsors/Sponsors'
 
 const Eventet = () => {
   return (
@@ -12,6 +13,7 @@ const Eventet = () => {
         <h2>EVENTET</h2>
       </div>
     <Main />
+    <Sponsors />
     <Footer />
     </>
   )
