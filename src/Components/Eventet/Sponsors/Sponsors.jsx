@@ -1,7 +1,10 @@
 import React from 'react';
-
-
-
+import './Sponsors.css'
+import Sponsor1 from '../../../Assets/uefa.png'
+import Sponsor2 from '../../../Assets/ipkoKosova.png'
+import Sponsor3 from '../../../Assets/valaKosova.jpg'
+import Sponsor4 from '../../../Assets/adidas.webp'
+import Sponsor5 from '../../../Assets/nike.jpg'
 
 const Sponsors = () => {
   return (
