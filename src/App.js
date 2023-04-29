@@ -7,6 +7,7 @@ import Shop from './Components/Shop/Shop'
 import Tours from './Components/Tours/Tours'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
+import Tiketat from './Components/Tiketat/Tiketat';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Route path="/shop" element={<Shop />} />
       <Route path='/fans' element={<Fans />} /> 
       <Route path='/tours' element={<Tours />} />
+      <Route path='tiketat' element={<Tiketat />} />
     </Routes>
   </Router>
   )
