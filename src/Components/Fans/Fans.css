@@ -1,5 +1,5 @@
 /*Colors and styling */
-:root {
+/*:root {
     --PrimaryColor:hsl(199,100%,33%);
     --SecondaryColor:hsl(187,85%,43%);
     --gradientColor:linear-gradient(to right, hsl(187,85%,43%), hsl(199,100%,33%));
@@ -16,10 +16,10 @@
   
   .main {
     min-height: 100vh;
-    padding-top: 100px; /* height of the navbar */
-  }
+    padding-top: 100px; /* height of the navbar 
+  }*/
 
-  .main .secTitle .title {
+  /*.main .secTitle .title {
     position: relative;
     width: -moz-max-content;
     width: max-content;
@@ -165,4 +165,5 @@
   
     
     
-  }/*# sourceMappingURL=main.css.map */
+  }
+  /*# sourceMappingURL=main.css.map */
