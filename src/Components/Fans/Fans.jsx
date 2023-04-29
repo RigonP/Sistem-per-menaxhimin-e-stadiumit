@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import './Fans.css'
+
 import {HiOutlineLocationMarker} from 'react-icons/hi'
 import {HiOutlineClipboardCheck} from 'react-icons/hi'
 import Navbar from '../Navbar/Navbar'
