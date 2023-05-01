@@ -2,10 +2,7 @@ package com.inn.stadium.rest;
 
 import com.inn.stadium.POJO.Bill;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -22,4 +19,6 @@ public interface BillRest {
     @PostMapping(path = "/getPdf")
     public  ResponseEntity<byte[]> getPdf(@RequestBody Map<String,Object> requestMap);
 
+    @PostMapping(path = "/delete/{id}")
+    ResponseEntity<String>deleteBill(@PathVariable Integer id);
 }

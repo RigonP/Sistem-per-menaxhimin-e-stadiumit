@@ -51,6 +51,16 @@ public class BillRestImpl implements BillRest {
         }
         return null;
     }
+
+    @Override
+    public ResponseEntity<String> deleteBill(Integer id) {
+       try {
+           return billService.deleteBill(id);
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+        return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
 
 
