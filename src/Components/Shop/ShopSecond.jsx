@@ -32,8 +32,8 @@ function ShopSecond() {
             </div>
 
             <div className='col-lg-4 img-text'>
-                    <p data-aos='zoom-out' className='h1'>Look good with Kosova Kits</p>
-                    <p data-aos='zoom-out' className='h3'>Discover what's new in our shop</p>
+                    <p data-aos='slide-right' className='h1'>Look good with Kosova Kits</p>
+                    <p data-aos='slide-right' className='h3'>Discover what's new in our shop</p>
                     <button type='button' className='btn btn-outline-light'>Buy Now</button>
             </div>
         </div> 
