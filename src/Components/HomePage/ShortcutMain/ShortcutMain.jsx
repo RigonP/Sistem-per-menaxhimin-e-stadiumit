@@ -7,10 +7,8 @@ import { Link } from "react-router-dom";
 
 //import the images 
 import Kos1 from '../../../Assets/kosova1.jpg'
-import Kos2 from '../../../Assets/kosova2.jpg'
-import Kos4 from '../../../Assets/kosovaSw4.png'
-
-
+import HarryStyles from '../../../Assets/harry_styles.jpg'
+import Robin_Krasniqi from '../../../Assets/RobinKrasniqi.jpg'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -29,22 +27,24 @@ const Data = [
 
   {
     id:2,
-    imgSrc:Kos2,
-    destTitle:'Belarus vs Kosova',
-    location: 'Belarus',
-    grade: '19 Qershor 2023',
-    fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    imgSrc:HarryStyles,
+    destTitle:'Harry styles',
+    location: 'Kosova',
+    grade: '20 Gusht 2023',
+    fees: '6:45PM',
+    description: 'Love on tour',
+    type: 'Concert'
   },
 
   {
     id:3,
-    imgSrc:Kos4,
-    destTitle:'Kosova vs Switzerland',
-    location: 'Kosove',
-    grade: '9 Shtator 2023',
-    fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    imgSrc: Robin_Krasniqi,
+    destTitle:'Robin Krasniqi vs Dominic Boesel',
+    location: 'Kosova',
+    grade: '9 Tetor 2023',
+    fees: '6:45PM',
+    description: 'IBO World Light Heavyweight',
+    type: 'Box'
   },
 ]
 
