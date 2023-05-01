@@ -28,7 +28,8 @@ const Data = [
     location: 'Kosove',
     grade: '16 Qershor 2023',
     fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    description: 'Lorem ipsum dolor sit',
+    type: 'Football'
   },
 
   {
@@ -38,7 +39,8 @@ const Data = [
     location: 'Belarus',
     grade: '19 Qershor 2023',
     fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    description: 'Lorem ipsum dolor sit',
+    type: 'Football'
   },
 
   {
@@ -48,7 +50,8 @@ const Data = [
     location: 'Kosove',
     grade: '9 Shtator 2023',
     fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    description: 'Lorem ipsum dolor sit',
+    type: 'Football'
   },
 
   {
@@ -58,7 +61,8 @@ const Data = [
     location: 'Romani',
     grade: '12 Shtator 2023',
     fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    description: 'Lorem ipsum dolor sit',
+    type: 'Football'
   },
 
   {
@@ -68,7 +72,8 @@ const Data = [
     location: 'Andora',
     grade: '12 Tetor 2023',
     fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    description: 'Lorem ipsum dolor sit',
+    type: 'Football'
   },
 
   {
@@ -78,7 +83,8 @@ const Data = [
     location: 'Kosova',
     grade: '15 Tetor 2023',
     fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    description: 'Lorem ipsum dolor sit',
+    type: 'Football'
   },
   
   {
@@ -88,7 +94,8 @@ const Data = [
     location: 'Switzerland',
     grade: '18 Nentor 2023',
     fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    description: 'Lorem ipsum dolor sit',
+    type: 'Football'
   },
 
   {
@@ -98,16 +105,16 @@ const Data = [
     location: 'Kosova',
     grade: '21 Nentor 2023',
     fees: '8:45PM',
-    description: 'Lorem ipsum dolor sit'
+    description: 'Lorem ipsum dolor sit',
+    type: 'Football'
   },
-
 
 ]
 
 
 
 const Main = () => {
-  
+
   //create a react hook to add scroll animation
   useEffect(() => {
     Aos.init({duration: 2000})
@@ -128,7 +135,7 @@ const Main = () => {
         
         {
           Data.map(({id, imgSrc, destTitle, location, grade, fees, description})=>{
-            return( 
+            return(  
               <div key={id} className="singleDestination" data-aos="fade-up">
                 
                 <div className="imageDiv">
