@@ -8,6 +8,8 @@ import Tours from './Components/Tours/Tours'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
 import Tiketat from './Components/Tiketat/Tiketat';
+import Signup from "./Components/Signup/Signup";
+
 
 const App = () => {
   return (
@@ -20,6 +22,7 @@ const App = () => {
       <Route path='/fans' element={<Fans />} /> 
       <Route path='/tours' element={<Tours />} />
       <Route path='tiketat' element={<Tiketat />} />
+      <Route path='/signup' element={<Signup />}/>
     </Routes>
   </Router>
   )
