@@ -60,7 +60,7 @@ const ShortcutMain = () => {
 
 
   return (
-    <section className='main container section'>
+    <section className='mainShortcut container section'>
 
       <div className="secTitle">
         <h3 data-aos="fade-right"  className="title">
