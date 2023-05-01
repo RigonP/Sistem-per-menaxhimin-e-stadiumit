@@ -39,7 +39,6 @@ public class EmailUtils {
         return cc;
     }
 
-
     public void forgetMail(String to,String subject,String password)throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message,true);

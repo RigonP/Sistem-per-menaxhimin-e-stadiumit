@@ -131,7 +131,7 @@ public class ProductServiceImpl implements ProductService {
                 Optional optional = productDao.findById(id);
                 if (!optional.isEmpty()){
                     productDao.deleteById(id);
-                    return StadiumUtils.getResponseEntity("Product deletet Succesfully",HttpStatus.OK);
+                    return StadiumUtils.getResponseEntity("Product deleted Successfully",HttpStatus.OK);
                 }
                 return StadiumUtils.getResponseEntity("Product id does not exit",HttpStatus.OK);
             } else {
