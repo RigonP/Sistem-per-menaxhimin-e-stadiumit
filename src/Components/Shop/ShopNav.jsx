@@ -1,16 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { BiFontSize } from 'react-icons/bi';
 import {MdOutlineStadium} from 'react-icons/md';
 import { Link } from "react-router-dom";
 import './shop.css'
 
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import 'aos/dist/aos.js';
 
-function MyNavbar() {
+
+const MyNavbar = () => {
+  useEffect(() => {
+    Aos.init({duration: 4000, easing:'ease-in-out'})
+  },[])
   return (
     <Navbar className='container' expand="md">
             <div className="logoDiv">
-                <Link to="/" className="logo flex" >
+                <Link to="/" className="logo flex">
                     <h1 className="logo-text"><MdOutlineStadium className="icon"/> Kosovo Stadium.</h1>
                 </Link>
             </div>
