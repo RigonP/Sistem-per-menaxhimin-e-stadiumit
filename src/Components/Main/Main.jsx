@@ -14,7 +14,9 @@ import Kos5 from '../../Assets/kosovaRomania.jpg'
 import Kos6 from '../../Assets/kosovaAndora.jpg'
 import Kos7 from '../../Assets/swissKosova.jpg'
 import Kos8 from '../../Assets/belarusKosova.jpg'
-
+import HarryStyles from '../../Assets/harry_styles.jpg'
+import Robin_Krasniqi from '../../Assets/RobinKrasniqi.jpg'
+import FlorianMarku from '../../Assets/Florian-Marku-vs-Miguel-Parra.png'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -108,6 +110,39 @@ const Data = [
     description: 'Lorem ipsum dolor sit',
     type: 'Football'
   },
+  {
+    id:9,
+    imgSrc:HarryStyles,
+    destTitle:'Harry styles',
+    location: 'Kosova',
+    grade: '20 Gusht 2023',
+    fees: '6:45PM',
+    description: 'Love on tour',
+    type: 'Concert'
+  },
+
+  {
+    id:10,
+    imgSrc: Robin_Krasniqi,
+    destTitle:'Robin Krasniqi vs Dominic Boesel',
+    location: 'Kosova',
+    grade: '9 Tetor 2023',
+    fees: '6:45PM',
+    description: 'IBO World Light Heavyweight',
+    type: 'Box'
+  },
+
+  {
+    id:11,
+    imgSrc: FlorianMarku,
+    destTitle:'Florian Marku vs Miguel Parra Ramirez',
+    location: 'Kosova',
+    grade: '25 Gusht 2023',
+    fees: '8:00PM',
+    description: 'WBC Silver Welterweight',
+    type: 'Box'
+  }
+
 
 ]
 
