@@ -21,4 +21,9 @@ public interface BillRest {
 
     @PostMapping(path = "/delete/{id}")
     ResponseEntity<String>deleteBill(@PathVariable Integer id);
+
+
 }
+
+
+
