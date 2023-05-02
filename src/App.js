@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
 import Tiketat from './Components/Tiketat/Tiketat';
 import Signup from "./Components/Signup/Signup";
+import Login from "./Components/Signup/login";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
       <Route path='/tours' element={<Tours />} />
       <Route path='tiketat' element={<Tiketat />} />
       <Route path='/signup' element={<Signup />}/>
+      <Route path='/login' element={<Login />}/>
     </Routes>
   </Router>
   )

@@ -6,6 +6,7 @@ import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import { Link } from "react-router-dom";
 
+
 //import the images 
 import KosovoStandard from '../../Assets/KosovoStandard.jpg'
 import KosovoPremium from '../../Assets/KosovoPremium.jpg'
