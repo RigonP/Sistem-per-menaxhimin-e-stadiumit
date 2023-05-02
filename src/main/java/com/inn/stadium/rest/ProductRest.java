@@ -10,6 +10,7 @@ import java.util.Map;
 @RequestMapping(path = "/product")
 public interface ProductRest {
 
+
     @PostMapping(path = "/add")
     public ResponseEntity<String>addNewProduct(@RequestBody Map<String,String> requestMap);
 
