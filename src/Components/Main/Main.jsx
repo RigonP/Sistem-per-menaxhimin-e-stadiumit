@@ -157,7 +157,9 @@ const Main = () => {
     Aos.init({duration: 2000})
   },[])
 
-
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
   return (
     <section className='main container section'>
