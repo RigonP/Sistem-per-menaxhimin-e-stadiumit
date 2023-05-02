@@ -142,7 +142,17 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+.main.container.section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
+.filterDiv{
+  position: absolute;
+  margin-bottom: 1rem; 
+  right:0;
+}
 @media screen and (min-width: 500px) {
   .title {
     font-size: 1.5rem;
@@ -163,9 +173,5 @@
   }
   .secContent .singleDestination {
     height: auto;
-  }
-  .main .filterDiv #typeFilter {
-    max-width: 300px;
-    font-size: 20px;
   }
 }/*# sourceMappingURL=main.css.map */
