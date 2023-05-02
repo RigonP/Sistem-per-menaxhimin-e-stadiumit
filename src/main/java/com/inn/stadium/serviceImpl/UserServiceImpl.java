@@ -58,9 +58,9 @@ public class UserServiceImpl implements UserService {
                 User user = userDao.findByEmailId(requestMap.get("email"));
                 if (Objects.isNull(user)) {
                     userDao.save(getUserFromMap(requestMap));
-                    return StadiumUtils.getResponseEntity("Successfully Registered ", HttpStatus.OK);
+                    return StadiumUtils.getResponseEntity("U rregjistrua me sukses ! ", HttpStatus.OK);
                 } else {
-                    return StadiumUtils.getResponseEntity("Email already exists ", HttpStatus.BAD_REQUEST);
+                    return StadiumUtils.getResponseEntity("Emaili ekziston", HttpStatus.BAD_REQUEST);
                 }
             } else {
                 return StadiumUtils.getResponseEntity(StadiumConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
@@ -141,9 +141,9 @@ public class UserServiceImpl implements UserService {
                if(!optional.isEmpty()){
                     userDao.updateStatus(requestMap.get("status"),Integer.parseInt(requestMap.get("id")));
                     sendMailToAllAdmin(requestMap.get("status"),optional.get().getEmail(),userDao.getAllAdmin());
-                    return StadiumUtils.getResponseEntity("User Status Updated Successfully", HttpStatus.OK);
+                    return StadiumUtils.getResponseEntity("User Status u ndryshua!!!", HttpStatus.OK);
                }else{
-                   return StadiumUtils.getResponseEntity("User id doesn't exist",HttpStatus.OK);
+                   return StadiumUtils.getResponseEntity("User id nuk ekziston!!!",HttpStatus.OK);
                 }
             }else{
                 return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS,HttpStatus.UNAUTHORIZED);
@@ -161,9 +161,9 @@ public class UserServiceImpl implements UserService {
         allAdmin.remove(jwtFilter.getCurrentUser());
         if(status!=null && status.equalsIgnoreCase("true")){
 
-            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Approved by Admin ","USER:- " + user + " \n is approved by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Akounti u approvua prej adminit ","USER:- " + user + " \n i aprovua prej \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
         }else{
-            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account Disabled by Admin ","USER:- " + user + " \n is disabled by \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),"Account u be i paqasshem prej adminit ","USER:- " + user + " \n eshte bere i pa qasur prej \n ADMIN:-" + jwtFilter.getCurrentUser(),allAdmin);
         }
     }
     
@@ -181,9 +181,9 @@ public class UserServiceImpl implements UserService {
                 if(userObj.getPassword().equals(requestMap.get("oldPassword"))){
                     userObj.setPassword(requestMap.get("newPassword"));
                     userDao.save(userObj);
-                    return StadiumUtils.getResponseEntity("Password Updated Successfully",HttpStatus.OK);
+                    return StadiumUtils.getResponseEntity("Passwordi u ndryshua me sukses!",HttpStatus.OK);
                 }
-                return StadiumUtils.getResponseEntity("Incorrect Old Password",HttpStatus.BAD_REQUEST);
+                return StadiumUtils.getResponseEntity("Passwordi i vjeter eshte gabim",HttpStatus.BAD_REQUEST);
             }
             return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
         }catch (Exception e){
@@ -200,7 +200,7 @@ public class UserServiceImpl implements UserService {
 
             if(!Objects.isNull(user) && !Strings.isNullOrEmpty(user.getEmail()))
                 emailUtils.forgetMail(user.getEmail(),"Credentials by Stadium Menagement Stadium",user.getPassword());
-                return StadiumUtils.getResponseEntity("Check your mail for Credentials ", HttpStatus.OK);
+                return StadiumUtils.getResponseEntity("Shikoni ju lutem ne emailin tuaj , per te shikuar passwordin ", HttpStatus.OK);
 
         }catch (Exception e){
             e.printStackTrace();
