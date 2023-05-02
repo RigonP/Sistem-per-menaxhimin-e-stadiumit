@@ -26,6 +26,7 @@ function ForgotPasswordPage() {
             });
     };
 
+
     return (
         <div>
             <h1>Keni harruar fjalëkalimin?</h1>
