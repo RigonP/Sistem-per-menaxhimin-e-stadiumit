@@ -34,7 +34,7 @@ public class CategoryServiceImpl implements CategoryService {
             if(jwtFilter.isAdmin()){
                 if(valdateCategoryMap(requestMap,false)){
                     categoryDao.save(getCategoryFromMap(requestMap,false));
-                    return StadiumUtils.getResponseEntity("Category added Successfully",HttpStatus.OK);
+                    return StadiumUtils.getResponseEntity("Category u shtua me sukses!",HttpStatus.OK);
                 }
 
             }else {
@@ -94,9 +94,9 @@ public class CategoryServiceImpl implements CategoryService {
                    Optional optional = categoryDao.findById(Integer.parseInt(requestMap.get("id")));
                     if(!optional.isEmpty()){
                         categoryDao.save(getCategoryFromMap(requestMap,true));
-                        return StadiumUtils.getResponseEntity("Category Updated Successfully" , HttpStatus.OK);
+                        return StadiumUtils.getResponseEntity("Category u ndryshua me sukses!" , HttpStatus.OK);
                     }else{
-                        return StadiumUtils.getResponseEntity("Category id doesn't exist",HttpStatus.OK);
+                        return StadiumUtils.getResponseEntity("Category id nuk ekziston!",HttpStatus.OK);
                     }
                 }
                 return  StadiumUtils.getResponseEntity(StadiumConstants.INVALID_DATA,HttpStatus.BAD_REQUEST);

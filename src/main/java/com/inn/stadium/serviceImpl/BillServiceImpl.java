@@ -82,12 +82,12 @@ public class BillServiceImpl implements BillService {
                 document.add(table);
 
                 Paragraph footer = new Paragraph("Total : " + requestMap.get("totalAmount") + "\n"
-                        + "Thank You for visiting. Please Visit again!!",getFont("Data") );
+                        + "Ju faleminderit per visiten. Ndjehuni te lire te na vizitoni perseri!!",getFont("Data") );
                 document.add(footer);
                 document.close();
                 return new ResponseEntity<>("{\"uuid\":\""+fileName+"\"}",HttpStatus.OK);
             }
-            return StadiumUtils.getResponseEntity("Required data not found" ,HttpStatus.BAD_REQUEST);
+            return StadiumUtils.getResponseEntity("Te dhenat qe kerkohen nuk u gjeten!" ,HttpStatus.BAD_REQUEST);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -166,25 +166,25 @@ public class BillServiceImpl implements BillService {
             String productDetails = (String) requestMap.get("productDetails");
 
             if (uuid == null || uuid.isEmpty()) {
-                throw new IllegalArgumentException("UUID cannot be null or empty");
+                throw new IllegalArgumentException("UUID smund te jete null apo e zbrazet");
             }
             if (name == null || name.isEmpty()) {
-                throw new IllegalArgumentException("Name cannot be null or empty");
+                throw new IllegalArgumentException("Emri smund te jete null apo e zbrazet");
             }
             if (email == null || email.isEmpty()) {
-                throw new IllegalArgumentException("Email cannot be null or empty");
+                throw new IllegalArgumentException("Emaili smund te jete null apo e zbrazet");
             }
             if (contactNumber == null || contactNumber.isEmpty()) {
-                throw new IllegalArgumentException("Contact number cannot be null or empty");
+                throw new IllegalArgumentException("Kontaki smund te jete null apo e zbrazet");
             }
             if (paymentMethod == null || paymentMethod.isEmpty()) {
-                throw new IllegalArgumentException("Payment method cannot be null or empty");
+                throw new IllegalArgumentException("Pagesa smund te jete null apo e zbrazet");
             }
             if (totalAmount == null || totalAmount.isEmpty()) {
-                throw new IllegalArgumentException("Total amount cannot be null or empty");
+                throw new IllegalArgumentException("Total amount smund te jete null apo e zbrazet");
             }
             if (productDetails == null || productDetails.isEmpty()) {
-                throw new IllegalArgumentException("Product details cannot be null or empty");
+                throw new IllegalArgumentException("Te dhenat e produktit smund te jene null apo e zbrazet");
             }
 
             bill.setUuid(uuid);
@@ -267,9 +267,9 @@ public class BillServiceImpl implements BillService {
             Optional optional = billDao.findById(id);
             if(!optional.isEmpty()){
                 billDao.deleteById(id);
-                return StadiumUtils.getResponseEntity("Bill is deleted successfully",HttpStatus.OK);
+                return StadiumUtils.getResponseEntity("Fatura u fshie me sukse",HttpStatus.OK);
             }
-            return StadiumUtils.getResponseEntity("Bill id does not exist" ,HttpStatus.OK);
+            return StadiumUtils.getResponseEntity("Fatura id nuk ekziston" ,HttpStatus.OK);
         }catch (Exception ex){
             ex.printStackTrace();
         }
