@@ -30,6 +30,7 @@ public interface UserRest {
     @GetMapping(path = "/checkToken")
     public  ResponseEntity<String>checkToken();
 
+
     @PostMapping(path = "/changePassword")
     public ResponseEntity<String>changePassword(@RequestBody Map<String,String> requestMap);
 
