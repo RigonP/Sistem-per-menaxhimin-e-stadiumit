@@ -10,12 +10,9 @@ import HomePage from './Components/HomePage/HomePage';
 import Tiketat from './Components/Tiketat/Tiketat';
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Signup/login";
-<<<<<<< HEAD
 import Kits from './Components/Kits/Kits'
-=======
 import ChangePasswordPage from "./Components/Signup/ChangePasswordPage";
 import ForgotPasswordPage from "./Components/Signup/ForgotPasswordPage";
->>>>>>> bb44bbf57b9432b461cb9e853b1aff086cd97e10
 
 
 const App = () => {
@@ -31,12 +28,9 @@ const App = () => {
       <Route path='tiketat' element={<Tiketat />} />
       <Route path='/signup' element={<Signup />}/>
       <Route path='/login' element={<Login />}/>
-<<<<<<< HEAD
       <Route path='/kits' element={<Kits/>}/>
-=======
       <Route path='/forgotPassword' element={<ForgotPasswordPage />}/>
       <Route path='/changePassword' element={<ChangePasswordPage />}/>
->>>>>>> bb44bbf57b9432b461cb9e853b1aff086cd97e10
     </Routes>
   </Router>
   )
