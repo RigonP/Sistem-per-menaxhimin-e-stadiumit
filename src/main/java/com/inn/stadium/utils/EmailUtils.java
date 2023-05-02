@@ -46,7 +46,7 @@ public class EmailUtils {
         helper.setFrom("artini88@outlook.com");
         helper.setTo(to);
         helper.setSubject(subject);
-        String htmlMsg = "<p><b>Your Login details for Stadium Management System</b><br><b>Email: </b> " + to + " <br><b>Password: </b> " + password + "<br><a href=\"http://localhost:4200/\">Click here to login</a></p>";
+        String htmlMsg = "<p><b>Te dhenat tuaja per Stadium Management System</b><br><b>Email: </b> " + to + " <br><b>Password: </b> " + password + "<br><a href=\"http://localhost:4200/\">Kliko ketu per tu bere login</a></p>";
         message.setContent(htmlMsg,"text/html");
         emailSender.send(message);
 

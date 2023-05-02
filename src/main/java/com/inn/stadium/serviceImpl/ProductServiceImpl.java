@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
             if (jwtFilter.isAdmin()) {
                 if (validateProductMap(requestMap, false)) {
                     productDao.save(getProductFromMap(requestMap, false));
-                    return StadiumUtils.getResponseEntity("Product Added Succesffully", HttpStatus.OK);
+                    return StadiumUtils.getResponseEntity("Produkti u shtua me sukses!", HttpStatus.OK);
                 }
                 return StadiumUtils.getResponseEntity(StadiumConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
 
@@ -105,9 +105,9 @@ public class ProductServiceImpl implements ProductService {
                         Product product = getProductFromMap(requestMap, true);
                         product.setStatus(optional.get().getStatus());
                         productDao.save(product);
-                        return StadiumUtils.getResponseEntity("Product updated Successfully", HttpStatus.OK);
+                        return StadiumUtils.getResponseEntity("Produkti u ndryshua me sukses!", HttpStatus.OK);
                     } else {
-                        return StadiumUtils.getResponseEntity("Product Id does not exist", HttpStatus.OK);
+                        return StadiumUtils.getResponseEntity("Product Id nuk ekziston!", HttpStatus.OK);
                     }
                 } else {
                     return StadiumUtils.getResponseEntity(StadiumConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
@@ -131,9 +131,9 @@ public class ProductServiceImpl implements ProductService {
                 Optional optional = productDao.findById(id);
                 if (!optional.isEmpty()){
                     productDao.deleteById(id);
-                    return StadiumUtils.getResponseEntity("Product deleted Successfully",HttpStatus.OK);
+                    return StadiumUtils.getResponseEntity("Produkti u fshie me sukses!",HttpStatus.OK);
                 }
-                return StadiumUtils.getResponseEntity("Product id does not exit",HttpStatus.OK);
+                return StadiumUtils.getResponseEntity("Product id nuk ekziston!",HttpStatus.OK);
             } else {
               return  StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED);
             }
@@ -152,9 +152,9 @@ public class ProductServiceImpl implements ProductService {
                 Optional optional =productDao.findById(Integer.parseInt(requestMap.get("id")));
                 if(!optional.isEmpty()){
                     productDao.updateProductStatus(requestMap.get("status"),Integer.parseInt(requestMap.get("id")));
-                    return StadiumUtils.getResponseEntity("Product status is updated Successfully",HttpStatus.OK);
+                    return StadiumUtils.getResponseEntity("Product status eshte ndryshuar me sukses!",HttpStatus.OK);
                 }
-                return StadiumUtils.getResponseEntity("Product id does not exist",HttpStatus.OK);
+                return StadiumUtils.getResponseEntity("Product id nuk ekziston!",HttpStatus.OK);
 
             }else {
                 return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS,HttpStatus.UNAUTHORIZED);
