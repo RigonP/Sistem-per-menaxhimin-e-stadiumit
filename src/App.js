@@ -10,6 +10,7 @@ import HomePage from './Components/HomePage/HomePage';
 import Tiketat from './Components/Tiketat/Tiketat';
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Signup/login";
+import Kits from './Components/Kits/Kits'
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
       <Route path='tiketat' element={<Tiketat />} />
       <Route path='/signup' element={<Signup />}/>
       <Route path='/login' element={<Login />}/>
+      <Route path='/kits' element={<Kits/>}/>
     </Routes>
   </Router>
   )

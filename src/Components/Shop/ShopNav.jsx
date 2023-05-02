@@ -24,8 +24,8 @@ const MyNavbar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" data-target="#basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link style={{color: 'black'}} href="#" text-dark>Kits</Nav.Link>
-          <Nav.Link href="#" style={{color: 'black'}}>Shop By Player</Nav.Link>
+        <Link to="/kits" style={{color: 'black'}} className="nav-link">Kits</Link>
+        <Link to="/shop-by-player" style={{color: 'black'}} className="nav-link">Shop By Player</Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
