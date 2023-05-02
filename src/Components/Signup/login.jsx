@@ -14,6 +14,9 @@ const LoginForm = () => {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [newPassword, setNewPassword] = useState('');
+    const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
+
 
     const handleInputChange = (event) => {
         setFormData({

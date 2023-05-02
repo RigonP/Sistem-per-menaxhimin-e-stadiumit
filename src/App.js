@@ -10,6 +10,8 @@ import HomePage from './Components/HomePage/HomePage';
 import Tiketat from './Components/Tiketat/Tiketat';
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Signup/login";
+import ChangePasswordPage from "./Components/Signup/ChangePasswordPage";
+import ForgotPasswordPage from "./Components/Signup/ForgotPasswordPage";
 
 
 const App = () => {
@@ -25,6 +27,8 @@ const App = () => {
       <Route path='tiketat' element={<Tiketat />} />
       <Route path='/signup' element={<Signup />}/>
       <Route path='/login' element={<Login />}/>
+      <Route path='/forgotPassword' element={<ForgotPasswordPage />}/>
+      <Route path='/changePassword' element={<ChangePasswordPage />}/>
     </Routes>
   </Router>
   )

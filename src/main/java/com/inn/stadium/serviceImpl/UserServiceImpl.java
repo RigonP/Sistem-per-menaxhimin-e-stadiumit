@@ -177,7 +177,6 @@ public class UserServiceImpl implements UserService {
         try{
             User userObj = userDao.findByEmail(jwtFilter.getCurrentUser());
             if(!userObj.equals(null)){
-
                 if(userObj.getPassword().equals(requestMap.get("oldPassword"))){
                     userObj.setPassword(requestMap.get("newPassword"));
                     userDao.save(userObj);
