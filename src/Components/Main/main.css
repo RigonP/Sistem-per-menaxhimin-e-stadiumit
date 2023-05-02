@@ -133,7 +133,26 @@
   align-self: center;
   font-size: 18px;
 }
+.main .filterDiv #typeFilter{
+  width: 244px;
+  padding: 4px;
+  margin: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.main.container.section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
+.filterDiv{
+  position: absolute;
+  margin-bottom: 1rem; 
+  right:0;
+}
 @media screen and (min-width: 500px) {
   .title {
     font-size: 1.5rem;

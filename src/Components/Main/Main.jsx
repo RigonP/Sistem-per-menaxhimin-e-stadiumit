@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import './main.css'
 import {HiOutlineLocationMarker} from 'react-icons/hi'
 import {HiOutlineClipboardCheck} from 'react-icons/hi'
@@ -150,12 +150,18 @@ const Data = [
 
 const Main = () => {
 
+  const [selectedOption, setSelectedOption] = useState("All");
+
   //create a react hook to add scroll animation
   useEffect(() => {
     Aos.init({duration: 2000})
   },[])
 
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
+  const filteredData = selectedOption === 'All'? Data : Data.filter((item) => item.type === selectedOption);
 
   return (
     <section className='main container section'>
@@ -165,12 +171,20 @@ const Main = () => {
           NDESHJET E ARDHSHME
         </h3>
       </div>
-
+      <div className='filterDiv'>
+          <label htmlFor='typeFilter'>Filtro sipas eventit:</label>
+          <select id='typeFilter' value={selectedOption} onChange={handleOptionChange}>
+            <option value='All'>Të gjitha</option>
+            <option value='Football'>Football</option>
+            <option value='Concert'>Koncert</option>
+            <option value='Box'>Boks</option>
+          </select>
+      </div>
       <div className="secContent grid">
         
         {
-          Data.map(({id, imgSrc, destTitle, location, grade, fees, description})=>{
-            return(  
+          filteredData.map(({id, imgSrc, destTitle, location, grade, fees, description})=>{
+            return(   
               <div key={id} className="singleDestination" data-aos="fade-up">
                 
                 <div className="imageDiv">

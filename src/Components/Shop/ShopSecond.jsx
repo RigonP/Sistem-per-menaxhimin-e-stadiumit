@@ -12,6 +12,9 @@ import img4 from '../../images/galerie_bg.jpg'
 import img5 from '../../images/kosovo-2021-2022-fourteen-kit-1.webp'
 import img6 from '../../images/vedat-muriqi.jpg'
 import img7 from '../../images/pod_home_535x.webp'
+import img8 from '../../images/shop_by_gender_male_330x.webp'
+import img9 from '../../images/chica-shopbygender-1222_535x.webp'
+import img11 from '../../images/nino-shopbygender-1222_535x.webp'
 
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -59,6 +62,7 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -66,6 +70,7 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -73,6 +78,7 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -80,6 +86,7 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -87,6 +94,7 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -101,6 +109,7 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -108,6 +117,7 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -115,12 +125,39 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div className='container kits-container kits-container-two'>
+      <div className='row justify-content-center'>
+      <div class="card col-md-4 kits-card border-0 mb-20" data-aos="fade-right" data-aos-delay="8000">
+        <img src={img8} class="card-img-top" alt="..."/>
+        <div class="card-body kits-card-body">
+          <p class="card-title card-text">Lifestyle Man</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card col-md-4 kits-card border-0 mb-20" data-aos="fade-right" data-aos-delay="8000">
+        <img src={img9} class="card-img-top" alt="..."/>
+        <div class="card-body kits-card-body">
+          <p class="card-title card-text">Lifestyle Woman</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card col-md-4 kits-card border-0 mb-20" data-aos="fade-right" data-aos-delay="8000">
+        <img src={img11} class="card-img-top" alt="..."/>
+        <div class="card-body kits-card-body">
+          <p class="card-title card-text">Lifestyle Youth</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>
+    </div>
 
 
 
