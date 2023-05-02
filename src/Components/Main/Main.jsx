@@ -172,11 +172,11 @@ const Main = () => {
         </h3>
       </div>
       <div className='filterDiv'>
-          <label htmlFor='typeFilter' value={selectedOption} onChange={handleOptionChange}>Filtro sipas eventit:</label>
-          <select id='typeFilter'>
+          <label htmlFor='typeFilter'>Filtro sipas eventit:</label>
+          <select id='typeFilter' value={selectedOption} onChange={handleOptionChange}>
             <option value='All'>Të gjitha</option>
             <option value='Football'>Football</option>
-            <option value='Concert'>Concert</option>
+            <option value='Concert'>Koncert</option>
             <option value='Box'>Boks</option>
           </select>
       </div>
