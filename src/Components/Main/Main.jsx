@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import './main.css'
 import {HiOutlineLocationMarker} from 'react-icons/hi'
 import {HiOutlineClipboardCheck} from 'react-icons/hi'
@@ -149,6 +149,8 @@ const Data = [
 
 
 const Main = () => {
+
+  const [selectedOption, setSelectedOption] = useState("All");
 
   //create a react hook to add scroll animation
   useEffect(() => {
