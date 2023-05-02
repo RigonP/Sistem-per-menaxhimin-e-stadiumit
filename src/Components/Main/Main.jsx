@@ -183,8 +183,8 @@ const Main = () => {
       <div className="secContent grid">
         
         {
-          Data.map(({id, imgSrc, destTitle, location, grade, fees, description})=>{
-            return(  
+          filteredData.map(({id, imgSrc, destTitle, location, grade, fees, description})=>{
+            return(   
               <div key={id} className="singleDestination" data-aos="fade-up">
                 
                 <div className="imageDiv">
