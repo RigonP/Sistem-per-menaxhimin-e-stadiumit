@@ -161,6 +161,8 @@ const Main = () => {
     setSelectedOption(event.target.value);
   };
 
+  const filteredData = selectedOption === 'All'? Data : Data.filter((item) => item.type === selectedOption);
+
   return (
     <section className='main container section'>
 
