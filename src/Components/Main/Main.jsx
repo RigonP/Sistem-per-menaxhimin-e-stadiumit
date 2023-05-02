@@ -165,7 +165,15 @@ const Main = () => {
           NDESHJET E ARDHSHME
         </h3>
       </div>
-
+      <div className='filterDiv'>
+          <label htmlFor='typeFilter' >Filtro sipas eventit:</label>
+          <select id='typeFilter'>
+            <option value='All'>Të gjitha</option>
+            <option value='Football'>Football</option>
+            <option value='Concert'>Concert</option>
+            <option value='Box'>Boks</option>
+          </select>
+      </div>
       <div className="secContent grid">
         
         {
