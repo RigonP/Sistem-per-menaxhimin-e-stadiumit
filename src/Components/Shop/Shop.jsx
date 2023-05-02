@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import { useState } from "react";
 import './shop.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,6 +15,7 @@ import img4 from '../../images/galerie_bg.jpg'
 import img5 from '../../images/kosovo-2021-2022-fourteen-kit-1.webp'
 import img6 from '../../images/vedat-muriqi.jpg'
 import img7 from '../../images/pod_home_535x.webp'
+import backKit from '../../images/back-kit.jpg'
 import MyNavbar from './ShopNav'
 import ShopSecond from './ShopSecond'
 import Footer from '../Footer/Footer'
@@ -26,9 +28,11 @@ import 'aos/dist/aos.js';
 
 
 const Shop = () => {
+
   useEffect(() => {
     Aos.init({duration: 2000})
   },[])
+
     return (
         <>
 
@@ -63,7 +67,10 @@ const Shop = () => {
         </div>
     <hr />
 
-      <div class="container snap-scroll-container">
+      
+
+      
+    <div class="container snap-scroll-container">
         <div class="row">
           <div class="col-12">
             <div class="overflow-auto vertical-scroll" style={{ whiteSpace: "nowrap"}}>
@@ -72,6 +79,7 @@ const Shop = () => {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -79,6 +87,7 @@ const Shop = () => {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -86,6 +95,7 @@ const Shop = () => {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -93,6 +103,7 @@ const Shop = () => {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -100,6 +111,7 @@ const Shop = () => {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -107,6 +119,7 @@ const Shop = () => {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -121,6 +134,7 @@ const Shop = () => {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
@@ -128,13 +142,13 @@ const Shop = () => {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
 
       <div class="container">
         <div class="row">
