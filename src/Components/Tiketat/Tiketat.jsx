@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Tiketat.css'
 import Navbar from '../Navbar/Navbar'
 
@@ -6,6 +6,11 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 
 const Tiketat = () => {
+
+  useEffect(() => {
+    Aos.init({duration: 2000})
+  },[])
+
   return (
     <>
     <Navbar />
