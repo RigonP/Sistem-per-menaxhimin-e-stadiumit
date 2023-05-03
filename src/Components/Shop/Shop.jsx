@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import { useState } from "react";
 import './shop.css'
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
