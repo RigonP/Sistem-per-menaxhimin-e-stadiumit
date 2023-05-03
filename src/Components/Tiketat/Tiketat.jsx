@@ -15,7 +15,7 @@ const Tiketat = () => {
     <>
     <Navbar />
       <div className="events">
-        <h2>TIKETAT</h2>
+        <h2 data-aos='fade-right'>TIKETAT</h2>
       </div>
     </>
   )
