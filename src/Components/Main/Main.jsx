@@ -171,7 +171,7 @@ const Main = () => {
           NDESHJET E ARDHSHME
         </h3>
       </div>
-      <div className='filterDiv'>
+      <div className='filterDiv' data-aos="slide-right">
           <label htmlFor='typeFilter'>Filtro sipas eventit:</label>
           <select id='typeFilter' value={selectedOption} onChange={handleOptionChange}>
             <option value='All'>Të gjitha</option>
