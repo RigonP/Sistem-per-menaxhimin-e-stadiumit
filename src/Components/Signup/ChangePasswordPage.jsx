@@ -1,15 +1,11 @@
 // import React, { useState } from "react";
 // import axios from "axios";
-
-// import './changepass.css';
+//
 //
 // function ChangePasswordPage() {
 //     const [oldPassword, setOldPassword] = useState("");
 //     const [newPassword, setNewPassword] = useState("");
 //     const [errorMessage, setErrorMessage] = useState("");
-
-
-//
 //
 //     const handleSubmit = (e) => {
 //         e.preventDefault();
@@ -32,7 +28,7 @@
 //                 }
 //             });
 //     };
-
+//
 //
 //     return (
 //         <div>

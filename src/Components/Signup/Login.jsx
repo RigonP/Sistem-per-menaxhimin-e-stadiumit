@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './login.css';
+import './Login.css';
 import * as PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 
@@ -32,7 +32,7 @@ function PasswordInput(props) {
         <div className="input-field">
             <label htmlFor={name}>{label}</label>
             <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} />
-            <button className="showhidebutton" type="button" onClick={() => setShowPassword(!showPassword)}>
+            <button className="showhidebuttonlogin" type="button" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "Hide" : "Show"}
             </button>
         </div>
@@ -51,7 +51,6 @@ PasswordInput.propTypes = {
 
 
 const LoginForm = () => {
-
 
     const [formData, setFormData] = useState({
         email: '',
@@ -115,6 +114,11 @@ const LoginForm = () => {
                     <button type="submit" className="signup-button">
                         Log In
                     </button>
+
+                    <div className="forgot-link">
+                        <Link to="/forgotPassword"> Forgot Password? </Link>
+                    </div>
+
                     <div className="signup-link">
                         Don't have an account? <Link to="/signup">Sign up</Link>
                     </div>
