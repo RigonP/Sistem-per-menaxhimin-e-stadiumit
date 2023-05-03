@@ -2,6 +2,8 @@ import React from 'react'
 import './Tiketat.css'
 import Navbar from '../Navbar/Navbar'
 
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const Tiketat = () => {
   return (
