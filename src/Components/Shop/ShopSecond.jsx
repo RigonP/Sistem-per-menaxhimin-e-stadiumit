@@ -101,6 +101,7 @@ function ShopSecond() {
                 <div class="card-body">
                   <h5 class="card-title">Away Kit</h5>
                   <p class="card-text">45.00$</p>
+                  <button className='btn btn-outline-light'>Buy now</button>
                 </div>
               </div>
               <div class="d-inline-block mx-10 card card-style">
