@@ -3,7 +3,6 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { BiFontSize } from 'react-icons/bi';
 import {MdOutlineStadium} from 'react-icons/md';
 import { Link } from "react-router-dom";
-import './shop.css'
 
 import Aos from 'aos';
 import 'aos/dist/aos.css';
