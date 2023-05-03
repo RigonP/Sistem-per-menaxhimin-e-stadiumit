@@ -1,20 +1,14 @@
 // import React, { useState } from "react";
 // import axios from "axios";
-<<<<<<< HEAD
 
-=======
 // import './changepass.css';
 //
->>>>>>> 55f7549903f42c7743372864508776a621b42987
 // function ForgotPasswordPage() {
 //     const [email, setEmail] = useState("");
 //     const [errorMessage, setErrorMessage] = useState("");
 //     const [successMessage, setSuccessMessage] = useState("");
-<<<<<<< HEAD
 
-=======
 //
->>>>>>> 55f7549903f42c7743372864508776a621b42987
 //     const handleSubmit = (e) => {
 //         e.preventDefault();
 //         axios
@@ -33,13 +27,10 @@
 //                 );
 //             });
 //     };
-<<<<<<< HEAD
 
 
-=======
 //
 //
->>>>>>> 55f7549903f42c7743372864508776a621b42987
 //     return (
 //         <div>
 //             <h1>Keni harruar fjalëkalimin?</h1>
