@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Signup.css';
+import './login.css';
 import * as PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 
 const api = axios.create({
     baseURL: 'http://localhost:8080/user',
@@ -31,7 +32,7 @@ function PasswordInput(props) {
         <div className="input-field">
             <label htmlFor={name}>{label}</label>
             <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} />
-            <button type="button" onClick={() => setShowPassword(!showPassword)}>
+            <button className="showhidebutton" type="button" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "Hide" : "Show"}
             </button>
         </div>
@@ -91,7 +92,7 @@ const LoginForm = () => {
                 <SuccessMessage />
             ) : (
                 <div>
-                    <h1 className="signin">Log In</h1>
+                    <h1 className="signin">Log in</h1>
                     <InputField
                         label="Email"
                         name="email"
@@ -100,7 +101,7 @@ const LoginForm = () => {
                         required
                     />
                     {emailError && (
-                        <div className="error-message">This email is not registered.</div>
+                        <div className="error-message">This email is already registered.</div>
                     )}
                     <PasswordInput
                         label="Password"
@@ -114,6 +115,9 @@ const LoginForm = () => {
                     <button type="submit" className="signup-button">
                         Log In
                     </button>
+                    <div className="signup-link">
+                        Don't have an account? <Link to="/signup">Sign up</Link>
+                    </div>
                 </div>
             )}
         </form>
