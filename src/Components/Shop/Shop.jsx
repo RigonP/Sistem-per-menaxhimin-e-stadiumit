@@ -17,7 +17,8 @@ import img5 from '../../images/kosovo-2021-2022-fourteen-kit-1.webp'
 import img6 from '../../images/vedat-muriqi.jpg'
 import img7 from '../../images/pod_home_535x.webp'
 import backKit from '../../images/back-kit.jpg'
-import MyNavbar from './ShopNav'
+
+import MyNavbar from './ShopN'
 import ShopSecond from './ShopSecond'
 import Footer from '../Footer/Footer'
 
@@ -35,8 +36,11 @@ const Shop = () => {
   },[])
 
     return (
-        <>
-
+        <>  
+            
+            <div className="events">
+              <h2>SHOP</h2>
+            </div>
             <div class="container">
 
                 <div className="row height d-flex justify-content-center align-items-center">

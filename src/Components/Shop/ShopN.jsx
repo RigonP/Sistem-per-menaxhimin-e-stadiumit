@@ -9,7 +9,7 @@ import 'aos/dist/aos.css';
 import 'aos/dist/aos.js';
 
 
-const MyNavbar = () => {
+const ShopN = () => {
   useEffect(() => {
     Aos.init({duration: 4000, easing:'ease-in-out'})
   },[])
@@ -31,4 +31,4 @@ const MyNavbar = () => {
   );
 }
 
-export default MyNavbar;
+export default ShopN;

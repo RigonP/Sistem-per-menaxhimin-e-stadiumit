@@ -4,7 +4,7 @@ import './kits.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import MyNavbar from '../Shop/ShopNav'
+import MyNavbar from '../Shop/ShopN'
 
 import img1 from '../../images/collection_banner__mens_kits_1070x.webp'
 
@@ -14,7 +14,9 @@ import img1 from '../../images/collection_banner__mens_kits_1070x.webp'
 function Kits(){
     return(
         <>
-
+            <div className="events">
+                <h2>SHOP</h2>
+            </div>
             <div class="container">
 
                 <div className="row height d-flex justify-content-center align-items-center">
