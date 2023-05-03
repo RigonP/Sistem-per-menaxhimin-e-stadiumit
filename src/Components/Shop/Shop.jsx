@@ -8,7 +8,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 
-
+import img8 from '../../images/kosova1.jpg'
 import img1 from '../../images/d9a6c41ab6ef92bd3e6c11d0df37b942.jpg'
 import img2 from '../../images/RealMadrid_Official_Online_Store.avif'
 import img3 from '../../images/download.jpeg'
@@ -58,7 +58,7 @@ const Shop = () => {
       <div id="carouselExampleCaptions" class="slide container" data-ride="">
             <div className="carousel-inner">
                 <div className="carousel-item active container-fluid" data-aos="flip-up">
-                    <img src={img6} class="d-block" alt="..."/>
+                    <img src={img8} class="d-block" alt="..."/>
                         <div className="carousel-caption" data-aos="slide-right">
                             <h5>Vedat Muriqi</h5>
                             <p>Top goalscorer in LaLiga with Mallorca and also a topscorer in Kosova National Football Team</p>
