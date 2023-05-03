@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
+import './Signup.css';
 
 
 const api = axios.create({
@@ -41,7 +43,7 @@ function PasswordInput(props) {
         <div className="input-field">
             <label htmlFor={name}>{label}</label>
             <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} />
-            <button type="button" onClick={() => setShowPassword(!showPassword)}>
+            <button style={{color:"white"}} type="button" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "Hide" : "Show"}
             </button>
         </div>
@@ -164,6 +166,9 @@ const SignupForm = () => {
                     <button type="submit" className="signup-button">
                         Sign Up
                     </button>
+                    <div className="signup-link">
+                        Already have an account? <Link to="/login">log in</Link>
+                    </div>
                 </div>
             )}
         </form>
