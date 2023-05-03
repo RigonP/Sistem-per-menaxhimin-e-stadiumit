@@ -33,10 +33,11 @@ function Kits(){
 
             <hr />
 
-            <div className='image-banner'>
-                <div className='container text-banner'>
-                    <h1>FOOTBALL KITS</h1>
-                    <p>Introducing the official kits worn by Kosova National Football Team players at the Santiago Bernabéu and around the world. For men, women and youth, personalise your shirt with your name or your favourite player´s name!</p>
+            <div className='image-banner container-fluid'>
+                <div className='container text-bannerr'>
+                    <p className='heading-banner'>FOOTBALL KITS</p>
+                    <p className='paragraph-banner'>Introducing the official kits worn by Kosova National Football Team players at the Santiago Bernabéu and around the world. For men, women and youth, personalise your shirt with your name or your favourite player´s name!</p>
+                    <a href='#' className='read-link'>READ MORE</a>
                 </div>
             </div>
 

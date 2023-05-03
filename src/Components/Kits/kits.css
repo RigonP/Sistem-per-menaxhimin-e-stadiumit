@@ -63,13 +63,28 @@ hr{
 
 .image-banner{
     background-image: url(collection_banner__mens_kits_1070x.webp);
+    padding: 20px 0;
 }
 
-.text-banner{
+.text-bannerr{
     color:white;
-    line-height: 1.5rem;
     border: 1px;
     border-color: white;
-    border-width: 1px;
     border-style: solid;
+    height: auto;
+    width: auto;
+}
+
+.heading-banner{
+    font-size: 35px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}   
+
+.paragraph-banner{
+    padding-bottom: 15px;
+}
+
+.read-link:hover{
+    color:white;
 }
