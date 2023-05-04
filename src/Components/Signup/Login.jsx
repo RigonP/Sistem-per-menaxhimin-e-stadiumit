@@ -11,16 +11,16 @@ const api = axios.create({
 function InputField(props) {
     const { label, name, value, onChange, required } = props;
     return (
-        <div className="input-field">
+        <div className="input-field" >
             <label htmlFor={name}>{label}</label>
-            <input type="text" name={name} value={value} onChange={onChange} required={required} />
+            <input type="text" name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
         </div>
     );
 }
 
 function SuccessMessage() {
     return (
-        <div>
+        <div style={{color:"black"}}>
             <p>Jeni kyqur me sukses!</p>
         </div>
     );
@@ -29,9 +29,9 @@ function SuccessMessage() {
 function PasswordInput(props) {
     const { label, name, value, onChange, showPassword, setShowPassword, required } = props;
     return (
-        <div className="input-field">
+        <div className="input-field" >
             <label htmlFor={name}>{label}</label>
-            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} />
+            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
             <button className="showhidebuttonlogin" type="button" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "Hide" : "Show"}
             </button>
@@ -91,7 +91,7 @@ const LoginForm = () => {
                 <SuccessMessage />
             ) : (
                 <div>
-                    <h1 className="signin">Log in</h1>
+                    <h1 className="signin" >Log in</h1>
                     <InputField
                         label="Email"
                         name="email"
@@ -119,7 +119,7 @@ const LoginForm = () => {
                         <Link to="/forgotPassword"> Forgot Password? </Link>
                     </div>
 
-                    <div className="signup-link">
+                    <div className="signup-link" style={{color:"black"}}>
                         Don't have an account? <Link to="/signup">Sign up</Link>
                     </div>
                 </div>

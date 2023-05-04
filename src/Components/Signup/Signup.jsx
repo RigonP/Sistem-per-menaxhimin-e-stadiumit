@@ -14,7 +14,7 @@ function InputField(props) {
     return (
         <div className="input-field">
             <label htmlFor={name}>{label}</label>
-            <input type="text" name={name} value={value} onChange={onChange} required={required} />
+            <input type="text" name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
         </div>
     );
 }
@@ -31,7 +31,7 @@ InputField.propTypes = {
 
 function SuccessMessage() {
     return (
-        <div>
+        <div style={{color:"black"}}>
             <p>Jeni regjistuar me sukses!</p>
         </div>
     );
@@ -42,8 +42,8 @@ function PasswordInput(props) {
     return (
         <div className="input-field">
             <label htmlFor={name}>{label}</label>
-            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} />
-            <button style={{color:"white"}} type="button" onClick={() => setShowPassword(!showPassword)}>
+            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
+            <button style={{color:"black"}} type="button" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "Hide" : "Show"}
             </button>
         </div>
@@ -166,7 +166,7 @@ const SignupForm = () => {
                     <button type="submit" className="signup-button">
                         Sign Up
                     </button>
-                    <div className="signup-link">
+                    <div className="signup-link" style={{color:"black"}}>
                         Already have an account? <Link to="/login">log in</Link>
                     </div>
                 </div>

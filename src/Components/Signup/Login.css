@@ -12,12 +12,9 @@
     margin-top: 50px;
     margin-bottom: 50px;
     border-radius: 40px;
-    background-image: url('../../images/login.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 .signin{
-    color: white;
+    color: black;
     text-align: center;
     font-size: 25px;
 }
@@ -65,28 +62,13 @@
     width: 100%;
     margin-bottom: 15px;
     border: none;
+    color: black;
 }
 
 .input-field label {
     font-weight: bold;
     margin-bottom: 5px;
-    color: white;
-}
-
-.showhidebuttonlogin {
-    background-color: #e5e5e5;
-    color: #333;
-    border: none;
-    border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 15px;
-    margin-left: 10px;
-}
-
-.showhidebuttonlogin:hover {
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
+    color:black;
 }
 
 .signup-button {
@@ -96,7 +78,7 @@
     border: none;
     border-radius: 20px;
     background-color: #008CBA;
-    color: white;
+    color: black;
     font-size: 15px;
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
