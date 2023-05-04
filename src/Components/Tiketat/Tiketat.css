@@ -1,3 +1,8 @@
 .dropdownContainer{
   margin-top: 10%;
 }
+.titleE h2{
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
