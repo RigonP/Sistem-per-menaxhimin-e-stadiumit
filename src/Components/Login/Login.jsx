@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Login.css';
 import * as PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
+import {MdOutlineStadium} from "react-icons/md";
 
 
 const api = axios.create({
@@ -53,8 +54,35 @@ PasswordInput.propTypes = {
 const Header = () => {
     return (
         <div className="header" style={{position:"relative" , margin : "auto"}} >
-            <h1>Stadiumi Fadil Vokrri</h1>
+            <div className="logoDiv">
+                <Link to="/" className="logo flex" >
+                    <h1><MdOutlineStadium className="icon"/> Kosovo Stadium.</h1>
+                </Link>
+            </div>
         </div>
+    );
+}
+
+const Footer = () => {
+    return(
+        <div className="footer" style={{marginBottom : "0px" ,paddingBottom : "0px"}}>
+            <div className="footer" style={{marginBottom : "0px" , paddingBottom: "35px"}}>
+                <div className="links" style={{margin : "auto"}}>
+                    <a href="#" style={{margin:"auto"}}>Stadium</a>
+                    <a href="#" style={{marginLeft:"30px"}}>About</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Blog</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Jobs</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Help</a>
+                    <a href="#" style={{marginLeft:"30px"}}>API</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Privacy</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Terms</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Top Accounts</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Locations</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Meta Verified</a>
+                </div>
+            </div>
+        </div>
+
     );
 }
 
@@ -100,13 +128,13 @@ const LoginForm = () => {
         <div>
             <Header/>
         </div>
-        <form onSubmit={handleSubmit} className="signup-form" style={{marginTop : "50px"}}>
+        <form onSubmit={handleSubmit} className="signup-form" style={{marginTop : "100px" , marginBottom : "0px"}}>
 
             {isSubmitted ? (
                 <SuccessMessage />
             ) : (
                 <div>
-                    <h1 className="signin" >Log in</h1>
+                    <h1 className="signin" style={{fontWeight : "bold"}}>Log in</h1>
                     <InputField
                         label="Email"
                         name="email"
@@ -140,6 +168,12 @@ const LoginForm = () => {
                 </div>
             )}
         </form>
+
+        <div>
+            <Footer/>
+        </div>
+
+
     </div>
     );
 };

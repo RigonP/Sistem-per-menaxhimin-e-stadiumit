@@ -3,6 +3,7 @@ import axios from 'axios';
 import * as PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import './Signup.css';
+import {MdOutlineStadium} from "react-icons/md";
 
 
 const api = axios.create({
@@ -63,7 +64,11 @@ PasswordInput.propTypes = {
 const Header = () => {
     return (
         <div className="header" style={{position:"relative" , margin : "auto"}} >
-            <h1>Stadiumi Fadil Vokrri</h1>
+            <div className="logoDiv">
+                <Link to="/" className="logo flex" >
+                    <h1><MdOutlineStadium className="icon"/> Kosovo Stadium.</h1>
+                </Link>
+            </div>
         </div>
     );
 }
@@ -130,7 +135,7 @@ const SignupForm = () => {
                 <SuccessMessage />
             ) : (
                 <div>
-                    <h1 className="signin">Sign Up</h1>
+                    <h1 className="signin" style={{fontWeight : "bold"}}>Sign Up</h1>
                     <InputField
                         label="Name"
                         name="name"
