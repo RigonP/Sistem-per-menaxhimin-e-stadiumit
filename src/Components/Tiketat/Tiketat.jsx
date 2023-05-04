@@ -31,7 +31,7 @@ const Tiketat = () => {
 
     <div className="dropdownContainer">
     <div className='titleE'>
-      <h2>Zgjedhni llojin e eventit</h2>
+      <h2>Për të parë stadiumin, zgjedhni opsionet</h2>
     </div>
     
     <div className="dropdown">
