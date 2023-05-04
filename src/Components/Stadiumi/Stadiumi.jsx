@@ -14,7 +14,7 @@ const Stadiumi = () => {
         <Navbar />
         <div class="hero">
 		    <div class="hero-inner">
-			<h1>Fadil Vokrri Stadium</h1>
+			<h1>KOSOVO STADIUM</h1>
 			<p>Një vendtakim i kampionëve dhe histori e ndeshjeve të përjetshme në Prishtinë</p>
 			<Link to="/tiketat" className='tiketButon'>
             BLEJ TIKETA
