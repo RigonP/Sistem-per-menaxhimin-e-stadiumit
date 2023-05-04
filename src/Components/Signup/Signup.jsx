@@ -59,6 +59,16 @@ PasswordInput.propTypes = {
     value: PropTypes.string,
     required: PropTypes.bool
 };
+
+const Header = () => {
+    return (
+        <div className="header" style={{position:"relative" , margin : "auto"}} >
+            <h1>Stadiumi Fadil Vokrri</h1>
+        </div>
+    );
+}
+
+
 const SignupForm = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -110,6 +120,11 @@ const SignupForm = () => {
     };
 
     return (
+
+        <div>
+            <div>
+                <Header/>
+            </div>
         <form onSubmit={handleSubmit} className="signup-form">
             {isSubmitted ? (
                 <SuccessMessage />
@@ -172,6 +187,7 @@ const SignupForm = () => {
                 </div>
             )}
         </form>
+        </div>
     );
 };
 

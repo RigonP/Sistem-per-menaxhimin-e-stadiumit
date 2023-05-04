@@ -4,6 +4,7 @@ import './Login.css';
 import * as PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 
+
 const api = axios.create({
     baseURL: 'http://localhost:8080/user',
 });
@@ -49,8 +50,17 @@ PasswordInput.propTypes = {
     required: PropTypes.bool
 };
 
+const Header = () => {
+    return (
+        <div className="header" style={{position:"relative" , margin : "auto"}} >
+            <h1>Stadiumi Fadil Vokrri</h1>
+        </div>
+    );
+}
+
 
 const LoginForm = () => {
+
 
     const [formData, setFormData] = useState({
         email: '',
@@ -86,7 +96,12 @@ const LoginForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="signup-form">
+    <div>
+        <div>
+            <Header/>
+        </div>
+        <form onSubmit={handleSubmit} className="signup-form" style={{marginTop : "50px"}}>
+
             {isSubmitted ? (
                 <SuccessMessage />
             ) : (
@@ -125,6 +140,7 @@ const LoginForm = () => {
                 </div>
             )}
         </form>
+    </div>
     );
 };
 
