@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import Stadiumi from './Components/Stadiumi/Stadiumi';
 import Eventet from './Components/Eventet/Eventet' 
 import Contact from './Components/ContactForm/Contact';  
 import Fans from './Components/Fans/Fans'
@@ -20,6 +21,7 @@ const App = () => {
     <Router>
     <Routes>
       <Route path='/' element={<HomePage />} />
+      <Route path='/stadiumi' element={<Stadiumi />} />
       <Route path='/eventet' element={<Eventet />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/shop" element={<Shop />} />
