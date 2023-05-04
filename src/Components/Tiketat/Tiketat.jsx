@@ -31,7 +31,7 @@ const Tiketat = () => {
 
     <div className="dropdownContainer">
     <div className='titleE'>
-      <h2 data-aos='fade-down'>Për të parë stadiumin, zgjedhni opsionet</h2>
+      <h2 data-aos='fade-down'>Shiko pamje realistike te stadiumit</h2>
     </div>
     
     <div className="dropdown">
