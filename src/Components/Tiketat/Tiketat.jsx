@@ -23,7 +23,11 @@ const Tiketat = () => {
   }
 
   function renderView() {
-    
+    if (selectedType === 'Futboll') {
+      return (
+        <h1>FUTBOLL</h1>
+      );
+    }
   }
   
   return (
