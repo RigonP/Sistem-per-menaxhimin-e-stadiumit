@@ -19,6 +19,7 @@ const ConcertSeat = () => {
       {'category': 'M-3', 'price': 45}
     ]}
     priceFormatter={price => '€' + price}
+    region="eu"
     />
   </div>
   )
