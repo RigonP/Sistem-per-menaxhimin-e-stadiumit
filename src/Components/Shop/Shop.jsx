@@ -18,7 +18,8 @@ import img6 from '../../images/vedat-muriqi.jpg'
 import img7 from '../../images/pod_home_535x.webp'
 import backKit from '../../images/back-kit.jpg'
 
-import MyNavbar from './ShopN'
+import ShopN from '../ShopNavbar/ShopN'
+import SecondN from '../Navbar/Navbar';
 import ShopSecond from './ShopSecond'
 import Footer from '../Footer/Footer'
 
@@ -37,7 +38,7 @@ const Shop = () => {
 
     return (
         <>  
-            
+            <SecondN/>
             <div className="events">
               <h2>SHOP</h2>
             </div>
@@ -55,7 +56,7 @@ const Shop = () => {
 
         <hr/>
 
-        <MyNavbar/>
+        <ShopN/>
 
         <hr />
 

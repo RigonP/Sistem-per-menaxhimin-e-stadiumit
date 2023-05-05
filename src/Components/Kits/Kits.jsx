@@ -1,7 +1,7 @@
 import React from 'react'
 import './kits.css'
 
-import MyNavbar from '../Shop/ShopN'
+import MyNavbar from '../ShopNavbar/ShopN'
 
 import img1 from '../../images/collection_banner__mens_kits_1070x.webp'
 
