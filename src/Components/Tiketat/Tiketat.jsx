@@ -13,7 +13,7 @@ const eventTypes = [
 const Tiketat = () => {
 
   useEffect(() => {
-    Aos.init({duration: 2000})
+    Aos.init({duration: 2000, easing: 'ease-out-back'})
   },[])
 
   const [selectedType, setSelectedType] = useState('');
