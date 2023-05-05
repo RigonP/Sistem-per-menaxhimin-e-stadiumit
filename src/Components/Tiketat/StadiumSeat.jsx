@@ -12,7 +12,10 @@ const StadiumSeat = () => {
             {'category': 'Jug', 'price': 25},
             {'category': 'Veriu', 'price': 25},
             {'category': 'Hendikep', 'price': 35},
-            {'category': 'JugPerendim', 'price': 38}
+            {'category': 'JugPerendim', 'price': 38},
+            {'category': 'VeriPerendim', 'price': 38},
+            {'category': 'JugLindje', 'price': 38},
+            {'category': 'VeriLindje', 'price': 38},
           ]}
           priceFormatter={price => '€' + price}
         />
