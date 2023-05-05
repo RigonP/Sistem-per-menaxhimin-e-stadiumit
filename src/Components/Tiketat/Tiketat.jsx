@@ -3,6 +3,7 @@ import './Tiketat.css'
 import Navbar from '../Navbar/Navbar'
 import StadiumSeat from './StadiumSeat'
 import ConcertSeat from './ConcertSeat'
+import Footer from '../Footer/Footer'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -65,6 +66,8 @@ const Tiketat = () => {
     </div>
     </div>
     {renderView()}
+
+    <Footer />
     </>
   )
 }
