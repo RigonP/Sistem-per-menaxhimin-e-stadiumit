@@ -22,6 +22,10 @@ const Tiketat = () => {
     setSelectedType(event.target.value);
   }
 
+  function renderView() {
+    
+  }
+  
   return (
     <>
     <Navbar />
