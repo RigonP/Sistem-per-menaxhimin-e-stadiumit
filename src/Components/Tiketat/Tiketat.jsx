@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './Tiketat.css'
 import Navbar from '../Navbar/Navbar'
+import StadiumSeat from './StadiumSeat'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -25,7 +26,9 @@ const Tiketat = () => {
   function renderView() {
     if (selectedType === 'Futboll') {
       return (
-        <h1>FUTBOLL</h1>
+        <>
+        <StadiumSeat />
+        </>
       );
     }
   }
