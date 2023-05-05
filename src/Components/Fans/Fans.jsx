@@ -108,7 +108,7 @@ const Fans = () => {
                   </div>
 
                   <button className='btn flex'>
-                  <Link to="/tiketat">
+                  <Link to="/login">
                     BASHKOHU TANI <HiOutlineClipboardCheck className='icon' />
                   </Link>
                     {/*<HiOutlineClipboardCheck className='icon' /> */}
