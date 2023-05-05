@@ -5,7 +5,7 @@ import {FiSend} from 'react-icons/fi'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import {AiFillYoutube} from 'react-icons/ai'
 import {AiFillInstagram} from 'react-icons/ai'
-import {FaTripadvisor} from 'react-icons/fa'
+import {BsFacebook} from 'react-icons/bs'
 import {FiChevronRight} from 'react-icons/fi'
 import {BiFootball} from 'react-icons/bi'
 import { Link } from "react-router-dom";
@@ -59,10 +59,10 @@ const Footer = () => {
             </div>
 
             <div className="footerSocials flex">
-              <AiOutlineTwitter className="icon" />
-              <AiFillYoutube className="icon" />
-              <AiFillInstagram className="icon" />
-              <FaTripadvisor className="icon" />
+              <a href="https://twitter.com/ffk_ks?lang=en" target='blank'><AiOutlineTwitter className="icon" /></a>
+              <a href="https://www.youtube.com/@FederataeFutbolliteKosoves" target='blank'><AiFillYoutube className="icon" /></a>
+              <a href="https://www.instagram.com/ffk.kos/?hl=en" target='blank'><AiFillInstagram className="icon" /></a>
+              <a href="https://www.facebook.com/FFKKosova/?locale=sq_AL" target='blank'><BsFacebook className="icon" /></a>
             </div>
           </div>
 
