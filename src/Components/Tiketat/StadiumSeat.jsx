@@ -14,6 +14,7 @@ const StadiumSeat = () => {
             {'category': 'Hendikep', 'price': 35},
             {'category': 'JugPerendim', 'price': 38}
           ]}
+          priceFormatter={price => '€' + price}
         />
       </div>
   )
