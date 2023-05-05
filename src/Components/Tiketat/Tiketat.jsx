@@ -49,8 +49,8 @@ const Tiketat = () => {
 
     <div className="dropdownContainer">
     <div className='titleE'>
-      <h2 data-aos='fade-up'>Shiko pamje realistike të stadiumit</h2>
-      <p>Përjeto eksperiencën më të bukur të fushës së gjelbër !</p>
+      <h2 data-aos='slide-left'>Shiko pamje realistike të stadiumit</h2>
+      <p data-aos='slide-right'>Përjeto eksperiencën më të bukur të fushës së gjelbër !</p>
     </div>
     
     <div className="dropdown" data-aos='fade-up'>

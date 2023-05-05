@@ -5,10 +5,17 @@
   text-align: center;
   text-transform: uppercase;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 38px;
   font-weight: bold;
 }
 
+.titleE p{
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: blue;
+}
+ 
 .dropdownContainer .dropdown {
   display: flex;
   flex-direction: column;
