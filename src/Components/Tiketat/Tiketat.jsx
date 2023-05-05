@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './Tiketat.css'
 import Navbar from '../Navbar/Navbar'
 import StadiumSeat from './StadiumSeat'
+import ConcertSeat from './ConcertSeat'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -33,7 +34,7 @@ const Tiketat = () => {
     } else if (selectedType === 'Koncert') {
       return (
         <>
-        <h1>TEST</h1>
+        <ConcertSeat />
         </>
       );
     }

@@ -16,7 +16,7 @@ const ConcertSeat = () => {
       {'category': 'D-Kati-3', 'price': 45},
       {'category': 'Disabilities', 'price': 40},
       {'category': 'M-Para', 'price': 48},
-      {'category': 'M-2', 'price': 45},
+      {'category': 'M-3', 'price': 45}
     ]}
     priceFormatter={price => '€' + price}
     />
