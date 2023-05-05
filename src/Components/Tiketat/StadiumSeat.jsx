@@ -18,6 +18,7 @@ const StadiumSeat = () => {
             {'category': 'Perendim', 'price': 40},
             {'category': 'Lindje', 'price': 40},
             {'category': 'VIP', 'price': 100},
+            {'category': 'Ultra VIP', 'price': 150}
           ]}
           priceFormatter={price => '€' + price}
           region="eu"
