@@ -38,7 +38,7 @@ const Tiketat = () => {
       <select className='selectT' value={selectedType} onChange={handleTypeChange}>
         <option value="">Zgjedhni llojin e eventit:</option>
         {eventTypes.map((type) => (
-          <option key={type.value} value={type.value}>
+          <option key={type.value} value={type.value}> 
             {type.label}
           </option>
         ))}
