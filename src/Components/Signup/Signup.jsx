@@ -44,7 +44,19 @@ function PasswordInput(props) {
         <div className="input-field">
             <label htmlFor={name}>{label}</label>
             <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
-            <button style={{color:"black"}} type="button" onClick={() => setShowPassword(!showPassword)}>
+            <button style={{color:"black" , fontSize : "13px" , paddingTop : "3px"}} type="button" onClick={() => setShowPassword(!showPassword)}>
+            </button>
+        </div>
+    );
+}
+
+function ConfirmPasswordInput(props) {
+    const { label, name, value, onChange, showPassword, setShowPassword, required } = props;
+    return (
+        <div className="input-field">
+            <label htmlFor={name}>{label}</label>
+            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
+            <button style={{color:"black" , fontSize : "13px" , paddingTop : "3px"}} type="button" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "Hide" : "Show"}
             </button>
         </div>
@@ -52,6 +64,15 @@ function PasswordInput(props) {
 }
 
 PasswordInput.propTypes = {
+    onChange: PropTypes.func,
+    setShowPassword: PropTypes.func,
+    name: PropTypes.string,
+    showPassword: PropTypes.bool,
+    label: PropTypes.string,
+    value: PropTypes.string,
+    required: PropTypes.bool
+};
+ConfirmPasswordInput.propTypes = {
     onChange: PropTypes.func,
     setShowPassword: PropTypes.func,
     name: PropTypes.string,
@@ -73,6 +94,28 @@ const Header = () => {
     );
 }
 
+const Footer = () => {
+    return(
+        <div className="footer" style={{marginBottom : "0px" ,paddingBottom : "0px"}}>
+            <div className="footer" style={{marginBottom : "0px" , paddingBottom: "35px"}}>
+                <div className="links" style={{margin : "auto"}}>
+                    <a href="#" style={{margin:"auto"}}>Stadium</a>
+                    <a href="#" style={{marginLeft:"30px"}}>About</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Blog</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Jobs</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Help</a>
+                    <a href="#" style={{marginLeft:"30px"}}>API</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Privacy</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Terms</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Top Accounts</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Locations</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Meta Verified</a>
+                </div>
+            </div>
+        </div>
+
+    );
+}
 
 const SignupForm = () => {
     const [formData, setFormData] = useState({
@@ -130,12 +173,12 @@ const SignupForm = () => {
             <div>
                 <Header/>
             </div>
-        <form onSubmit={handleSubmit} className="signup-form">
+        <form onSubmit={handleSubmit} className="signup-form" style={{marginTop : "100px"}}>
             {isSubmitted ? (
                 <SuccessMessage />
             ) : (
                 <div>
-                    <h1 className="signin" style={{fontWeight : "bold"}}>Sign Up</h1>
+                    <h1 className="signin" style={{fontWeight : "bold", paddingBottom : "30px" , paddingTop:"20px"}}>Sign Up</h1>
                     <InputField
                         label="Name"
                         name="name"
@@ -171,7 +214,7 @@ const SignupForm = () => {
                         setShowPassword={setShowPassword}
                         required
                     />
-                    <PasswordInput
+                    <ConfirmPasswordInput
                         label="Confirm Password"
                         name="confirmPassword"
                         value={formData.confirmPassword}
@@ -187,12 +230,18 @@ const SignupForm = () => {
                         Sign Up
                     </button>
                     <div className="signup-link" style={{color:"black"}}>
-                        Already have an account? <Link to="/login">log in</Link>
+                        Have an account?<Link to="/login">Log in</Link>
                     </div>
                 </div>
             )}
         </form>
+
+            <div>
+                <Footer/>
+            </div>
+
         </div>
+
     );
 };
 

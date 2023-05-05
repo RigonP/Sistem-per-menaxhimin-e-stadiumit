@@ -34,7 +34,7 @@ function PasswordInput(props) {
         <div className="input-field" >
             <label htmlFor={name}>{label}</label>
             <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
-            <button className="showhidebuttonlogin" type="button" onClick={() => setShowPassword(!showPassword)}>
+            <button className="showhidebuttonlogin" type="button" style={{fontSize : "13px" , paddingTop:"3px"}} onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "Hide" : "Show"}
             </button>
         </div>
@@ -134,7 +134,7 @@ const LoginForm = () => {
                 <SuccessMessage />
             ) : (
                 <div>
-                    <h1 className="signin" style={{fontWeight : "bold"}}>Log in</h1>
+                    <h1 className="signin" style={{fontWeight : "bold" , paddingBottom : "30px" , paddingTop:"20px"}}>Log in</h1>
                     <InputField
                         label="Email"
                         name="email"
@@ -154,11 +154,11 @@ const LoginForm = () => {
                         setShowPassword={setShowPassword}
                         required
                     />
-                    <button type="submit" className="signup-button">
+                    <button type="submit" className="signup-button" style={{marginBottom : "10px" , marginTop : "5px"}}>
                         Log In
                     </button>
 
-                    <div className="forgot-link">
+                    <div className="forgot-link" style={{fontSize : "14px"}}>
                         <Link to="/forgotPassword"> Forgot Password? </Link>
                     </div>
 
