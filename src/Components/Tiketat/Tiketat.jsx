@@ -49,10 +49,11 @@ const Tiketat = () => {
 
     <div className="dropdownContainer">
     <div className='titleE'>
-      <h2 data-aos='fade-down'>Shiko pamje realistike te stadiumit</h2>
+      <h2 data-aos='fade-up'>Shiko pamje realistike të stadiumit</h2>
+      <p>Përjeto eksperiencën më të bukur të fushës së gjelbër !</p>
     </div>
     
-    <div className="dropdown">
+    <div className="dropdown" data-aos='fade-up'>
       <select className='selectT' value={selectedType} onChange={handleTypeChange}>
         <option value="">Zgjedhni llojin e eventit:</option>
         {eventTypes.map((type) => (
