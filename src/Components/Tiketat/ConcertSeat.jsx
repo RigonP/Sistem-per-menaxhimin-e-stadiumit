@@ -13,7 +13,7 @@ const ConcertSeat = () => {
       {'category': 'VIP', 'price': 80},
       {'category': 'D-Kati-1', 'price': 33},
       {'category': 'D-Kati-2', 'price': 40},
-      {'category': 'D-Kati-2', 'price': 45},
+      {'category': 'D-Kati-3', 'price': 45},
       {'category': 'Disabilities', 'price': 40},
       {'category': 'M-Para', 'price': 48},
       {'category': 'M-2', 'price': 45},

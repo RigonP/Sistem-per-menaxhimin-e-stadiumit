@@ -30,6 +30,12 @@ const Tiketat = () => {
         <StadiumSeat />
         </>
       );
+    } else if (selectedType === 'Koncert') {
+      return (
+        <>
+        <h1>TEST</h1>
+        </>
+      );
     }
   }
   
