@@ -53,6 +53,7 @@ const Tiketat = () => {
       </select>
     </div>
     </div>
+    {renderView()}
     </>
   )
 }
