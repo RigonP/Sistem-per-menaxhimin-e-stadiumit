@@ -8,6 +8,7 @@ import {AiFillInstagram} from 'react-icons/ai'
 import {FaTripadvisor} from 'react-icons/fa'
 import {FiChevronRight} from 'react-icons/fi'
 import {BiFootball} from 'react-icons/bi'
+import { Link } from "react-router-dom";
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -74,29 +75,34 @@ const Footer = () => {
               </span>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/eventet" className="icon">Futboll</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/eventet" className="icon">Koncerte</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/eventet" className="icon">Boks</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/eventet" className="icon">Arte Marciale</Link>
               </li>
 
-              <li className="footerList flex">
+              {/* <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Lorem
-              </li>
+                Lorem 
+                <FiChevronRight /><Link to="/eventet" className="icon">Boks</Link>
+              </li> */}
 
             </div>
 
@@ -108,27 +114,27 @@ const Footer = () => {
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                STADIUMI
+                UEFA
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Lorem
+                FIFA
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                impsum
+                IPKO
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                lorem
+                Vala
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                lorem
+                Adidas
               </li>
 
             </div>
