@@ -8,13 +8,10 @@
     padding: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     animation: shake 0.3s ease-in-out;
-    width: 500px;
+    width: 450px;
     margin-top: 50px;
     margin-bottom: 50px;
     border-radius: 40px;
-    background-image: url('../../images/login.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .signin{

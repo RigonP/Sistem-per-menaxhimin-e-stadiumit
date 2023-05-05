@@ -5,9 +5,10 @@ import {FiSend} from 'react-icons/fi'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import {AiFillYoutube} from 'react-icons/ai'
 import {AiFillInstagram} from 'react-icons/ai'
-import {FaTripadvisor} from 'react-icons/fa'
+import {BsFacebook} from 'react-icons/bs'
 import {FiChevronRight} from 'react-icons/fi'
 import {BiFootball} from 'react-icons/bi'
+import { Link } from "react-router-dom";
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -58,10 +59,10 @@ const Footer = () => {
             </div>
 
             <div className="footerSocials flex">
-              <AiOutlineTwitter className="icon" />
-              <AiFillYoutube className="icon" />
-              <AiFillInstagram className="icon" />
-              <FaTripadvisor className="icon" />
+              <a href="https://twitter.com/ffk_ks?lang=en" target='blank'><AiOutlineTwitter className="icon" /></a>
+              <a href="https://www.youtube.com/@FederataeFutbolliteKosoves" target='blank'><AiFillYoutube className="icon" /></a>
+              <a href="https://www.instagram.com/ffk.kos/?hl=en" target='blank'><AiFillInstagram className="icon" /></a>
+              <a href="https://www.facebook.com/FFKKosova/?locale=sq_AL" target='blank'><BsFacebook className="icon" /></a>
             </div>
           </div>
 
@@ -74,29 +75,34 @@ const Footer = () => {
               </span>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/eventet" className="icon">Futboll</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/eventet" className="icon">Koncerte</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/eventet" className="icon">Boks</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/eventet" className="icon">Arte Marciale</Link>
               </li>
 
-              <li className="footerList flex">
+              {/* <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Lorem
-              </li>
+                Lorem 
+                <FiChevronRight /><Link to="/eventet" className="icon">Boks</Link>
+              </li> */}
 
             </div>
 
@@ -108,27 +114,27 @@ const Footer = () => {
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                STADIUMI
+                UEFA
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                Lorem
+                FIFA
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                impsum
+                IPKO
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                lorem
+                Vala
               </li>
 
               <li className="footerList flex">
                 <FiChevronRight className="icon" />
-                lorem
+                Adidas
               </li>
 
             </div>
@@ -136,32 +142,37 @@ const Footer = () => {
             {/*Grupi i trete */}
             <div data-aos="fade-up" data-aos-duration="5000" className="linkGroup">
               <span className="groupTitle">
-                LAST MINUTE
+                SHIKO
               </span>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/stadiumi" className="icon">Stadiumi</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/tours" className="icon">Tours</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/tiketat" className="icon">Tiketat</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/shop" className="icon">Shop</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Payment
+                {/* <FiChevronRight className="icon" />
+                Payment */}
+                <FiChevronRight /><Link to="/contact" className="icon">Kontakti</Link>
               </li>
 
             </div>

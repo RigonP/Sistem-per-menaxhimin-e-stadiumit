@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import Stadiumi from './Components/Stadiumi/Stadiumi';
 import Eventet from './Components/Eventet/Eventet' 
 import Contact from './Components/ContactForm/Contact';  
 import Fans from './Components/Fans/Fans'
@@ -9,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
 import Tiketat from './Components/Tiketat/Tiketat';
 import Signup from "./Components/Signup/Signup";
-import Login from "./Components/Signup/Login";
+import Login from "./Components/Login/Login";
 import Kits from './Components/Kits/Kits'
 import ChangePasswordPage from "./Components/Signup/ChangePasswordPage";
 import ForgotPasswordPage from "./Components/Signup/ForgotPasswordPage";
@@ -20,6 +21,7 @@ const App = () => {
     <Router>
     <Routes>
       <Route path='/' element={<HomePage />} />
+      <Route path='/stadiumi' element={<Stadiumi />} />
       <Route path='/eventet' element={<Eventet />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/shop" element={<Shop />} />

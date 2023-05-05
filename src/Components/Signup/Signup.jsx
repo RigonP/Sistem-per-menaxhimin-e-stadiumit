@@ -3,6 +3,7 @@ import axios from 'axios';
 import * as PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import './Signup.css';
+import {MdOutlineStadium} from "react-icons/md";
 
 
 const api = axios.create({
@@ -14,7 +15,7 @@ function InputField(props) {
     return (
         <div className="input-field">
             <label htmlFor={name}>{label}</label>
-            <input type="text" name={name} value={value} onChange={onChange} required={required} />
+            <input type="text" name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
         </div>
     );
 }
@@ -31,7 +32,7 @@ InputField.propTypes = {
 
 function SuccessMessage() {
     return (
-        <div>
+        <div style={{color:"black"}}>
             <p>Jeni regjistuar me sukses!</p>
         </div>
     );
@@ -42,8 +43,20 @@ function PasswordInput(props) {
     return (
         <div className="input-field">
             <label htmlFor={name}>{label}</label>
-            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} />
-            <button style={{color:"white"}} type="button" onClick={() => setShowPassword(!showPassword)}>
+            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
+            <button style={{color:"black" , fontSize : "13px" , paddingTop : "3px"}} type="button" onClick={() => setShowPassword(!showPassword)}>
+            </button>
+        </div>
+    );
+}
+
+function ConfirmPasswordInput(props) {
+    const { label, name, value, onChange, showPassword, setShowPassword, required } = props;
+    return (
+        <div className="input-field">
+            <label htmlFor={name}>{label}</label>
+            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} style={{color:"black"}} />
+            <button style={{color:"black" , fontSize : "13px" , paddingTop : "3px"}} type="button" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "Hide" : "Show"}
             </button>
         </div>
@@ -59,6 +72,51 @@ PasswordInput.propTypes = {
     value: PropTypes.string,
     required: PropTypes.bool
 };
+ConfirmPasswordInput.propTypes = {
+    onChange: PropTypes.func,
+    setShowPassword: PropTypes.func,
+    name: PropTypes.string,
+    showPassword: PropTypes.bool,
+    label: PropTypes.string,
+    value: PropTypes.string,
+    required: PropTypes.bool
+};
+
+const Header = () => {
+    return (
+        <div className="header" style={{position:"relative" , margin : "auto"}} >
+            <div className="logoDiv">
+                <Link to="/" className="logo flex" >
+                    <h1><MdOutlineStadium className="icon"/> Kosovo Stadium.</h1>
+                </Link>
+            </div>
+        </div>
+    );
+}
+
+const Footer = () => {
+    return(
+        <div className="footer" style={{marginBottom : "0px" ,paddingBottom : "0px"}}>
+            <div className="footer" style={{marginBottom : "0px" , paddingBottom: "35px"}}>
+                <div className="links" style={{margin : "auto"}}>
+                    <a href="#" style={{margin:"auto"}}>Stadium</a>
+                    <a href="#" style={{marginLeft:"30px"}}>About</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Blog</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Jobs</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Help</a>
+                    <a href="#" style={{marginLeft:"30px"}}>API</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Privacy</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Terms</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Top Accounts</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Locations</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Meta Verified</a>
+                </div>
+            </div>
+        </div>
+
+    );
+}
+
 const SignupForm = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -110,12 +168,17 @@ const SignupForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="signup-form">
+
+        <div>
+            <div>
+                <Header/>
+            </div>
+        <form onSubmit={handleSubmit} className="signup-form" style={{marginTop : "100px"}}>
             {isSubmitted ? (
                 <SuccessMessage />
             ) : (
                 <div>
-                    <h1 className="signin">Sign Up</h1>
+                    <h1 className="signin" style={{fontWeight : "bold", paddingBottom : "30px" , paddingTop:"20px"}}>Sign Up</h1>
                     <InputField
                         label="Name"
                         name="name"
@@ -151,7 +214,7 @@ const SignupForm = () => {
                         setShowPassword={setShowPassword}
                         required
                     />
-                    <PasswordInput
+                    <ConfirmPasswordInput
                         label="Confirm Password"
                         name="confirmPassword"
                         value={formData.confirmPassword}
@@ -166,12 +229,19 @@ const SignupForm = () => {
                     <button type="submit" className="signup-button">
                         Sign Up
                     </button>
-                    <div className="signup-link">
-                        Already have an account? <Link to="/login">log in</Link>
+                    <div className="signup-link" style={{color:"black"}}>
+                        Have an account?<Link to="/login">Log in</Link>
                     </div>
                 </div>
             )}
         </form>
+
+            <div>
+                <Footer/>
+            </div>
+
+        </div>
+
     );
 };
 
