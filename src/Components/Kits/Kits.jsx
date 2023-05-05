@@ -2,6 +2,8 @@ import React from 'react'
 import './kits.css'
 
 import MyNavbar from '../ShopNavbar/ShopN'
+import SecondN from '../Navbar/Navbar';
+
 
 import img1 from '../../images/collection_banner__mens_kits_1070x.webp'
 
@@ -13,6 +15,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function Kits(){
     return(
         <>
+            <SecondN/>
             <div className="events">
                 <h2>SHOP</h2>
             </div>
