@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './ForgotPassword.css';
 
 function ForgotPasswordPage() {
     const [email, setEmail] = useState("");
@@ -28,7 +29,7 @@ function ForgotPasswordPage() {
     return (
         <div>
             <h1>Keni harruar fjalëkalimin?</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="formaForgot" style={{display : "flex" , flexDirection : "column" , alignItems: "center" , justifyContent : "center" , height : "100vh"}} onSubmit={handleSubmit}>
                 <label htmlFor="email">Email:</label>
                 <input
                     type="email"
