@@ -142,32 +142,37 @@ const Footer = () => {
             {/*Grupi i trete */}
             <div data-aos="fade-up" data-aos-duration="5000" className="linkGroup">
               <span className="groupTitle">
-                LAST MINUTE
+                SHIKO
               </span>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/stadiumi" className="icon">Stadiumi</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/tours" className="icon">Tours</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/tiketat" className="icon">Tiketat</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Lorem
+                {/* <FiChevronRight className="icon" />
+                Lorem */}
+                <FiChevronRight /><Link to="/shop" className="icon">Shop</Link>
               </li>
 
               <li className="footerList flex">
-                <FiChevronRight className="icon" />
-                Payment
+                {/* <FiChevronRight className="icon" />
+                Payment */}
+                <FiChevronRight /><Link to="/contact" className="icon">Kontakti</Link>
               </li>
 
             </div>
