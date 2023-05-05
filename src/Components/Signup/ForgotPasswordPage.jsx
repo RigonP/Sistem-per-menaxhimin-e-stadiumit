@@ -80,7 +80,7 @@ function ForgotPasswordPage() {
                     required
                 />
                 <br />
-                <button type="submit">Dërgo passwordin</button>
+                <button type="submit">Dërgo fjalëkalimin</button>
                 <div style={{color:"black" ,paddingTop : "20px" , paddingBottom : "10px"}}>
                      <Link to="/login">Më rikthe në Log in</Link>
                 </div>
