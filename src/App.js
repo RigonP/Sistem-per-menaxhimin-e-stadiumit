@@ -14,6 +14,8 @@ import Login from "./Components/Login/Login";
 import Kits from './Components/Kits/Kits'
 import ChangePasswordPage from "./Components/Signup/ChangePasswordPage";
 import ForgotPasswordPage from "./Components/Signup/ForgotPasswordPage";
+import DashboardAdmin from "./Components/Dashboard/DashboardAdmin";
+
 
 
 const App = () => {
@@ -33,6 +35,7 @@ const App = () => {
       <Route path='/kits' element={<Kits/>}/>
       <Route path='/forgotPassword' element={<ForgotPasswordPage />}/>
       <Route path='/changePassword' element={<ChangePasswordPage />}/>
+      <Route path ='/dashboard' element={<DashboardAdmin />}/>
     </Routes>
   </Router>
   )
