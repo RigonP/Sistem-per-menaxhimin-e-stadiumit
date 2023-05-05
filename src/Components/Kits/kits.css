@@ -88,3 +88,15 @@ hr{
 .read-link:hover{
     color:white;
 }
+
+.dropdown-container{
+    text-align:center;
+}
+
+.span-dot{
+    color:white;
+}
+
+.span-dot:hover{
+    color:black;
+}
