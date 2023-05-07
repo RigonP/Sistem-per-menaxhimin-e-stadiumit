@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+const api = axios.create({
+    baseURL: 'http://localhost:8080/user',
+});
+
 // Function to set the JWT token in local storage
 export function setToken(token) {
     localStorage.setItem('token', token);
@@ -16,7 +20,7 @@ export function removeToken() {
 }
 
 // Axios request interceptor to set the authorization header
-axios.interceptors.request.use(function (config) {
+api.interceptors.request.use(function (config) {
     const token = getToken();
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
@@ -25,7 +29,7 @@ axios.interceptors.request.use(function (config) {
 });
 
 // Axios response interceptor to handle unauthorized responses
-axios.interceptors.response.use(
+api.interceptors.response.use(
     function (response) {
         return response;
     },
@@ -38,3 +42,5 @@ axios.interceptors.response.use(
         return Promise.reject(error);
     }
 );
+
+export default api;

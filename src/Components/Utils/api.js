@@ -1,20 +1,41 @@
 import axios from 'axios';
-import { setToken } from '../Utils/auth';
+import { getToken, removeToken} from '../Utils/auth';
+
 
 const api = axios.create({
-    baseURL: 'http://localhost:8080/user',
+    baseURL: "http://localhost:8080/user",// Set the API base URL from environment variable
 });
 
-export function login(credentials) {
-    return api.post('/login', credentials)
-        .then(response => {
-            const token = response.data.token;
-            setToken(token);
-            return response.data;
-        });
-}
+// Axios request interceptor to set the authorization header
+api.interceptors.request.use(function (config) {
+    const token = getToken();
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
+
+// Axios response interceptor to handle unauthorized responses
+api.interceptors.response.use(
+    function (response) {
+        return response;
+    },
+    function (error) {
+        if (error.response.status === 401) {
+            removeToken();
+            // Redirect the user to the login page
+            window.location.replace('/login');
+        }
+        return Promise.reject(error);
+    }
+);
 
 export function getAllUsers() {
     return api.get('/get')
-        .then(response => response.data);
+        .then(response => response.data)
+        .catch(error => {
+            console.error(error);
+            throw error;
+        });
 }
+export default api;
