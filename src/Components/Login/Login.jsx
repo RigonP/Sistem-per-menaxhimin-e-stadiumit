@@ -97,6 +97,8 @@ const LoginForm = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [emailError, setEmailError] = useState(false);
+    const [nonExistingUserError, setNonExistingUserError] = useState(false);
+
 
     const saveLoginStatus = () => {
         sessionStorage.setItem('isLoggedIn', true);
@@ -122,9 +124,12 @@ const LoginForm = () => {
                 console.log(error.response.data);
                 if (error.response.status === 409) {
                     setEmailError(true);
+                } else if (error.response.status === 400) {
+                    setNonExistingUserError(true);
                 }
             });
     };
+
 
     const handleLogout = () => {
         sessionStorage.removeItem('isLoggedIn');
@@ -147,6 +152,7 @@ const LoginForm = () => {
                 {isSubmitted ? (
                     <SuccessMessage />
                 ) : (
+
                     <div>
                         <h1 className="signin" style={{ fontWeight: "bold", paddingBottom: "30px", paddingTop: "20px" }}>Log in</h1>
                         <InputField
@@ -156,8 +162,8 @@ const LoginForm = () => {
                             onChange={handleInputChange}
                             required
                         />
-                        {emailError && (
-                            <div className="error-message">This email is already registered.</div>
+                        {nonExistingUserError && (
+                            <div className="error-message" style={{fontSize:"12px" , color:"red"}}>This user does not exist.</div>
                         )}
                         <PasswordInput
                             label="Password"
@@ -168,6 +174,7 @@ const LoginForm = () => {
                             setShowPassword={setShowPassword}
                             required
                         />
+
                         <button type="submit" className="signup-button" style={{ marginBottom: "10px", marginTop: "5px" }}>
                             Log In
                         </button>

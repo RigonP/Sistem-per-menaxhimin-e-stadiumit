@@ -151,7 +151,7 @@ const SignupForm = () => {
             })
             .catch((error) => {
                 console.log(error.response.data);
-                if (error.response.status === 409) {
+                if (error.response.status === 400) {
                     setEmailError(true);
                 }
             });
@@ -203,7 +203,7 @@ const SignupForm = () => {
                         required
                     />
                     {emailError && (
-                        <div className="error-message">This email is already registered.</div>
+                        <div className="error-message" style={{fontSize:"12px" , color:"red"}}>This email is already registered.</div>
                     )}
                     <PasswordInput
                         label="Password"
@@ -214,6 +214,9 @@ const SignupForm = () => {
                         setShowPassword={setShowPassword}
                         required
                     />
+                    {passwordError && (
+                        <div className="error-message"style={{fontSize:"12px" , color:"red"}}>Passwords do not match.</div>
+                    )}
                     <ConfirmPasswordInput
                         label="Confirm Password"
                         name="confirmPassword"
@@ -223,9 +226,6 @@ const SignupForm = () => {
                         setShowPassword={setShowPassword}
                         required
                     />
-                    {passwordError && (
-                        <div className="error-message">Passwords do not match.</div>
-                    )}
                     <button type="submit" className="signup-button">
                         Sign Up
                     </button>
