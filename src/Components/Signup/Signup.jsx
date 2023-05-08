@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import './Signup.css';
 import {MdOutlineStadium} from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 
 const api = axios.create({
@@ -118,6 +119,8 @@ const Footer = () => {
 }
 
 const SignupForm = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         name: '',
         contactNumber: '',
@@ -142,6 +145,7 @@ const SignupForm = () => {
         event.preventDefault();
         if (formData.password !== formData.confirmPassword) {
             setPasswordError(true);
+            navigate('/login');
             return;
         }
         api.post('/signup', formData)

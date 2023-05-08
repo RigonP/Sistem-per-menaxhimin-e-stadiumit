@@ -6,7 +6,7 @@ import Contact from './Components/ContactForm/Contact';
 import Fans from './Components/Fans/Fans'
 import Shop from './Components/Shop/Shop'
 import Tours from './Components/Tours/Tours'
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
 import Tiketat from './Components/Tiketat/Tiketat';
 import Signup from "./Components/Signup/Signup";
@@ -15,12 +15,25 @@ import Kits from './Components/Kits/Kits'
 import ChangePasswordPage from "./Components/Signup/ChangePasswordPage";
 import ForgotPasswordPage from "./Components/Signup/ForgotPasswordPage";
 import DashboardAdmin from "./Components/Dashboard/DashboardAdmin";
+import axios from "axios";
+import { BrowserRouter , Navigate } from 'react-router-dom';
 
 
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const isAdmin = localStorage.getItem('role') === 'admin';
+
+  return (
+      <Route
+          {...rest}
+          element={isAdmin ? <Component /> : <Navigate to="/login" replace />}
+      />
+  );
+};
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/stadiumi' element={<Stadiumi />} />
@@ -37,7 +50,7 @@ const App = () => {
       <Route path='/changePassword' element={<ChangePasswordPage />}/>
       <Route path ='/dashboard' element={<DashboardAdmin />}/>
     </Routes>
-  </Router>
+  </BrowserRouter>
   )
 }
 

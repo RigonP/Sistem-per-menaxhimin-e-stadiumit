@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Login.css';
-import * as PropTypes from "prop-types";
+import * as PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
-import { MdOutlineStadium } from "react-icons/md";
-
-const api = axios.create({
-    baseURL: 'http://localhost:8080/user',
-});
+import { MdOutlineStadium } from 'react-icons/md';
 
 function InputField(props) {
     const { label, name, value, onChange, required } = props;
     return (
-        <div className="input-field" >
+        <div className="input-field">
             <label htmlFor={name}>{label}</label>
-            <input type="text" name={name} value={value} onChange={onChange} required={required} style={{ color: "black" }} />
+            <input type="text" name={name} value={value} onChange={onChange} required={required} style={{ color: 'black' }} />
         </div>
     );
 }
 
 function SuccessMessage() {
     return (
-        <div style={{ color: "black" }}>
+        <div style={{ color: 'black' }}>
             <p>Jeni kyqur me sukses!</p>
         </div>
     );
@@ -30,11 +26,16 @@ function SuccessMessage() {
 function PasswordInput(props) {
     const { label, name, value, onChange, showPassword, setShowPassword, required } = props;
     return (
-        <div className="input-field" >
+        <div className="input-field">
             <label htmlFor={name}>{label}</label>
-            <input type={showPassword ? "text" : "password"} name={name} value={value} onChange={onChange} required={required} style={{ color: "black" }} />
-            <button className="showhidebuttonlogin" type="button" style={{ fontSize: "13px", paddingTop: "3px" }} onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? "Hide" : "Show"}
+            <input type={showPassword ? 'text' : 'password'} name={name} value={value} onChange={onChange} required={required} style={{ color: 'black' }} />
+            <button
+                className="showhidebuttonlogin"
+                type="button"
+                style={{ fontSize: '13px', paddingTop: '3px' }}
+                onClick={() => setShowPassword(!showPassword)}
+            >
+                {showPassword ? 'Hide' : 'Show'}
             </button>
         </div>
     );
@@ -47,43 +48,67 @@ PasswordInput.propTypes = {
     showPassword: PropTypes.bool,
     label: PropTypes.string,
     value: PropTypes.string,
-    required: PropTypes.bool
+    required: PropTypes.bool,
 };
 
 const Header = () => {
     return (
-        <div className="header" style={{ position: "relative", margin: "auto" }} >
+        <div className="header" style={{ position: 'relative', margin: 'auto' }}>
             <div className="logoDiv">
-                <Link to="/" className="logo flex" >
-                    <h1><MdOutlineStadium className="icon" /> Kosovo Stadium.</h1>
+                <Link to="/" className="logo flex">
+                    <h1>
+                        <MdOutlineStadium className="icon" /> Kosovo Stadium.
+                    </h1>
                 </Link>
             </div>
         </div>
     );
-}
+};
 
 const Footer = () => {
     return (
-        <div className="footer" style={{ marginBottom: "0px", paddingBottom: "0px" }}>
-            <div className="footer" style={{ marginBottom: "0px", paddingBottom: "35px" }}>
-                <div className="links" style={{ margin: "auto" }}>
-                    <a href="#" style={{ margin: "auto" }}>Stadium</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>About</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>Blog</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>Jobs</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>Help</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>API</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>Privacy</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>Terms</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>Top Accounts</a>
-                    <a href="#" style={{ marginLeft: "30px" }}>Locations</a>
-                    <a href="#" style={{ marginLeft:"30px" }}>Meta Verified</a>
+        <div className="footer" style={{ marginBottom: '0px', paddingBottom: '0px' }}>
+            <div className="footer" style={{ marginBottom: '0px', paddingBottom: '35px' }}>
+                <div className="links" style={{ margin: 'auto' }}>
+                    <a href="#" style={{ margin: 'auto' }}>
+                        Stadium
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        About
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        Blog
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        Jobs
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        Help
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        API
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        Privacy
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        Terms
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        Top Accounts
+                    </a>
+
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        Locations
+                    </a>
+                    <a href="#" style={{ marginLeft: '30px' }}>
+                        Meta Verified
+                    </a>
                 </div>
             </div>
         </div>
-
     );
-}
+};
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -99,7 +124,6 @@ const LoginForm = () => {
     const [emailError, setEmailError] = useState(false);
     const [nonExistingUserError, setNonExistingUserError] = useState(false);
 
-
     const saveLoginStatus = () => {
         sessionStorage.setItem('isLoggedIn', true);
     };
@@ -111,25 +135,28 @@ const LoginForm = () => {
         });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        api.post('/login', formData)
-            .then((response) => {
-                console.log(response.data);
-                setIsSubmitted(true);
-                saveLoginStatus();
+        try {
+            const response = await axios.post('http://localhost:8080/user/login', formData);
+            console.log(response.data);
+            setIsSubmitted(true);
+            saveLoginStatus();
+            const { user, token } = response.data;
+            if (user.role === 'admin') {
+                navigate('/dashboard');
+            } else {
                 navigate('/');
-            })
-            .catch((error) => {
-                console.log(error.response.data);
-                if (error.response.status === 409) {
-                    setEmailError(true);
-                } else if (error.response.status === 400) {
-                    setNonExistingUserError(true);
-                }
-            });
+            }
+        } catch (error) {
+            console.log(error.response.data);
+            if (error.response.status === 409) {
+                setEmailError(true);
+            } else if (error.response.status === 400) {
+                setNonExistingUserError(true);
+            }
+        }
     };
-
 
     const handleLogout = () => {
         sessionStorage.removeItem('isLoggedIn');
@@ -148,22 +175,19 @@ const LoginForm = () => {
             <div>
                 <Header />
             </div>
-            <form onSubmit={handleSubmit} className="signup-form" style={{ marginTop: "100px", marginBottom: "0px" }}>
+            <form onSubmit={handleSubmit} className="signup-form" style={{ marginTop: '100px', marginBottom: '0px' }}>
                 {isSubmitted ? (
                     <SuccessMessage />
                 ) : (
-
                     <div>
-                        <h1 className="signin" style={{ fontWeight: "bold", paddingBottom: "30px", paddingTop: "20px" }}>Log in</h1>
-                        <InputField
-                            label="Email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                        />
+                        <h1 className="signin" style={{ fontWeight: 'bold', paddingBottom: '30px', paddingTop: '20px' }}>
+                            Log in
+                        </h1>
+                        <InputField label="Email" name="email" value={formData.email} onChange={handleInputChange} required />
                         {nonExistingUserError && (
-                            <div className="error-message" style={{fontSize:"12px" , color:"red"}}>This user does not exist.</div>
+                            <div className="error-message" style={{ fontSize: '12px', color: 'red' }}>
+                                This user does not exist.
+                            </div>
                         )}
                         <PasswordInput
                             label="Password"
@@ -174,29 +198,24 @@ const LoginForm = () => {
                             setShowPassword={setShowPassword}
                             required
                         />
-
-                        <button type="submit" className="signup-button" style={{ marginBottom: "10px", marginTop: "5px" }}>
+                        <button type="submit" className="signup-button" style={{ marginBottom: '10px', marginTop: '5px' }}>
                             Log In
                         </button>
 
-                        <div className="forgot-link" style={{ fontSize: "14px" }}>
+                        <div className="forgot-link" style={{ fontSize: '14px' }}>
                             <Link to="/forgotPassword"> Forgot Password? </Link>
                         </div>
 
-                        <div className="signup-link" style={{ color: "black" }}>
+                        <div className="signup-link" style={{ color: 'black', fontSize: '14px' }}>
                             Don't have an account? <Link to="/signup">Sign up</Link>
                         </div>
                     </div>
                 )}
             </form>
-
-            <div>
-                <Footer />
-            </div>
-
-
+            <Footer />
         </div>
     );
 };
 
-export default LoginForm
+export default LoginForm;
+
