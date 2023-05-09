@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import './Signup.css';
 import {MdOutlineStadium} from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 
 const api = axios.create({
@@ -118,6 +119,8 @@ const Footer = () => {
 }
 
 const SignupForm = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         name: '',
         contactNumber: '',
@@ -142,6 +145,7 @@ const SignupForm = () => {
         event.preventDefault();
         if (formData.password !== formData.confirmPassword) {
             setPasswordError(true);
+            navigate('/login');
             return;
         }
         api.post('/signup', formData)
@@ -151,7 +155,7 @@ const SignupForm = () => {
             })
             .catch((error) => {
                 console.log(error.response.data);
-                if (error.response.status === 409) {
+                if (error.response.status === 400) {
                     setEmailError(true);
                 }
             });
@@ -203,7 +207,7 @@ const SignupForm = () => {
                         required
                     />
                     {emailError && (
-                        <div className="error-message">This email is already registered.</div>
+                        <div className="error-message" style={{fontSize:"12px" , color:"red"}}>This email is already registered.</div>
                     )}
                     <PasswordInput
                         label="Password"
@@ -214,6 +218,9 @@ const SignupForm = () => {
                         setShowPassword={setShowPassword}
                         required
                     />
+                    {passwordError && (
+                        <div className="error-message"style={{fontSize:"12px" , color:"red"}}>Passwords do not match.</div>
+                    )}
                     <ConfirmPasswordInput
                         label="Confirm Password"
                         name="confirmPassword"
@@ -223,9 +230,6 @@ const SignupForm = () => {
                         setShowPassword={setShowPassword}
                         required
                     />
-                    {passwordError && (
-                        <div className="error-message">Passwords do not match.</div>
-                    )}
                     <button type="submit" className="signup-button">
                         Sign Up
                     </button>

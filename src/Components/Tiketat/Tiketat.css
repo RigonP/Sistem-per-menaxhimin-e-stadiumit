@@ -11,7 +11,7 @@
 }
 
 .titleE p{
-  padding: 10px;
+  padding-top: 10px;
   text-align: center;
   font-weight: bold;
   color: blue;
@@ -32,6 +32,6 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
-option {
+.selectT option {
   font-size: 16px;
 }

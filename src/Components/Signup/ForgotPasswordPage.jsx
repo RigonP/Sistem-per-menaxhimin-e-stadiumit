@@ -52,7 +52,7 @@ function ForgotPasswordPage() {
             .then((res) => {
                 if (res.status === 200) {
                     setSuccessMessage(res.data);
-                    setErrorMessage("");
+                    setErrorMessage("Kontrolloni emailin tuaj");
                 }
             })
             .catch((err) => {
