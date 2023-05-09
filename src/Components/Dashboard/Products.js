@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Table } from 'react-bootstrap';
 import { FaShoppingCart } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
+
 const Products = () => {
     const [data, setData] = useState([]);
     const [showProducts, setShowProducts] = useState(false);
@@ -16,24 +17,25 @@ const Products = () => {
             })
             .catch(error => console.error(error));
     };
+
     useEffect(() => {
         handleShowAllProducts();
     }, []);
 
     return (
-        <Card>
+        <Card className="carddashboard">
             <Card.Body>
-                <Card.Title>
-                    <FaShoppingCart /> Products
+                <Card.Title className="cardtitledashboard">
+                    <FaShoppingCart className="FaShoppingCart" /> Products
                 </Card.Title>
                 {showProducts && (
-                    <Button onClick={() => setShowProducts(false)}>Close</Button>
+                    <Button className="buttondashboard"  variant="primary" onClick={() => setShowProducts(false)}>Close</Button>
                 )}
                 {!showProducts && (
-                    <Button onClick={handleShowAllProducts}>Show All Products</Button>
+                    <Button className="buttondashboard"  variant="primary" onClick={handleShowAllProducts}>Show All Products</Button>
                 )}
                 {showProducts && data && data.length > 0 && (
-                    <table>
+                    <Table striped bordered>
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -58,7 +60,7 @@ const Products = () => {
                             </tr>
                         ))}
                         </tbody>
-                    </table>
+                    </Table>
                 )}
             </Card.Body>
         </Card>

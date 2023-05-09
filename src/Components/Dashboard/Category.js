@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShopify } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
 const Category = () => {
     const [data, setData] = useState([]);
@@ -18,16 +18,16 @@ const Category = () => {
     };
 
     return (
-        <Card>
+        <Card className="carddashboard">
             <Card.Body>
-                <Card.Title>
-                    <FaShoppingCart /> Category
+                <Card.Title className="cardtitledashboard">
+                    <FaShopify className="FaShopify"/> Category
                 </Card.Title>
                 {showCategorys && (
-                    <Button onClick={() => setShowCategorys(false)}>Close</Button>
+                    <Button className="buttondashboard" onClick={() => setShowCategorys(false)}>Close</Button>
                 )}
                 {!showCategorys && (
-                    <Button onClick={handleShowAllCategorys}>Show All Category's</Button>
+                    <Button className="buttondashboard"  onClick={handleShowAllCategorys}>Show All Category's</Button>
                 )}
                 {showCategorys && data && data.length > 0 && (
                     <table>

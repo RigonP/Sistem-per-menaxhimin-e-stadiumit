@@ -19,16 +19,16 @@ const Bills = () => {
     };
 
     return (
-        <Card>
+        <Card className="carddashboard">
             <Card.Body>
-                <Card.Title>
-                    <FaList /> Orders
+                <Card.Title className="cardtitledashboard">
+                    <FaList className="FaList"/> Orders
                 </Card.Title>
                 {showBills && (
-                    <Button onClick={() => setShowBills(false)}>Close</Button>
+                    <Button className="buttondashboard"  onClick={() => setShowBills(false)}>Close</Button>
                 )}
                 {!showBills && (
-                    <Button onClick={handleShowAllBills}>Show All Bills</Button>
+                    <Button className="buttondashboard"  onClick={handleShowAllBills}>Show All Bills</Button>
                 )}
                 {showBills && data && data.length > 0 && (
                     <table>

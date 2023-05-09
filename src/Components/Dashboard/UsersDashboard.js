@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
-import { FaUser } from 'react-icons/fa';
+import { FaUserTie } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
 
 const UsersDashboard = () => {
@@ -34,16 +34,16 @@ const UsersDashboard = () => {
     };
 
     return (
-        <Card>
+        <Card className="carddashboard">
             <Card.Body>
-                <Card.Title>
-                    <FaUser /> Users
+                <Card.Title className="cardtitledashboard">
+                    <FaUserTie className="FaUserTie"/> Users
                 </Card.Title>
                 {showUsers && (
-                    <Button onClick={() => setShowUsers(false)}>Close</Button>
+                    <Button className="buttondashboard"  onClick={() => setShowUsers(false)}>Close</Button>
                 )}
                 {!showUsers && (
-                    <Button onClick={handleShowAllUsers}>Show All Users</Button>
+                    <Button className="buttondashboard"  onClick={handleShowAllUsers}>Show All Users</Button>
                 )}
                 {showUsers && data && data.length > 0 && (
                     <table>
@@ -53,8 +53,6 @@ const UsersDashboard = () => {
                             <th>Contact Number</th>
                             <th>Email</th>
                             <th>Name</th>
-                            <th>Password</th>
-                            <th>Role</th>
                             <th>Status</th>
                             <th>Update Status</th>
                         </tr>
@@ -66,8 +64,6 @@ const UsersDashboard = () => {
                                 <td>{user.contactNumber}</td>
                                 <td>{user.email}</td>
                                 <td>{user.name}</td>
-                                <td>{user.password}</td>
-                                <td>{user.role}</td>
                                 <td>{user.status.toString()}</td>
                                 <td>
                                     <Button onClick={() => updateUserStatus(user.id, !user.status.toString())}>
