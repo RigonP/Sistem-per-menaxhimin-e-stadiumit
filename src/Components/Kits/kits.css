@@ -100,3 +100,27 @@ hr{
 .span-dot:hover{
     color:black;
 }
+
+.filter-options{
+    padding-top: 25px;
+}
+
+.btn.btn-outline-dark {
+    color: #212529;
+    background-color: transparent;
+    background-image: none;
+    border-color: #212529;
+    border-radius: 0;
+    text-align: left;
+    width: 175px;
+  }
+
+  .buton1{
+    margin-right: 10px;
+  }
+  .buton2{
+    margin-right: 10px;
+  }
+  .buton3{
+    margin-right: 10px;
+  }

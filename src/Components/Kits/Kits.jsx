@@ -46,59 +46,39 @@ function Kits(){
             </div>
 
             
-            <div className="container dropdown-container">
-                <div className="row g-1">
-                    <div className="col-md-1">
-                        <div className="dropdown">
-                            <button style={{color:"black"}} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                KITS | SIZE
-                            </button>
-                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a className="dropdown-item" href="#">Item 1</a></li>
-                                <li><a className="dropdown-item" href="#">Item 2</a></li>
-                                <li><a className="dropdown-item" href="#">Item 3</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-md-1">
-                        <div className="dropdown">
-                            <button style={{color:"black"}} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                COLORS
-                            </button>
-                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <li><a className="dropdown-item" href="#">Item 1</a></li>
-                                <li><a className="dropdown-item" href="#">Item 2</a></li>
-                                <li><a className="dropdown-item" href="#">Item 3</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-md-1">
-                    <div className="dropdown">
-                            <button style={{color:"black"}} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                                MATCHWEAR
-                            </button>
-                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                <li><a className="dropdown-item" href="#">Item 1</a></li>
-                                <li><a className="dropdown-item" href="#">Item 2</a></li>
-                                <li><a className="dropdown-item" href="#">Item 3</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-md-1">
-                        <div className="dropdown">
-                            <button style={{color:"black"}} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-expanded="false">
-                                SORT BY
-                            </button>
-                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <li><a className="dropdown-item" href="#">Item 1</a></li>
-                                <li><a className="dropdown-item" href="#">Item 2</a></li>
-                                <li><a className="dropdown-item" href="#">Item 3</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    
+
+        <div className='container filter-options'>    
+            <select class="btn btn-lg btn-outline-dark buton1" id="color-filter">
+                <option value="">Size</option>
+                <option value="XXL">XXL</option>
+                <option value="XL">XL</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="S">S</option>
+                <option value="XS">XS</option>
+
+            </select>
+            <select class="btn btn-lg btn-outline-dark buton2" id="color-filter">
+                <option value="">Color</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="black">Black</option>
+            </select>
+            <select class="btn btn-lg btn-outline-dark buton3" id="color-filter">
+                <option value="">Matchwear</option>
+                <option value="red">GoalKeeper</option>
+                <option value="blue">Defender</option>
+                <option value="green">Midfielder</option>
+                <option value="green">Attacker</option>
+            </select>
+            <select class="btn btn-lg btn-outline-dark buton4" id="color-filter">
+                <option value="">Sort By</option>
+                <option value="red">Best Seller</option>
+                <option value="blue">Price | Lowest to Highest</option>
+                <option value="green">Price | Highest to Lowest</option>
+            </select>
+        </div> 
+                                    
             
 
 

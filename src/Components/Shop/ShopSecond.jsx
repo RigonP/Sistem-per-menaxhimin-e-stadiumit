@@ -71,7 +71,7 @@ function ShopSecond() {
         <div class="container">
         <div class="row">
           <div class="col-12 d-flex justify-content-start header-div" data-aos="fade-up-right">
-            <span class="diagonal-line header-kits">Kosova Football Icons</span> 
+            <span class="diagonal-line header-kits">Albania Football Kits</span> 
             <div className='header-lines'>
               <span className='header-lines'>//////////</span>
             </div>
