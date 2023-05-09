@@ -14,7 +14,7 @@ import Login from "./Components/Login/Login";
 import Kits from './Components/Kits/Kits'
 import ChangePasswordPage from "./Components/Signup/ChangePasswordPage";
 import ForgotPasswordPage from "./Components/Signup/ForgotPasswordPage";
-import DashboardAdmin from "./Components/Dashboard/DashboardAdmin";
+import DashboardAdmin from "./Components/Dashboard/Dashboard";
 import axios from "axios";
 import { BrowserRouter , Navigate } from 'react-router-dom';
 
