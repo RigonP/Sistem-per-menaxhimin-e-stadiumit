@@ -7,10 +7,45 @@ import Products from './Products';
 import Bills from './Bills';
 import Category from './Category';
 import '../Dashboard/Dashboard.css';
+import Calendar from 'react-calendar';
+import './Calendar.css';
+// import Chart from 'chart.js/auto';
+
+
+
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [notifications, setNotifications] = useState([]);
+    const [selectedDate, setSelectedDate] = useState(new Date());
+
+    // const data = {
+    //     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    //     datasets: [
+    //         {
+    //             label: 'Revenue',
+    //             data: [1000, 1500, 1200, 1800, 2000, 1700],
+    //             backgroundColor: 'rgba(75, 192, 192, 0.6)',
+    //             borderColor: 'rgba(75, 192, 192, 1)',
+    //             borderWidth: 1,
+    //         },
+    //     ],
+    // };
+    // React.useEffect(() => {
+    //     const ctx = document.getElementById('myChart').getContext('2d');
+    //     new Chart(ctx, {
+    //         type: 'bar',
+    //         data: data,
+    //         options: {
+    //             responsive: true,
+    //             scales: {
+    //                 y: {
+    //                     beginAtZero: true,
+    //                 },
+    //             },
+    //         },
+    //     });
+    // }, []);
 
     const Notification = ({ id, message, type, onClose }) => {
         return (
@@ -66,9 +101,23 @@ const Dashboard = () => {
                             <Bills />
                         </Col>
                     </Row>
+                    <div className="calendar" style={{paddingBottom:"30px",marginBottom:"50px"}}>
+                        <Calendar
+                            onChange={setSelectedDate}
+                            value={selectedDate}
+                            onClickDay={(date) => addNotification(`Selected date: ${date.toDateString()}`, 'info')}
+                        />
+                        {/*<div className="chartDashboard">*/}
+                        {/*    /!* Other dashboard content *!/*/}
+                        {/*    <h2>Analytics Dashboard</h2>*/}
+                        {/*    <canvas id="myChart" width="400" height="200"></canvas>*/}
+                        {/*</div>*/}
+                    </div>
                 </Container>
+
             </div>
         </>
+
     );
 };
 
