@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaUser, FaShoppingCart, FaList } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 import '../Dashboard/Dashboard.css';
 
-
-
 function Dashboard() {
-    const [data, setData] = useState({ user: [], product: [], orders: 0 });
+
+    const [data, setData] = useState({ user: [], product: [], orders: [] });
     const [showUsers, setShowUsers] = useState(false);
     const [showProducts, setShowProducts] = useState(false);
     const navigate = useNavigate(); // Get the navigate function
+    const [showBills, setShowBills] = useState(false);
 
     const updateUserStatus = (id, status) => {
         axios
@@ -47,14 +47,21 @@ function Dashboard() {
             })
             .catch(error => console.error(error));
     };
+    const handleShowAllBills = () => {
+        axios
+            .get("http://localhost:8080/bill/getBills")
+            .then(response => {
+                setData({ ...data, bill: response.data });
+                setShowBills(true);
+            })
+            .catch(error => console.error(error));
+    };
 
 
     useEffect(() => {
-        // Check if user is authenticated and has admin role
         const isAdmin = localStorage.getItem('role') === 'admin';
-
         axios
-            .get('/dashboard/details')
+            .get('http://localhost:8080/dashboard/details')
             .then(response => {
                 setData({
                     user: response.data.user,
@@ -146,8 +153,8 @@ return (
                                                 <td>{product.description}</td>
                                                 <td>{product.price}</td>
                                                 <td>{product.status}</td>
-                                                <td>{product.category.id}</td>
-                                                <td>{product.category.name}</td>
+                                                <td>{product.category ? product.category.id : ''}</td>
+                                                <td>{product.category ? product.category.name : ''}</td>
                                             </tr>
                                         ))}
                                         </tbody>
@@ -162,16 +169,39 @@ return (
                                 <Card.Title>
                                     <FaList /> Orders
                                 </Card.Title>
-                                {data.showAllProducts ? (
+                                {!showBills && (
+                                    <Button onClick={handleShowAllBills}>Show All Bills</Button>
+                                )}
+                                {showBills && data.bill && data.bill.length > 0 && (
                                     <table>
-                                        {/* Display all orders */}
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Contact Number</th>
+                                            <th>Payment Method</th>
+                                            <th>Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {data.bill.map(bill => (
+                                            <tr key={bill.id}>
+                                                <td>{bill.id}</td>
+                                                <td>{bill.name}</td>
+                                                <td>{bill.email}</td>
+                                                <td>{bill.contactNumber}</td>
+                                                <td>{bill.paymentMethod}</td>
+                                                <td>{bill.total}</td>
+                                            </tr>
+                                        ))}
+                                        </tbody>
                                     </table>
-                                ) : (
-                                    <Button onClick={axios.get("http://localhost:8080/user/get")}>Show All Orders</Button>
                                 )}
                             </Card.Body>
                         </Card>
                     </Col>
+
                 </Row>
             </Container>
         </>

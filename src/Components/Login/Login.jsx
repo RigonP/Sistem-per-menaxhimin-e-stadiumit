@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Login.css';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineStadium } from 'react-icons/md';
+import api from '../Utils/api';
 
 function InputField(props) {
     const { label, name, value, onChange, required } = props;
@@ -14,6 +15,14 @@ function InputField(props) {
         </div>
     );
 }
+
+InputField.propTypes = {
+    label: PropTypes.string,
+    name: PropTypes.string,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+    required: PropTypes.bool,
+};
 
 function SuccessMessage() {
     return (
@@ -42,12 +51,12 @@ function PasswordInput(props) {
 }
 
 PasswordInput.propTypes = {
-    onChange: PropTypes.func,
-    setShowPassword: PropTypes.func,
-    name: PropTypes.string,
-    showPassword: PropTypes.bool,
     label: PropTypes.string,
+    name: PropTypes.string,
     value: PropTypes.string,
+    onChange: PropTypes.func,
+    showPassword: PropTypes.bool,
+    setShowPassword: PropTypes.func,
     required: PropTypes.bool,
 };
 
@@ -68,48 +77,42 @@ const Header = () => {
 const Footer = () => {
     return (
         <div className="footer" style={{ marginBottom: '0px', paddingBottom: '0px' }}>
-            <div className="footer" style={{ marginBottom: '0px', paddingBottom: '35px' }}>
-                <div className="links" style={{ margin: 'auto' }}>
-                    <a href="#" style={{ margin: 'auto' }}>
-                        Stadium
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        About
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        Blog
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        Jobs
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        Help
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        API
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        Privacy
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        Terms
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        Top Accounts
-                    </a>
-
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        Locations
-                    </a>
-                    <a href="#" style={{ marginLeft: '30px' }}>
-                        Meta Verified
-                    </a>
-                </div>
+            <div className="links" style={{ margin: 'auto' }}>
+                <a href="#">Stadium</a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    About
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    Blog
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    Jobs
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    Help
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    API
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    Privacy
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    Terms
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    Top Accounts
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    Locations
+                </a>
+                <a href="#" style={{ marginLeft: '30px' }}>
+                    Meta Verified
+                </a>
             </div>
         </div>
     );
 };
-
 const LoginForm = () => {
     const navigate = useNavigate();
 
@@ -138,25 +141,24 @@ const LoginForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/user/login', formData);
+            const response = await api.post('http://localhost:8080/user/login', formData);
             console.log(response.data);
             setIsSubmitted(true);
             saveLoginStatus();
-            const { user, token } = response.data;
-            if (user.role === 'admin') {
-                navigate('/dashboard');
-            } else {
-                navigate('/');
-            }
+            const { token } = response.data;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Set the Authorization header
+            navigate('/dashboard'); // Redirect to the desired page after successful login
+            <SuccessMessage />
         } catch (error) {
             console.log(error.response.data);
-            if (error.response.status === 409) {
-                setEmailError(true);
-            } else if (error.response.status === 400) {
+            if (error.response.status === 404) {
                 setNonExistingUserError(true);
+            } else if (error.response.status === 401) {
+                setPasswordError(true);
             }
         }
     };
+
 
     const handleLogout = () => {
         sessionStorage.removeItem('isLoggedIn');
@@ -172,13 +174,9 @@ const LoginForm = () => {
 
     return (
         <div>
-            <div>
-                <Header />
-            </div>
+            <Header />
             <form onSubmit={handleSubmit} className="signup-form" style={{ marginTop: '100px', marginBottom: '0px' }}>
-                {isSubmitted ? (
-                    <SuccessMessage />
-                ) : (
+
                     <div>
                         <h1 className="signin" style={{ fontWeight: 'bold', paddingBottom: '30px', paddingTop: '20px' }}>
                             Log in
@@ -200,17 +198,15 @@ const LoginForm = () => {
                         />
                         <button type="submit" className="signup-button" style={{ marginBottom: '10px', marginTop: '5px' }}>
                             Log In
-                        </button>
-
-                        <div className="forgot-link" style={{ fontSize: '14px' }}>
-                            <Link to="/forgotPassword"> Forgot Password? </Link>
-                        </div>
+                        </button>        <div className="forgot-link" style={{ fontSize: '14px' }}>
+                        <Link to="/forgotPassword"> Forgot Password? </Link>
+                    </div>
 
                         <div className="signup-link" style={{ color: 'black', fontSize: '14px' }}>
                             Don't have an account? <Link to="/signup">Sign up</Link>
                         </div>
                     </div>
-                )}
+
             </form>
             <Footer />
         </div>
