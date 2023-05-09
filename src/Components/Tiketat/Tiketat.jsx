@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar'
 import StadiumSeat from './StadiumSeat'
 import ConcertSeat from './ConcertSeat'
 import Footer from '../Footer/Footer'
-
+import Sponsors from '../Eventet/Sponsors/Sponsors'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
@@ -66,7 +66,7 @@ const Tiketat = () => {
     </div>
     </div>
     {renderView()}
-
+    <Sponsors />
     <Footer />
     </>
   )
