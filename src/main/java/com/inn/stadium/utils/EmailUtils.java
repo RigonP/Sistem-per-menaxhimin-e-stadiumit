@@ -21,7 +21,7 @@ public class EmailUtils {
 
         SimpleMailMessage message= new SimpleMailMessage();
 
-        message.setFrom("artini88@outlook.com");
+        message.setFrom("projektistadiumi@outlook.com");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
@@ -43,10 +43,10 @@ public class EmailUtils {
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message,true);
 
-        helper.setFrom("artini88@outlook.com");
+        helper.setFrom("projektistadiumi@outlook.com");
         helper.setTo(to);
         helper.setSubject(subject);
-        String htmlMsg = "<p><b>Te dhenat tuaja per Stadium Management System</b><br><b>Email: </b> " + to + " <br><b>Password: </b> " + password + "<br><a href=\"http://localhost:4200/\">Kliko ketu per tu bere login</a></p>";
+        String htmlMsg = "<p><b>Te dhenat tuaja për Stadium Management System</b><br><b>Email: </b> " + to + " <br><b>Password: </b> " + password + "<br><a href=\"http://localhost:3000/login\">Kliko ketu per tu bere login</a></p>";
         message.setContent(htmlMsg,"text/html");
         emailSender.send(message);
 

@@ -10,11 +10,12 @@ const UsersDashboard = () => {
 
     const updateUserStatus = (id, status) => {
         axios
-            .post(`http://localhost:8080/user/update/${id}`, { status })
+            .post(`http://localhost:8080/user/update`, { id, status })
             .then(response => {
+                const updatedStatus = response.data === 'true';
                 const updatedUsers = data.map(user => {
                     if (user.id === id) {
-                        return { ...user, status: response.data.status };
+                        return { ...user, status: updatedStatus };
                     }
                     return user;
                 });
@@ -40,10 +41,10 @@ const UsersDashboard = () => {
                     <FaUserTie className="FaUserTie"/> Users
                 </Card.Title>
                 {showUsers && (
-                    <Button className="buttondashboard"  onClick={() => setShowUsers(false)}>Close</Button>
+                    <Button className="buttondashboard" onClick={() => setShowUsers(false)}>Close</Button>
                 )}
                 {!showUsers && (
-                    <Button className="buttondashboard"  onClick={handleShowAllUsers}>Show All Users</Button>
+                    <Button className="buttondashboard" onClick={handleShowAllUsers}>Show All Users</Button>
                 )}
                 {showUsers && data && data.length > 0 && (
                     <table>
@@ -66,8 +67,8 @@ const UsersDashboard = () => {
                                 <td>{user.name}</td>
                                 <td>{user.status.toString()}</td>
                                 <td>
-                                    <Button onClick={() => updateUserStatus(user.id, !user.status.toString())}>
-                                        {user.status ? 'Deactivate' : 'Activate'}
+                                    <Button onClick={() => updateUserStatus(user.id, !user.status)}>
+                                        {user.status ? 'Change Status' : 'Change Status'}
                                     </Button>
                                 </td>
                             </tr>

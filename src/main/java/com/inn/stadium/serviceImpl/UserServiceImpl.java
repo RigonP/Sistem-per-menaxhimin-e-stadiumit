@@ -199,7 +199,7 @@ public class UserServiceImpl implements UserService {
 
             if(!Objects.isNull(user) && !Strings.isNullOrEmpty(user.getEmail()))
                 emailUtils.forgetMail(user.getEmail(),"Credentials by Stadium Menagement Stadium",user.getPassword());
-                return StadiumUtils.getResponseEntity("Shikoni ju lutem ne emailin tuaj , per te shikuar passwordin ", HttpStatus.OK);
+                return StadiumUtils.getResponseEntity("Shikoni ju lutem në emailin tuaj , për të shikuar passwordin ", HttpStatus.OK);
 
         }catch (Exception e){
             e.printStackTrace();

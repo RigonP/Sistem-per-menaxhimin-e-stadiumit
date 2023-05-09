@@ -148,7 +148,7 @@ const LoginForm = () => {
             const { token } = response.data;
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Set the Authorization header
             navigate('/dashboard'); // Redirect to the desired page after successful login
-            <SuccessMessage />
+
         } catch (error) {
             console.log(error.response.data);
             if (error.response.status === 404) {

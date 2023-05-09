@@ -3,6 +3,7 @@ import axios from "axios";
 import './ForgotPassword.css';
 import {Link} from "react-router-dom";
 import {MdOutlineStadium} from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 function ForgotPasswordPage() {
     const [email, setEmail] = useState("");
@@ -43,12 +44,13 @@ function ForgotPasswordPage() {
         );
     }
 
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
+
         e.preventDefault();
         axios
-            .post("http://localhost:8080/user/forgotPassword",
-                { email }, { withCredentials: true })
+            .post("http://localhost:8080/user/forgotPassword", { email })
             .then((res) => {
                 if (res.status === 200) {
                     setSuccessMessage(res.data);
@@ -56,7 +58,7 @@ function ForgotPasswordPage() {
                 }
             })
             .catch((err) => {
-                setErrorMessage(
+                setErrorMessage (
                     "Dicka shkoi gabim. Ju lutem provoni përsëri ose regjistrohuni."
                 );
                 setSuccessMessage("");
@@ -68,6 +70,8 @@ function ForgotPasswordPage() {
             <div>
                 <Header/>
             </div>
+            {errorMessage && <p className="error" style={{display : "flex",margin:"auto",paddingBottom:"50px",alignItems:"center",justifyContent:"center"}}>{errorMessage.message}</p>}
+            {successMessage && <p className="success" style={{border:"solid" , borderWidth: "2px",borderStyle:"double",height: "5vh",width:"80vh" ,marginBottom:"20px",display : "flex",margin:"auto",alignItems:"center",justifyContent:"center"}}>{successMessage.message}</p>}
         <div>
             <h1 style={{display : "flex" ,margin : "auto", alignItems: "center", justifyContent : "center" , marginTop : "100px" , marginBottom : "0px"}}>Keni harruar fjalëkalimin?</h1>
             <form className="formaForgot" style={{borderColor : "aliceblue" , borderWidth : "25px" ,borderStyle : "dashed"  ,display : "flex" , flexDirection : "column" , alignItems: "center" , justifyContent : "center" , height : "50vh" ,width : "50vh" , margin : "auto"}} onSubmit={handleSubmit}>
@@ -85,8 +89,6 @@ function ForgotPasswordPage() {
                      <Link to="/login">Më rikthe në Log in</Link>
                 </div>
             </form>
-            {errorMessage && <p className="error" >{errorMessage}</p>}
-            {successMessage && <p className="error" >{successMessage}</p>}
 
         </div>
             <div>
