@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ResponseEntity<String> addNewProduct(Map<String, String> requestMap) {
         try {
-            if (jwtFilter.isAdmin()) {
+            if (jwtFilter.isAdmin() || jwtFilter.isProductAdmin()) {
                 if (validateProductMap(requestMap, false)) {
                     productDao.save(getProductFromMap(requestMap, false));
                     return StadiumUtils.getResponseEntity("Produkti u shtua me sukses!", HttpStatus.OK);
@@ -98,7 +98,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ResponseEntity<String> updateProduct(Map<String, String> requestMap) {
         try {
-            if (jwtFilter.isAdmin()) {
+            if (jwtFilter.isAdmin() || jwtFilter.isProductAdmin()) {
                 if (validateProductMap(requestMap, true)) {
                     Optional<Product> optional = productDao.findById(Integer.parseInt(requestMap.get("id")));
                     if (!optional.isEmpty()) {
@@ -127,7 +127,7 @@ public class ProductServiceImpl implements ProductService {
     public ResponseEntity<String> deleteProduct(Integer id) {
 
         try {
-            if (jwtFilter.isAdmin()) {
+            if (jwtFilter.isAdmin() || jwtFilter.isProductAdmin()) {
                 Optional optional = productDao.findById(id);
                 if (!optional.isEmpty()){
                     productDao.deleteById(id);
@@ -148,7 +148,7 @@ public class ProductServiceImpl implements ProductService {
     public ResponseEntity<String> updateStatus(Map<String, String> requestMap) {
 
         try {
-            if(jwtFilter.isAdmin()){
+            if(jwtFilter.isAdmin() || jwtFilter.isProductAdmin()){
                 Optional optional =productDao.findById(Integer.parseInt(requestMap.get("id")));
                 if(!optional.isEmpty()){
                     productDao.updateProductStatus(requestMap.get("status"),Integer.parseInt(requestMap.get("id")));

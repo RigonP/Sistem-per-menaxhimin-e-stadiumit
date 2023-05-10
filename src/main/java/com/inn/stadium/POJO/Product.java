@@ -45,4 +45,5 @@ public class Product implements Serializable {
 
     @Column(name="status")
     private String status;
+
 }

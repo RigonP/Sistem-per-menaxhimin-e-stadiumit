@@ -106,10 +106,6 @@ function Kits(){
                 <option value="green">Price | Highest to Lowest</option>
             </select>
         </div>  */}
-          
-    
-                                    
-            
 
 
 
