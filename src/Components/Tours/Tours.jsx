@@ -28,13 +28,18 @@ const Data1 = [
     destTitle:'Autobusët Urban',
     description: 'Për të bërë udhëtimin këtu më të lehtë.'
   },
-
+]
+const Data2 = [
   {
     id:2,
     imgSrc:stadium,
     destTitle:'Arritja Këtu',
     description: 'Stadiumi është më afër se sa mendoni.'
+    
   },
+]
+
+const Data3 = [
 
   {
     id:3,
@@ -45,7 +50,7 @@ const Data1 = [
 
 
 ]
-const Data2 = [
+const Data4 = [
     
     {
       id:1,
@@ -53,7 +58,8 @@ const Data2 = [
       destTitle:'Objektet e Stadiumit',
       description: 'Shërbimet dhe objektet për ta bërë vizitën tuaj më të mirë.'
     },
-  
+]
+const Data5 = [
     {
       id:2,
       imgSrc:dardanet,
@@ -63,7 +69,7 @@ const Data2 = [
   
   ]
 
-  const Data3 = [
+  const Data6 = [
     {
         id:1,
         destTitle:'Pyetje shtesë?',
@@ -126,21 +132,36 @@ const Tours = () => {
             
           })
         }
-
-      </div>
-    </section>
-    <section className='main container section'>
-
-      <div className="secTitle">
-        <h3 data-aos="fade-right"  className="title">
-          AT THE STADIUM 
-        </h3>
-      </div>
-
-      <div id="karta_kontaktit " className="secContent grid">
-        
         {
           Data2.map(({id, imgSrc, destTitle, description})=>{
+            return( 
+              <div key={id} className="singleDestination" data-aos="fade-up">
+                
+                <div className="imageDiv">
+                  <img src={imgSrc} alt={destTitle} />
+                </div>
+
+                <div className="cardInfo">
+                  <h4 className="destTitle">{destTitle}</h4>
+
+                  <div className="desc">
+                    <p>{description}</p>
+                  </div>
+
+                  <button className='btn flex'>
+                  <Link to="/arritja-ketu">
+                          Kliko Ketu  ► 
+                  </Link>
+                    
+                  </button>
+                </div>
+              </div>
+            )
+            
+          })
+        }
+       {
+          Data3.map(({id, imgSrc, destTitle, description})=>{
             return( 
               <div key={id} className="singleDestination" data-aos="fade-up">
                 
@@ -167,9 +188,76 @@ const Tours = () => {
             
           })
         }
+      </div>
+    </section>
+    <section className='main container section'>
 
+      <div className="secTitle">
+        <h3 data-aos="fade-right"  className="title">
+          AT THE STADIUM 
+        </h3>
+      </div>
+
+      <div id="karta_kontaktit " className="secContent grid">
+        
+        {
+          Data4.map(({id, imgSrc, destTitle, description})=>{
+            return( 
+              <div key={id} className="singleDestination" data-aos="fade-up">
+                
+                <div className="imageDiv">
+                  <img src={imgSrc} alt={destTitle} />
+                </div>
+
+                <div className="cardInfo">
+                  <h4 className="destTitle">{destTitle}</h4>
+
+                  <div className="desc">
+                    <p>{description}</p>
+                  </div>
+
+                  <button className='btn flex'>
+                  <Link to="/tiketat">
+                          Kliko Ketu  ► 
+                  </Link>
+                    
+                  </button>
+                </div>
+              </div>
+            )
+            
+          })
+        }
 {
-          Data3.map(({id, destTitle, description})=>{
+          Data5.map(({id, imgSrc, destTitle, description})=>{
+            return( 
+              <div key={id} className="singleDestination" data-aos="fade-up">
+                
+                <div className="imageDiv">
+                  <img src={imgSrc} alt={destTitle} />
+                </div>
+
+                <div className="cardInfo">
+                  <h4 className="destTitle">{destTitle}</h4>
+
+                  <div className="desc">
+                    <p>{description}</p>
+                  </div>
+
+                  <button className='btn flex'>
+                  <Link to="/tiketat">
+                          Kliko Ketu  ► 
+                  </Link>
+                    
+                  </button>
+                </div>
+              </div>
+            )
+            
+          })
+        }
+        {
+          Data6.map(({id, destTitle, description})=>{
             return( 
               <div key={id} className="singleDestination" data-aos="fade-up">
                 
