@@ -47,10 +47,11 @@
 }
 
 .welcome-message {
+
     color: #fff;
     text-align: center;
-    font-size: 24px;
-    margin-top: 40px;
+    font-size: 30px;
+    margin-top: 100px;
     margin-bottom: 100px;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #007bff, 0 0 70px #007bff, 0 0 80px #007bff, 0 0 100px #007bff, 0 0 150px #007bff;
 }
@@ -58,7 +59,8 @@
 .rowdashboard {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
+
 }
 
 .coldashboard {

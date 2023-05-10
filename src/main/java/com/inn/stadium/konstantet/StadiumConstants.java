@@ -8,7 +8,7 @@ public class StadiumConstants {
 
     public static final String UNAUTHORIZED_ACCESS = "Unauthorized access";
 
-    public static final String STORE_LOCATION = "C:\\UsersDashboard\\artin\\Desktop\\stored location pdf";
+    public static final String STORE_LOCATION = "C:\\Users\\artin\\Desktop\\storedpdf";
 
 
 }
