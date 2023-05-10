@@ -17,6 +17,7 @@ import ForgotPasswordPage from "./Components/Signup/ForgotPasswordPage";
 import DashboardAdmin from "./Components/Dashboard/Dashboard";
 import axios from "axios";
 import { BrowserRouter , Navigate } from 'react-router-dom';
+import ArritjaKetu from './Components/Tours/ArritjaKetu';
 
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
@@ -40,6 +41,7 @@ const App = () => {
       <Route path='/eventet' element={<Eventet />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/shop" element={<Shop />} />
+      <Route path="/arritja-ketu" element={<ArritjaKetu />} />
       <Route path='/fans' element={<Fans />} /> 
       <Route path='/tours' element={<Tours />} />
       <Route path='tiketat' element={<Tiketat />} />
