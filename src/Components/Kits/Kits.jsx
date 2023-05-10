@@ -6,9 +6,35 @@ import SecondN from '../Navbar/Navbar';
 
 
 import img1 from '../../images/collection_banner__mens_kits_1070x.webp'
+import backKit from '../../images/back-kit.jpg'
+import alitiback from '../../images/aliti-back.webp'
+import alitiboth from '../../images/aliti-both.webp'
+import awaykitback from '../../images/away-kit-back.webp'
+import awaykitfront from '../../images/away-kit-front.webp'
+import bluzaback from '../../images/bluza-back.webp'
+import bluzafront from '../../images/bluza-front.webp'
+import celinaback from '../../images/celina-back.webp'
+import celinaboth from '../../images/celina-both.webp'
+import duksback from '../../images/duks-back.webp'
+import duksfront from '../../images/duks-front.webp'
+import duks2back from '../../images/duks2-back.webp'
+import duks2front from '../../images/duks2-front.webp'
+import trainers from '../../images/komplet-trainers.webp'
+import muriqiback from '../../images/muriqi-back.webp'
+import muriqiboth from '../../images/muriqi-both.webp'
+import rashicaback from '../../images/rashica-back.webp'
+import rashicaboth from '../../images/rashica-both.webp'
+import frontkit from '../../images/style-front-kit.webp'
+import whitekit from '../../images/style-front-white-kit.webp'
+import vojvodaback from '../../images/vojvoda-back.webp'
+import vojvodaboth from '../../images/vojvoda-both.webp'
+import yourback from '../../images/your-back.webp'
+import yourboth from '../../images/your-both.webp'
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import ProductFilter from '../FilterKits/Products';
 
 
 
@@ -45,9 +71,11 @@ function Kits(){
                 </div>
             </div>
 
+            <ProductFilter/>
+
             
 
-        <div className='container filter-options'>    
+        {/* <div className='container filter-options'>    
             <select class="btn btn-lg btn-outline-dark buton1" id="color-filter">
                 <option value="">Size</option>
                 <option value="XXL">XXL</option>
@@ -77,7 +105,9 @@ function Kits(){
                 <option value="blue">Price | Lowest to Highest</option>
                 <option value="green">Price | Highest to Lowest</option>
             </select>
-        </div> 
+        </div>  */}
+          
+    
                                     
             
 
