@@ -36,7 +36,7 @@ const data = [
     id: 1,
     image: require ('../../images/aliti-both.webp'),
     title: 'Aliti Home Kit',
-    price: '50.00$',
+    price: '40.00$',
     color: 'red',
     size: 'L',
     matchwear: 'Defender'
@@ -45,7 +45,7 @@ const data = [
     id: 2,
     image: muriqiboth,
     title: 'Muriqi Home Kit',
-    price: '50.00$',
+    price: '70.00$',
     color: 'blue',
     size: 'XS,S,M,XL,',
     matchwear: 'Attacker'
@@ -54,7 +54,7 @@ const data = [
     id: 3,
     image: celinaboth,
     title: 'Celina Home Kit',
-    price: '50.00$',
+    price: '60.00$',
     color: 'black',
     size:'M,L,XL',
     matchwear: 'Midfielder'
@@ -74,42 +74,68 @@ const ProductFilter = () => {
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedMatchWear, setSelectedMatchWear] = useState('');
+  const [selectedSortBy, setSelectedSortBy] = useState('');
   const [filteredData, setFilteredData] = useState(data);
 
   const handleColorFilter = (event) => {
     const color = event.target.value;
     setSelectedColor(color);
-    filterProducts(color, selectedSize,selectedMatchWear);
+    filterProducts(color, selectedSize,selectedMatchWear, selectedSortBy);
   };
 
   const handleSizeFilter = (event) => {
     const size = event.target.value;
     setSelectedSize(size);
-    filterProducts(selectedColor, size, selectedMatchWear);
+    filterProducts(selectedColor, size, selectedMatchWear, selectedSortBy);
   };
 
   const handleMatchWearFilter = (event) => {
   const matchwear = event.target.value;
   setSelectedMatchWear(matchwear);
-  filterProducts(selectedColor, selectedSize , matchwear);
+  filterProducts(selectedColor, selectedSize , matchwear, selectedSortBy);
   }
 
-  const filterProducts = (color, size,matchwear) => {
-    const filteredProducts = data.filter((product) => {
-      if (color === '' && size === '' && matchwear === '') {
-        return true; // No filter applied
-      }
-      if (color === '') {
-        return product.size.includes(size) && product.matchwear.includes(matchwear); // Filter by size only
-      }
-      if (size === '') {
-        return product.color === color && product.matchwear.includes(matchwear); // Filter by color only
-      }
-      if(matchwear === ''){
-        return product.color === color && product.size.includes(size);
-      }
-      return product.color === color && product.size.includes(size) && product.matchwear.includes(matchwear); // Filter by both color and size
-    });
+  const handleSortByFilter = (event) => {
+   const sortBy = event.target.value;
+   setSelectedSortBy(sortBy);
+   filterProducts(selectedColor, selectedSize, selectedMatchWear, sortBy);
+  }
+
+
+
+ const filterProducts = (color, size, matchwear, sortBy) => {
+   let sortedProducts = [...data];
+   if (sortBy === 'lowesthighest') {
+     sortedProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+   } else if (sortBy === 'highestlowest') {
+     sortedProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+   } else if (sortBy === 'atoz') {
+     sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+   } else if (sortBy === 'ztoa') {
+     sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+   }
+
+   const filteredProducts = sortedProducts.filter((product) => {
+     if (color === '' && size === '' && matchwear === '') {
+       return true;
+     }
+     if (color === '') {
+       return product.size.includes(size) && product.matchwear.includes(matchwear);
+     }
+     if (size === '') {
+       return product.color === color && product.matchwear.includes(matchwear);
+     }
+     if (matchwear === '') {
+       return product.color === color && product.size.includes(size);
+     }
+     return (
+       product.color === color &&
+       product.size.includes(size) &&
+       product.matchwear.includes(matchwear)
+     );
+   });
+
+
 
     setFilteredData(filteredProducts);
   };
@@ -152,6 +178,17 @@ return (
         <option value="Midfielder">Midfielder</option>
         <option value="Attacker">Attacker</option>
     </select>
+    <select class="btn btn-lg btn-outline-dark buton4" id="color-filter"
+    value={selectedSortBy}
+    onChange={handleSortByFilter}
+    >
+                    <option value="">Sort By</option>
+                    <option value="bestseller">Best Seller</option>
+                    <option value="lowesthighest">Lowest to Highest</option>
+                    <option value="highestlowest">Highest to Lowest</option>
+                    <option value="atoz">Alphabetically A-Z</option>
+                    <option value="ztoa">Alphabetically Z-A</option>
+                </select>
     </div>
 
     <div className="container snap-scroll-container">
