@@ -1,3 +1,4 @@
+import Navbar from '../Navbar/Navbar'
 import {
     Box,
     Button,
@@ -21,6 +22,7 @@ import {
   import { useRef, useState } from 'react'
   
   const center = { lat: 48.8584, lng: 2.2945 }
+    
   
   function ArritjaKetu() {
     const { isLoaded } = useJsApiLoader({
@@ -68,6 +70,8 @@ import {
     }
   
     return (
+        <>
+        <Navbar />
       <Flex
         position='relative'
         flexDirection='column'
@@ -137,7 +141,9 @@ import {
           </HStack>
         </Box>
       </Flex>
+     </>
     )
+     
   }
   
   export default ArritjaKetu
