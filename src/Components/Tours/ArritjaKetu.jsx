@@ -1,4 +1,4 @@
-import Navbar from '../Navbar/Navbar'
+
 import {
     Box,
     Button,
@@ -70,8 +70,7 @@ import {
     }
   
     return (
-        <>
-        <Navbar />
+        
       <Flex
         position='relative'
         flexDirection='column'
@@ -141,7 +140,7 @@ import {
           </HStack>
         </Box>
       </Flex>
-     </>
+     
     )
      
   }
