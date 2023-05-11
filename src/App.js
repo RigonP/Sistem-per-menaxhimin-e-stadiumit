@@ -19,6 +19,7 @@ import axios from "axios";
 import { BrowserRouter , Navigate } from 'react-router-dom';
 import ArritjaKetu from './Components/Tours/ArritjaKetu';
 import Autobuset from './Components/Tours/Autobuset';
+import Objektet from './Components/Tours/Objektet';
 
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
@@ -46,6 +47,7 @@ const App = () => {
       <Route path='/fans' element={<Fans />} /> 
       <Route path='/autobuset' element={<Autobuset />} /> 
       <Route path='/tours' element={<Tours />} />
+      <Route path='/objektet' element={<Objektet />} />
       <Route path='tiketat' element={<Tiketat />} />
       <Route path='/signup' element={<Signup />}/>
       <Route path='/login' element={<Login />}/>
