@@ -1,11 +1,7 @@
 import React, { useState } from 'react'; 
-import { FaSearchLocation } from 'react-icons/fa';
-import { FaRegAddressBook } from 'react-icons/fa';
-import { FaLaptop } from 'react-icons/fa';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Autobuset.css';
-import { Link } from "react-router-dom";
 import autobus from '../../Assets/autobus.jpg'
 
 const Autobuset = () => {
