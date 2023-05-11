@@ -1,0 +1,21 @@
+.containerA {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top:90px;
+    margin-bottom: 95px;
+  }
+  
+  .text-containerA {
+    flex: 1;
+  }
+  
+  .image-containerA {
+    flex: 1;
+  }
+  header{
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px; /* Adjust the value as needed */
+  }
+  
