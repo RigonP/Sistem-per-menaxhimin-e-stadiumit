@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import './Login.css';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineStadium } from 'react-icons/md';
 import api from '../Utils/api';
+import {AuthContext} from "../Authentication/AuthContext";
 
 function InputField(props) {
     const { label, name, value, onChange, required } = props;
@@ -115,6 +116,7 @@ const Footer = () => {
 };
 const LoginForm = () => {
     const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         email: '',
@@ -128,7 +130,7 @@ const LoginForm = () => {
     const [nonExistingUserError, setNonExistingUserError] = useState(false);
 
     const saveLoginStatus = () => {
-        sessionStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('isLoggedIn', true);
     };
 
     const handleInputChange = (event) => {
@@ -140,6 +142,7 @@ const LoginForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setNonExistingUserError(false);
         try {
             const response = await api.post('http://localhost:8080/user/login', formData);
             console.log(response.data);
@@ -147,8 +150,8 @@ const LoginForm = () => {
             saveLoginStatus();
             const { token } = response.data;
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Set the Authorization header
+            login(); // Call the login method from the AuthContext to update the authentication state
             navigate('/dashboard'); // Redirect to the desired page after successful login
-
         } catch (error) {
             console.log(error.response.data);
             if (error.response.status === 404) {
@@ -161,12 +164,12 @@ const LoginForm = () => {
 
 
     const handleLogout = () => {
-        sessionStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('isLoggedIn');
         navigate('/login');
     };
 
     useEffect(() => {
-        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (isLoggedIn) {
             navigate('/');
         }
@@ -181,7 +184,10 @@ const LoginForm = () => {
                         <h1 className="signin" style={{ fontWeight: 'bold', paddingBottom: '30px', paddingTop: '20px' }}>
                             Log in
                         </h1>
-                        <InputField label="Email" name="email" value={formData.email} onChange={handleInputChange} required />
+                        <InputField
+                            label="Email"
+                            name="email"
+                            value={formData.email} onChange={handleInputChange} required />
                         {nonExistingUserError && (
                             <div className="error-message" style={{ fontSize: '12px', color: 'red' }}>
                                 This user does not exist.
@@ -198,9 +204,10 @@ const LoginForm = () => {
                         />
                         <button type="submit" className="signup-button" style={{ marginBottom: '10px', marginTop: '5px' }}>
                             Log In
-                        </button>        <div className="forgot-link" style={{ fontSize: '14px' }}>
-                        <Link to="/forgotPassword"> Forgot Password? </Link>
-                    </div>
+                        </button>
+                        <div className="forgot-link" style={{ fontSize: '14px' }}>
+                            <Link to="/forgotPassword"> Forgot Password? </Link>
+                        </div>
 
                         <div className="signup-link" style={{ color: 'black', fontSize: '14px' }}>
                             Don't have an account? <Link to="/signup">Sign up</Link>

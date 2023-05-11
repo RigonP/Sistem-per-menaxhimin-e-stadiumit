@@ -11,7 +11,8 @@ import Calendar from 'react-calendar';
 import './Calendar.css';
 import Chart from 'chart.js/auto';
 import './Chart.css';
-import {MdOutlineStadium} from "react-icons/md";
+import {MdOutlineStadium} from "react-icons/md"
+
 
 
 const Dashboard = () => {
@@ -59,16 +60,26 @@ const Dashboard = () => {
             },
         ],
     };
-    React.useEffect(() => {
-
+    useEffect(() => {
         if (chartRef.current) {
             chartRef.current.destroy();
         }
 
-        const ctx = document.getElementById('myChart').getContext('2d');
-        new Chart(ctx, {
-            type: "polarArea",
-            data: data,
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        const revenueChart = new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [
+                    {
+                        label: 'Revenue',
+                        data: [1000, 1500, 1200, 1800, 2000, 1700],
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                    },
+                ],
+            },
             options: {
                 responsive: true,
                 scales: {
@@ -78,10 +89,36 @@ const Dashboard = () => {
                 },
             },
         });
-        const ctx2 = document.getElementById('myChart2').getContext('2d');
-        chartRef.current = new Chart(ctx2, {
+
+        const topSellingProductsCtx = document.getElementById('topSellingProductsChart').getContext('2d');
+        const topSellingProductsChart = new Chart(topSellingProductsCtx, {
             type: 'bar',
-            data: data2,
+            data: {
+                labels: ['Kits', 'Shoes', 'Hoodies', 'Trousers', 'Socks', 'Hats'],
+                datasets: [
+                    {
+                        label: 'Number of Sales',
+                        data: [12, 19, 15, 10, 1, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            },
             options: {
                 responsive: true,
                 scales: {
@@ -91,7 +128,10 @@ const Dashboard = () => {
                 },
             },
         });
+
+        chartRef.current = [revenueChart, topSellingProductsChart];
     }, []);
+
 
 
 
@@ -161,33 +201,31 @@ const Dashboard = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
-                            <div className="chartDashboard">
-                                {/* Other dashboard content */}
-                                <h2>Products</h2>
-                                <canvas id="myChart2" width="400" height="200"></canvas>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="chartDashboard">
-                                {/* Other dashboard content */}
-                                <h2>Total Sales</h2>
-                                <canvas id="myChart" width="400" height="200"></canvas>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="calendar" style={{paddingBottom:"30px",marginBottom:"50px"}}>
-                                <Calendar
-                                    onChange={setSelectedDate}
-                                    value={selectedDate}
-                                    onClickDay={(date) => addNotification(`Selected date: ${date.toDateString()}`, 'info')}
-                                />
-                            </div>
-                        </Col>
-                    </Row>
-
+                            <Col>
+                                <div className="chartDashboard">
+                                    {/* Other dashboard content */}
+                                    <h2>Products</h2>
+                                    <canvas id="topSellingProductsChart" width="400" height="200"></canvas>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="chartDashboard">
+                                    {/* Other dashboard content */}
+                                    <h2>Total Sales</h2>
+                                    <canvas id="revenueChart" width="400" height="200"></canvas>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="calendar" style={{ paddingBottom: "30px", marginBottom: "50px" }}>
+                                    <Calendar
+                                        onChange={setSelectedDate}
+                                        value={selectedDate}
+                                        onClickDay={(date) => addNotification(`Selected date: ${date.toDateString()}`, 'info')}
+                                    />
+                                </div>
+                            </Col>
+                        </Row>
                 </Container>
-
             </div>
         </>
 
