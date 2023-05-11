@@ -38,6 +38,8 @@ const data = [
     title: 'Aliti Home Kit',
     price: '50.00$',
     color: 'red',
+    size: 'L',
+    matchwear: 'Defender'
   },
   {
     id: 2,
@@ -45,6 +47,8 @@ const data = [
     title: 'Muriqi Home Kit',
     price: '50.00$',
     color: 'blue',
+    size: 'XS,S,M,XL,',
+    matchwear: 'Attacker'
   },
   {
     id: 3,
@@ -52,6 +56,8 @@ const data = [
     title: 'Celina Home Kit',
     price: '50.00$',
     color: 'black',
+    size:'M,L,XL',
+    matchwear: 'Midfielder'
   },
   {
     id: 4,
@@ -59,31 +65,64 @@ const data = [
     title: 'Vojvoda Home Kit',
     price: '50.00$',
     color: 'red',
+    size:'M,XL',
+    matchwear: 'Defender'
   },
 ];
 
 const ProductFilter = () => {
   const [selectedColor, setSelectedColor] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedMatchWear, setSelectedMatchWear] = useState('');
   const [filteredData, setFilteredData] = useState(data);
 
+  const handleColorFilter = (event) => {
+    const color = event.target.value;
+    setSelectedColor(color);
+    filterProducts(color, selectedSize,selectedMatchWear);
+  };
 
-const handleColorFilter = (event) => {
-  const color = event.target.value;
-  setSelectedColor(color);
+  const handleSizeFilter = (event) => {
+    const size = event.target.value;
+    setSelectedSize(size);
+    filterProducts(selectedColor, size, selectedMatchWear);
+  };
 
-  if (color === '') {
-    setFilteredData(data);
-  } else {
-    const filteredProducts = data.filter((product) => product.color === color);
-    setFilteredData(filteredProducts);
+  const handleMatchWearFilter = (event) => {
+  const matchwear = event.target.value;
+  setSelectedMatchWear(matchwear);
+  filterProducts(selectedColor, selectedSize , matchwear);
   }
-};
+
+  const filterProducts = (color, size,matchwear) => {
+    const filteredProducts = data.filter((product) => {
+      if (color === '' && size === '' && matchwear === '') {
+        return true; // No filter applied
+      }
+      if (color === '') {
+        return product.size.includes(size) && product.matchwear.includes(matchwear); // Filter by size only
+      }
+      if (size === '') {
+        return product.color === color && product.matchwear.includes(matchwear); // Filter by color only
+      }
+      if(matchwear === ''){
+        return product.color === color && product.size.includes(size);
+      }
+      return product.color === color && product.size.includes(size) && product.matchwear.includes(matchwear); // Filter by both color and size
+    });
+
+    setFilteredData(filteredProducts);
+  };
+
 
 
 return (
   <div>
     <div className='container filter-options'>
-    <select class="btn btn-lg btn-outline-dark buton1" id="color-filter">
+    <select class="btn btn-lg btn-outline-dark buton1" id="color-filter"
+    value={selectedSize}
+    onChange={handleSizeFilter}
+    >
                 <option value="">Size</option>
                 <option value="XXL">XXL</option>
                 <option value="XL">XL</option>
@@ -91,7 +130,6 @@ return (
                 <option value="M">M</option>
                 <option value="S">S</option>
                 <option value="XS">XS</option>
-
       </select>
     <select
       className="btn btn-lg btn-outline-dark buton2"
@@ -103,6 +141,16 @@ return (
       <option value="red">Red</option>
       <option value="blue">Blue</option>
       <option value="black">Black</option>
+    </select>
+    <select class="btn btn-lg btn-outline-dark buton3" id="color-filter"
+    value={selectedMatchWear}
+    onChange={handleMatchWearFilter}
+    >
+        <option value="">Matchwear</option>
+        <option value="GoalKeeper">GoalKeeper</option>
+        <option value="Defender">Defender</option>
+        <option value="Midfielder">Midfielder</option>
+        <option value="Attacker">Attacker</option>
     </select>
     </div>
 
