@@ -11,7 +11,7 @@ import stadium from '../../Assets/pjese-stadium.jpeg'
 import fansat from '../../Assets/fansat.jpg'
 import resto from '../../Assets/resto.jpg'
 import dardanet from '../../Assets/dardanet.jpg'
-
+import virtualTour from '../../Assets/virtualTour.jpg'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -77,7 +77,15 @@ const Data5 = [
       },
   ]
 
-
+  const Data7 = [
+    {
+        id:4,
+        imgSrc:virtualTour,
+        destTitle:'Virtual Tour',
+        description: 'Hapni derën drejt emocionit të futbollit dhe eksploroni stadiumin në një përvojë virtuale të pabesueshme !'
+      },
+  ]
+  
 const Tours = () => {
   
   //create a react hook to add scroll animation
