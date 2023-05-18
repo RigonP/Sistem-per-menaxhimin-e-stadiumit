@@ -1,9 +1,11 @@
 import React from 'react';
 import "./VirtualTour.css"
+import Navbar from '../Navbar/Navbar'
 
 const VirtualTour = () => {
     return (
         <>
+        <Navbar />
         <div className='virtual'>
         <h1 className='titulliVirtual'>Virtual Tour</h1>
         <p className='paragrafiVirtual'>Hapni derën drejt emocionit të futbollit dhe eksploroni stadiumin në një përvojë virtuale të pabesueshme</p>
