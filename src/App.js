@@ -21,7 +21,7 @@ import ArritjaKetu from './Components/Tours/ArritjaKetu';
 import Autobuset from './Components/Tours/Autobuset';
 import UserProfilePage from "./Components/UserProfilePage/UserProfilePage";
 import {AuthProvider} from "./Components/Authentication/AuthContext";
-
+import VirtualTour from "./Components/Tours/VirtualTour"; 
 
 
 
@@ -39,6 +39,7 @@ const App = () => {
       <Route path='/fans' element={<Fans />} />
       <Route path='/autobuset' element={<Autobuset />} />
       <Route path='/tours' element={<Tours />} />
+      <Route path='/virtualTour' element={<VirtualTour />} />
       <Route path='tiketat' element={<Tiketat />} />
       <Route path='/signup' element={<Signup />}/>
       <Route path='/login' element={<Login />}/>
