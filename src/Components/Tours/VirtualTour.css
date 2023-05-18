@@ -1,9 +1,13 @@
+.virtual{
+    padding: 50px 0;
+    position: relative;
+    top: 77px;
+}
 .titulliVirtual{
     font-weight: bold;
     font-size: 30px;
     text-align: center;
 }
-
 .paragrafiVirtual {
     font-size: 18px;
     color: #666;
