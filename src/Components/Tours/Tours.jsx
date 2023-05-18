@@ -281,7 +281,7 @@ const Tours = () => {
                   </div>
 
                   <button className='btn flex'>
-                  <Link to="/tiketat">
+                  <Link to="/virtualTour">
                           Kliko Ketu  ► 
                   </Link>
                     
