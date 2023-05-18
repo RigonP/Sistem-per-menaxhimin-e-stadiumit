@@ -85,7 +85,7 @@ const Data5 = [
         description: 'Hapni derën drejt emocionit të futbollit dhe eksploroni stadiumin në një përvojë virtuale të pabesueshme !'
       },
   ]
-  
+
 const Tours = () => {
   
   //create a react hook to add scroll animation
@@ -238,6 +238,34 @@ const Tours = () => {
         }
 {
           Data5.map(({id, imgSrc, destTitle, description})=>{
+            return( 
+              <div key={id} className="singleDestination" data-aos="fade-up">
+                
+                <div className="imageDiv">
+                  <img src={imgSrc} alt={destTitle} />
+                </div>
+
+                <div className="cardInfo">
+                  <h4 className="destTitle">{destTitle}</h4>
+
+                  <div className="desc">
+                    <p>{description}</p>
+                  </div>
+
+                  <button className='btn flex'>
+                  <Link to="/tiketat">
+                          Kliko Ketu  ► 
+                  </Link>
+                    
+                  </button>
+                </div>
+              </div>
+            )
+            
+          })
+        }
+        {
+          Data7.map(({id, imgSrc, destTitle, description})=>{
             return( 
               <div key={id} className="singleDestination" data-aos="fade-up">
                 
