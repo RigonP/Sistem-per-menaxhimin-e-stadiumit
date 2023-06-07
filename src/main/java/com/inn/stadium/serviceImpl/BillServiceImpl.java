@@ -101,20 +101,20 @@ public class BillServiceImpl implements BillService {
         table.addCell((String) data.get("name"));
         table.addCell((String) data.get("category"));
         table.addCell((String) data.get("quantity"));
-        table.addCell((String) data.get((Double)data.get("price")));
+        table.addCell(Double.toString((Double)data.get("price")));
         table.addCell(Double.toString((Double)data.get("total")));
     }
 
     private void addTableHeader(PdfPTable table) {
         log.info("log inside addTableHeader");
 
-        Stream.of("Name","Category","Quantiy","Price","Sub Total")
+        Stream.of("Name","Category","Quantity","Price","Sub Total")
                 .forEach(columnTitle -> {
                     PdfPCell header = new PdfPCell();
                     header.setBackgroundColor(BaseColor.LIGHT_GRAY);
                     header.setBorderWidth(2);
                     header.setPhrase(new Phrase(columnTitle));
-                    header.setBackgroundColor(BaseColor.YELLOW);
+                    header.setBackgroundColor(BaseColor.BLUE);
                     header.setHorizontalAlignment(Element.ALIGN_CENTER);
                     header.setVerticalAlignment(Element.ALIGN_CENTER);
                     table.addCell(header);
@@ -154,49 +154,19 @@ public class BillServiceImpl implements BillService {
 
     private void insertBill(Map<String, Object> requestMap) {
         try {
-
             Bill bill = new Bill();
 
-            String uuid = (String) requestMap.get("uuid");
-            String name = (String) requestMap.get("name");
-            String email = (String) requestMap.get("email");
-            String contactNumber = (String) requestMap.get("contactNumber");
-            String paymentMethod = (String) requestMap.get("paymentMethod");
-            String totalAmount = (String) requestMap.get("totalAmount");
-            String productDetails = (String) requestMap.get("productDetails");
-
-            if (uuid == null || uuid.isEmpty()) {
-                throw new IllegalArgumentException("UUID smund te jete null apo e zbrazet");
-            }
-            if (name == null || name.isEmpty()) {
-                throw new IllegalArgumentException("Emri smund te jete null apo e zbrazet");
-            }
-            if (email == null || email.isEmpty()) {
-                throw new IllegalArgumentException("Emaili smund te jete null apo e zbrazet");
-            }
-            if (contactNumber == null || contactNumber.isEmpty()) {
-                throw new IllegalArgumentException("Kontaki smund te jete null apo e zbrazet");
-            }
-            if (paymentMethod == null || paymentMethod.isEmpty()) {
-                throw new IllegalArgumentException("Pagesa smund te jete null apo e zbrazet");
-            }
-            if (totalAmount == null || totalAmount.isEmpty()) {
-                throw new IllegalArgumentException("Total amount smund te jete null apo e zbrazet");
-            }
-            if (productDetails == null || productDetails.isEmpty()) {
-                throw new IllegalArgumentException("Te dhenat e produktit smund te jene null apo e zbrazet");
-            }
-
-            bill.setUuid(uuid);
-            bill.setName(name);
-            bill.setEmail(email);
-            bill.setContactNumber(contactNumber);
-            bill.setPaymentMethod(paymentMethod);
-            bill.setTotal(Integer.parseInt(totalAmount));
-            bill.setProductDetails(productDetails);
+            bill.setUuid((String) requestMap.get("uuid"));
+            bill.setName((String) requestMap.get("name"));
+            bill.setEmail((String) requestMap.get("email"));
+            bill.setContactNumber((String) requestMap.get("contactNumber"));
+            bill.setPaymentMethod((String) requestMap.get("paymentMethod"));
+            bill.setTotal(Integer.parseInt((String) requestMap.get("totalAmount")));
+            bill.setProductDetails((String) requestMap.get("productDetails"));
             bill.setCreatedBy(jwtFilter.getCurrentUser());
-
             billDao.save(bill);
+
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -11,7 +11,7 @@ import stadium from '../../Assets/pjese-stadium.jpeg'
 import fansat from '../../Assets/fansat.jpg'
 import resto from '../../Assets/resto.jpg'
 import dardanet from '../../Assets/dardanet.jpg'
-
+import virtualTour from '../../Assets/virtualTour.jpg'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -77,6 +77,14 @@ const Data5 = [
       },
   ]
 
+  const Data7 = [
+    {
+        id:4,
+        imgSrc:virtualTour,
+        destTitle:'Virtual Tour',
+        description: 'Hapni derën drejt emocionit të futbollit dhe eksploroni stadiumin në një përvojë virtuale të pabesueshme !'
+      },
+  ]
 
 const Tours = () => {
   
@@ -246,6 +254,34 @@ const Tours = () => {
 
                   <button className='btn flex'>
                   <Link to="/tiketat">
+                          Kliko Ketu  ► 
+                  </Link>
+                    
+                  </button>
+                </div>
+              </div>
+            )
+            
+          })
+        }
+        {
+          Data7.map(({id, imgSrc, destTitle, description})=>{
+            return( 
+              <div key={id} className="singleDestination" data-aos="fade-up">
+                
+                <div className="imageDiv">
+                  <img src={imgSrc} alt={destTitle} />
+                </div>
+
+                <div className="cardInfo">
+                  <h4 className="destTitle">{destTitle}</h4>
+
+                  <div className="desc">
+                    <p>{description}</p>
+                  </div>
+
+                  <button className='btn flex'>
+                  <Link to="/virtualTour">
                           Kliko Ketu  ► 
                   </Link>
                     

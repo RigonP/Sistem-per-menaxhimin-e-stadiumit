@@ -72,31 +72,31 @@ import {
     return (
         
       <Flex
-        position='relative'
-        flexDirection='column'
-        alignItems='center'
-        h='100vh'
-        w='100vw'
+          position='relative'
+          flexDirection='column'
+          alignItems='center'
+          h='100vh'
+          w='100vw'
       >
         <Box position='absolute' left={0} top={0} h='100%' w='100%'>
           {/* Google Map Box */}
           <iframe title="Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.928454076262!2d21.1544899753821!3d42.662871515918106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee398234689%3A0x1ecdd21bb52cbd0f!2zU3RhZGl1bSAiIPCdkIXwnZCA8J2Qg_CdkIjwnZCLIPCdkJXwnZCO8J2QivCdkJHwnZCR8J2QiCAiIFByaXN0aW5h!5e0!3m2!1sen!2s!4v1682011069333!5m2!1sen!2s"
-                width="100%"
-                height="100%"
-                style={{border:"0" }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade">
-            </iframe>
+                  width="100%"
+                  height="100%"
+                  style={{border:"0" }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade">
+          </iframe>
         </Box>
         <Box
-          p={4}
-          borderRadius='lg'
-          m={4}
-          bgColor='white'
-          shadow='base'
-          minW='container.md'
-          zIndex='1'
+            p={4}
+            borderRadius='lg'
+            m={4}
+            bgColor='white'
+            shadow='base'
+            minW='container.md'
+            zIndex='1'
         >
           <HStack spacing={2} justifyContent='space-between'>
             <Box flexGrow={1}>
@@ -107,21 +107,21 @@ import {
             <Box flexGrow={1}>
               <Autocomplete>
                 <Input
-                  type='text'
-                  placeholder='Destination'
-                  ref={destiantionRef}
+                    type='text'
+                    placeholder='Destination'
+                    ref={destiantionRef}
                 />
               </Autocomplete>
             </Box>
-  
+
             <ButtonGroup>
               <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
                 Calculate Route
               </Button>
               <IconButton
-                aria-label='center back'
-                icon={<FaTimes />}
-                onClick={clearRoute}
+                  aria-label='center back'
+                  icon={<FaTimes />}
+                  onClick={clearRoute}
               />
             </ButtonGroup>
           </HStack>
@@ -129,20 +129,20 @@ import {
             <Text>Distance: {distance} </Text>
             <Text>Duration: {duration} </Text>
             <IconButton
-              aria-label='center back'
-              icon={<FaLocationArrow />}
-              isRound
-              onClick={() => {
-                map.panTo(center)
-                map.setZoom(15)
-              }}
+                aria-label='center back'
+                icon={<FaLocationArrow />}
+                isRound
+                onClick={() => {
+                  map.panTo(center)
+                  map.setZoom(15)
+                }}
             />
           </HStack>
         </Box>
       </Flex>
-     
-    )
-     
-  }
-  
-  export default ArritjaKetu
+
+  )
+
+}
+
+export default ArritjaKetu

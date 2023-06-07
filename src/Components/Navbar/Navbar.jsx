@@ -20,14 +20,14 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (isLoggedIn) {
             setIsLoggedIn(true);
         }
     }, []);
 
     const handleLogout = () => {
-        sessionStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('isLoggedIn');
         setIsLoggedIn(false);
         window.location.replace('/login');
     };
