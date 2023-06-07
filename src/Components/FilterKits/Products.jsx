@@ -145,50 +145,50 @@ const ProductFilter = () => {
 return (
   <div>
     <div className='container filter-options'>
-    <select class="btn btn-lg btn-outline-dark buton1" id="color-filter"
-    value={selectedSize}
-    onChange={handleSizeFilter}
-    >
-                <option value="">Size</option>
-                <option value="XXL">XXL</option>
-                <option value="XL">XL</option>
-                <option value="L">L</option>
-                <option value="M">M</option>
-                <option value="S">S</option>
-                <option value="XS">XS</option>
-      </select>
-    <select
-      className="btn btn-lg btn-outline-dark buton2"
-      id="color-filter"
-      value={selectedColor}
-      onChange={handleColorFilter}
-    >
-      <option value="">Color</option>
-      <option value="red">Red</option>
-      <option value="blue">Blue</option>
-      <option value="black">Black</option>
-    </select>
-    <select class="btn btn-lg btn-outline-dark buton3" id="color-filter"
-    value={selectedMatchWear}
-    onChange={handleMatchWearFilter}
-    >
-        <option value="">Matchwear</option>
-        <option value="GoalKeeper">GoalKeeper</option>
-        <option value="Defender">Defender</option>
-        <option value="Midfielder">Midfielder</option>
-        <option value="Attacker">Attacker</option>
-    </select>
-    <select class="btn btn-lg btn-outline-dark buton4" id="color-filter"
-    value={selectedSortBy}
-    onChange={handleSortByFilter}
-    >
-                    <option value="">Sort By</option>
-                    <option value="bestseller">Best Seller</option>
-                    <option value="lowesthighest">Lowest to Highest</option>
-                    <option value="highestlowest">Highest to Lowest</option>
-                    <option value="atoz">Alphabetically A-Z</option>
-                    <option value="ztoa">Alphabetically Z-A</option>
-                </select>
+        <select class="btn btn-lg btn-outline-dark buton1" id="color-filter"
+        value={selectedSize}
+        onChange={handleSizeFilter}
+        >
+          <option value="">Size</option>
+          <option value="XXL">XXL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+          <option value="M">M</option>
+          <option value="S">S</option>
+          <option value="XS">XS</option>
+        </select>
+        <select
+          className="btn btn-lg btn-outline-dark buton2"
+          id="color-filter"
+          value={selectedColor}
+          onChange={handleColorFilter}
+        >
+         <option value="">Color</option>
+         <option value="red">Red</option>
+         <option value="blue">Blue</option>
+         <option value="black">Black</option>
+        </select>
+        <select class="btn btn-lg btn-outline-dark buton3" id="color-filter"
+        value={selectedMatchWear}
+        onChange={handleMatchWearFilter}
+        >
+         <option value="">Matchwear</option>
+         <option value="GoalKeeper">GoalKeeper</option>
+         <option value="Defender">Defender</option>
+         <option value="Midfielder">Midfielder</option>
+         <option value="Attacker">Attacker</option>
+        </select>
+        <select class="btn btn-lg btn-outline-dark buton4" id="color-filter"
+        value={selectedSortBy}
+        onChange={handleSortByFilter}
+        >
+         <option value="">Sort By</option>
+         <option value="bestseller">Best Seller</option>
+         <option value="lowesthighest">Lowest to Highest</option>
+         <option value="highestlowest">Highest to Lowest</option>
+         <option value="atoz">Alphabetically A-Z</option>
+         <option value="ztoa">Alphabetically Z-A</option>
+        </select>
     </div>
 
     <div className="container snap-scroll-container">
