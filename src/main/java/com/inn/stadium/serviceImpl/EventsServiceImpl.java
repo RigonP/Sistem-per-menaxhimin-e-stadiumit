@@ -184,4 +184,5 @@ public class EventsServiceImpl implements EventsService {
         }
         return new ResponseEntity<>(new EventsWrapper(),HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
 }
