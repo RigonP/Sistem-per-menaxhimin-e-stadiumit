@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import axios from 'axios';
 import { useState } from "react";
 import './shop.css'
 
@@ -67,6 +68,7 @@ import 'aos/dist/aos.js';
 
 
 const Shop = () => {
+
 
   useEffect(() => {
     Aos.init({duration: 2000})

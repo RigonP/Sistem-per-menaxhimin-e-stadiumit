@@ -15,11 +15,7 @@ const ShopN = () => {
   },[])
   return (
     <Navbar className='container' expand="md">
-            <div className="logoDiv">
-                <Link to="/" className="logo flex">
-                    <h1 className="logo-text"><MdOutlineStadium className="icon"/> Kosovo Stadium.</h1>
-                </Link>
-            </div>
+
       <Navbar.Toggle aria-controls="basic-navbar-nav" data-target="#basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
