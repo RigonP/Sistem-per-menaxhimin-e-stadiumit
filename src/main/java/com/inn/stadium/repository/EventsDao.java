@@ -20,6 +20,7 @@ public interface EventsDao  extends JpaRepository<Events,Integer> {
     Integer updateEventStatus(@Param("status") String status, @Param("id") Integer id);
 
 
+
     List<EventsWrapper>getEventsByCategory(@Param("id") Integer id);
 
     EventsWrapper getEventsById(@Param("id") Integer id);

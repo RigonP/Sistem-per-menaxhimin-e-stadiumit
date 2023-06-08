@@ -52,5 +52,6 @@ public class Events implements Serializable {
 
     @Column(name="status")
     private String status;
+    
 
 }

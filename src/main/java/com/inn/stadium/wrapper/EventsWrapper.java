@@ -44,9 +44,6 @@ public class EventsWrapper {
         this.titulli=titulli;
     }
 
-
-
-
     public EventsWrapper(Integer id,String titulli, String description , String eventType){
         this.id=id;
         this.titulli=titulli;

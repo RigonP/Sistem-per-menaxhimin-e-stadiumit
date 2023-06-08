@@ -12,6 +12,7 @@ import './Calendar.css';
 import Chart from 'chart.js/auto';
 import './Chart.css';
 import {MdOutlineStadium} from "react-icons/md"
+import Events from "./Events";
 
 
 
@@ -198,6 +199,9 @@ const Dashboard = () => {
                         </Col>
                         <Col className="coldashboard">
                             <Bills />
+                        </Col>
+                        <Col className="coldashboard">
+                            <Events />
                         </Col>
                     </Row>
                     <Row>

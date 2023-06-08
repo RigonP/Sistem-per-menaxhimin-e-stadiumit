@@ -22,6 +22,7 @@ public class EventsRestImpl implements EventsRest {
     @Autowired
     EventsService eventsService;
 
+
     @Override
     public ResponseEntity<String> addNewEvent(Map<String, String> requestMap) {
 

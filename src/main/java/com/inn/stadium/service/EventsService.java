@@ -18,6 +18,7 @@ public interface EventsService {
 
     ResponseEntity <String> deleteEvent(Integer id);
 
+
     ResponseEntity<String> updateStatus(Map<String, String> requestMap);
 
     ResponseEntity<List<EventsWrapper>> getByCategory(Integer id);

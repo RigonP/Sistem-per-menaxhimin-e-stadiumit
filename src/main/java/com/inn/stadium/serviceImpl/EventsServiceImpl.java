@@ -32,6 +32,7 @@ public class EventsServiceImpl implements EventsService {
     JwtFilter jwtFilter;
 
 
+
     @Override
     public ResponseEntity<String> addNewEvent(Map<String, String> requestMap) {
         try {
@@ -89,7 +90,14 @@ public class EventsServiceImpl implements EventsService {
 
     @Override
     public ResponseEntity<List<EventsWrapper>> getAllEvents() {
-        return null;
+
+        try {
+            return new ResponseEntity<>(eventsDao.getAllEvents(), HttpStatus.OK);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @Override
