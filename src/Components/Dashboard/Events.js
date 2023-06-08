@@ -118,6 +118,7 @@ const Events = () => {
                     <Table striped bordered>
                         <thead>
                         <tr>
+
                             <th>ID</th>
                             <th>Title</th>
                             <th>Description</th>
