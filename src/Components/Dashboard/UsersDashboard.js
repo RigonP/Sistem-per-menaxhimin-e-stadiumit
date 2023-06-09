@@ -67,7 +67,7 @@ const UsersDashboard = () => {
                                 <td>{user.name}</td>
                                 <td>{user.status.toString()}</td>
                                 <td>
-                                    <Button onClick={() => updateUserStatus(user.id, !user.status)}>
+                                    <Button style={{ color: "darkblue" }} onClick={() => updateUserStatus(user.id, !user.status)}>
                                         {user.status ? 'Change Status' : 'Change Status'}
                                     </Button>
                                 </td>

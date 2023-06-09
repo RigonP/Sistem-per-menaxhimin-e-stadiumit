@@ -150,6 +150,7 @@ public class EventsServiceImpl implements EventsService {
 
     @Override
     public ResponseEntity<String> updateStatus(Map<String, String> requestMap) {
+
         try {
             if(jwtFilter.isAdmin()){
                 Optional optional =eventsDao.findById(Integer.parseInt(requestMap.get("id")));
@@ -157,7 +158,7 @@ public class EventsServiceImpl implements EventsService {
                     eventsDao.updateEventStatus(requestMap.get("status"),Integer.parseInt(requestMap.get("id")));
                     return StadiumUtils.getResponseEntity("Event status eshte ndryshuar me sukses!",HttpStatus.OK);
                 }
-                return StadiumUtils.getResponseEntity("Eventi nuk ekziston!",HttpStatus.OK);
+                return StadiumUtils.getResponseEntity("Event id nuk ekziston!",HttpStatus.OK);
 
             }else {
                 return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS,HttpStatus.UNAUTHORIZED);

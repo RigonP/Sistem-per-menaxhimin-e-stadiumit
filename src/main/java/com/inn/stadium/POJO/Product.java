@@ -23,7 +23,7 @@ import java.io.Serializable;
 @Table(name="product")
 public class Product implements Serializable {
 
-    public static final long serialVersionaUid = 123456l;
+    public static final long serialVersionUID = 123456l;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

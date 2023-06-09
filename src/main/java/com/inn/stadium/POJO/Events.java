@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 @NamedQuery(name = "Events.getEventByCategory",query = "select new com.inn.stadium.wrapper.EventsWrapper(e.id,e.titulli) from Events e where e.category.id=:id and e.status='true'")
 
-@NamedQuery(name = "Events.getEventById",query ="select new com.inn.stadium.wrapper.EventsWrapper(p.id,p.titulli,p.description,p.eventType) from Events p where p.id=:id" )
+@NamedQuery(name = "Events.getEventById",query ="select new com.inn.stadium.wrapper.EventsWrapper(e.id,e.titulli,e.description,e.eventType) from Events e where e.id=:id" )
 
 
 
