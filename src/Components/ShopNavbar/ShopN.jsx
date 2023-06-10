@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import 'aos/dist/aos.js';
-
+import cart from '../../images/shopping.png'
 
 const ShopN = () => {
   useEffect(() => {
@@ -21,6 +21,7 @@ const ShopN = () => {
         <Nav className="ml-auto">
         <Link to="/kits" style={{color: 'black'}} className="nav-link">Kits</Link>
         <Link to="/shop-by-player" style={{color: 'black'}} className="nav-link">Shop By Player</Link>
+        <Link to="/cart"> <img src={cart}/></Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

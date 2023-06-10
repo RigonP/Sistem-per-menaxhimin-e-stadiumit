@@ -5,6 +5,7 @@ import Eventet from './Components/Eventet/Eventet'
 import Contact from './Components/ContactForm/Contact';
 import Fans from './Components/Fans/Fans'
 import Shop from './Components/Shop/Shop'
+import Cart from './Components/Cart/Cart'
 import Tours from './Components/Tours/Tours'
 import { Routes, Route} from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
@@ -44,6 +45,7 @@ const App = () => {
       <Route path='/signup' element={<Signup />}/>
       <Route path='/login' element={<Login />}/>
       <Route path='/kits' element={<Kits/>}/>
+      <Route path='/cart' element={<Cart/>}/>
       <Route path='/forgotPassword' element={<ForgotPasswordPage />}/>
       <Route path='/changePassword' element={<ChangePasswordPage />}/>
       <Route path ='/dashboard' element={<DashboardAdmin />}/>
