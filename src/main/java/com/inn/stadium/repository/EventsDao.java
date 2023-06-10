@@ -14,12 +14,9 @@ import java.util.List;
 public interface EventsDao  extends JpaRepository<Events,Integer> {
 
     List<EventsWrapper> getAllEvents();
-
     @Modifying
     @Transactional
     Integer updateEventStatus(@Param("status") String status, @Param("id") Integer id);
-
-
 
     List<EventsWrapper>getEventsByCategory(@Param("id") Integer id);
 
