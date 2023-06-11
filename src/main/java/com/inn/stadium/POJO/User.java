@@ -17,6 +17,9 @@ import java.io.Serializable;
 
 @NamedQuery(name="User.updateStatus", query = "update User u set u.status=:status where u.id=:id")
 
+@NamedQuery(name = "User.getUserById",query ="select new com.inn.stadium.wrapper.UserWrapper(u.id,u.name,u.email,u.contactNumber) from User u where u.id=:id" )
+
+
 @Data
 @Entity
 @DynamicInsert

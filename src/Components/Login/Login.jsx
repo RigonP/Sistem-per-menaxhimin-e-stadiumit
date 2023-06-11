@@ -6,6 +6,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineStadium } from 'react-icons/md';
 import api from '../Utils/api';
 import { AuthContext } from '../Authentication/AuthContext';
+import Cookies from 'js-cookie';
+
+
 
 function InputField(props) {
     const { label, name, value, onChange, required } = props;
@@ -133,9 +136,10 @@ const LoginForm = () => {
             setIsSubmitted(true);
             saveLoginStatus();
             const { token } = response.data;
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Set the Authorization header
+            Cookies.set('token', token, { secure: true, sameSite: 'strict' }); // Store the token as a cookie
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Set the Authorization header
             login(); // Call the login method from the AuthContext to update the authentication state
-            navigate('/dashboard'); // Redirect to the desired page after successful login
+            navigate('/'); // Redirect to the desired page after successful login
         } catch (error) {
             console.log(error.response.data);
             if (error.response.status === 404) {

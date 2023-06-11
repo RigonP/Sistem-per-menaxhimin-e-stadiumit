@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
 import { FaShoppingCart } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
+import api from "../Utils/api";
 
 const Events = () => {
     const [data, setData] = useState([]);
@@ -24,7 +25,7 @@ const Events = () => {
     };
 
     const updateEventStatus = (id, status) => {
-        axios
+        api
             .post(`http://localhost:8080/events/updateStatus`, { id, status })
             .then((response) => {
                 const updatedStatus = response.data === 'true';
@@ -50,7 +51,7 @@ const Events = () => {
     };
 
     const updateEvent = (categoryId, titulli, description, location, date, eventType, id) => {
-        axios
+        api
             .post('http://localhost:8080/events/update', {
                 categoryId: parseInt(categoryId),
                 titulli: titulli,
@@ -69,7 +70,7 @@ const Events = () => {
                 }, 3000); // Hide success message after 3 seconds
 
                 // Fetch updated data after successful update
-                axios
+                api
                     .get('http://localhost:8080/events/get')
                     .then((response) => {
                         setData(response.data);
@@ -92,7 +93,7 @@ const Events = () => {
     };
 
     const handleDeleteEvent = (id) => {
-        axios
+        api
             .post(`http://localhost:8080/events/delete/${id}`)
             .then((response) => {
                 console.log(response);
@@ -123,7 +124,7 @@ const Events = () => {
             // Input is empty, do not proceed
             return;
         }
-        axios
+        api
             .post('http://localhost:8080/events/add', {
                 categoryId: parseInt(newCategoryId),
                 titulli: newEventTitle,
@@ -157,7 +158,7 @@ const Events = () => {
     };
 
     const handleShowAllEvents = () => {
-        axios
+        api
             .get('http://localhost:8080/events/get')
             .then((response) => {
                 setData(response.data);

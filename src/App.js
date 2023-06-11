@@ -19,9 +19,9 @@ import axios from "axios";
 import { BrowserRouter , Navigate } from 'react-router-dom';
 import ArritjaKetu from './Components/Tours/ArritjaKetu';
 import Autobuset from './Components/Tours/Autobuset';
-import UserProfilePage from "./Components/UserProfilePage/UserProfilePage";
+import UserProfilePage from "./Components/UserProfilePage/ProfilePage";
 import {AuthProvider} from "./Components/Authentication/AuthContext";
-import VirtualTour from "./Components/Tours/VirtualTour"; 
+import VirtualTour from "./Components/Tours/VirtualTour";
 
 
 
@@ -47,7 +47,7 @@ const App = () => {
       <Route path='/forgotPassword' element={<ForgotPasswordPage />}/>
       <Route path='/changePassword' element={<ChangePasswordPage />}/>
       <Route path ='/dashboard' element={<DashboardAdmin />}/>
-      <Route path='/userPage' element={<UserProfilePage />}/>
+      <Route path='/userProfile' element={<UserProfilePage />}/>
         </Routes>
       </AuthProvider>
   </BrowserRouter>

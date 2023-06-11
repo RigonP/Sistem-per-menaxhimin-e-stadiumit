@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import { FaShopify } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
+import api from "../Utils/api";
 
 const Category = () => {
     const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ const Category = () => {
     };
 
     const handleShowAllCategorys = () => {
-        axios
+        api
             .get('http://localhost:8080/category/get')
             .then((response) => {
                 setData(response.data);
@@ -26,7 +27,7 @@ const Category = () => {
     };
 
     const updateCategory = (id, name) => {
-        axios
+        api
             .post('http://localhost:8080/category/update', {
                 id: parseInt(id),
                 name: name,
@@ -46,7 +47,7 @@ const Category = () => {
             // Input is empty, do not proceed
             return;
         }
-        axios
+        api
             .post('http://localhost:8080/category/add', {
                 name: newCategoryName,
             })

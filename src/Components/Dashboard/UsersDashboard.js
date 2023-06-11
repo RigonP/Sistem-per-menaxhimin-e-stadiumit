@@ -3,13 +3,14 @@ import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import { FaUserTie } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
+import api from "../Utils/api";
 
 const UsersDashboard = () => {
     const [data, setData] = useState([]);
     const [showUsers, setShowUsers] = useState(false);
 
     const updateUserStatus = (id, status) => {
-        axios
+        api
             .post(`http://localhost:8080/user/update`, { id, status })
             .then(response => {
                 const updatedStatus = response.data === 'true';
@@ -25,7 +26,7 @@ const UsersDashboard = () => {
     };
 
     const handleShowAllUsers = () => {
-        axios
+        api
             .get("http://localhost:8080/user/get")
             .then(response => {
                 setData(response.data);

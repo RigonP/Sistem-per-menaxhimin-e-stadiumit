@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
 import { FaShoppingCart } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
+import api from "../Utils/api";
 
 const Products = () => {
     const [data, setData] = useState([]);
@@ -22,7 +23,7 @@ const Products = () => {
     };
 
     const updateProductStatus = (id, status) => {
-        axios
+        api
             .post(`http://localhost:8080/product/updateStatus`, { id, status })
             .then((response) => {
                 const updatedStatus = response.data === 'true';
@@ -48,7 +49,7 @@ const Products = () => {
     };
 
     const updateProduct = (categoryId, name, description, price, id) => {
-        axios
+        api
             .post('http://localhost:8080/product/update', {
                 categoryId: parseInt(categoryId),
                 name: name,
@@ -75,7 +76,7 @@ const Products = () => {
     };
 
     const handleDeleteProduct = (id) => {
-        axios
+        api
             .post(`http://localhost:8080/product/delete/${id}`)
             .then((response) => {
                 console.log(response);
@@ -104,7 +105,7 @@ const Products = () => {
             // Input is empty, do not proceed
             return;
         }
-        axios
+        api
             .post('http://localhost:8080/product/add', {
                 categoryId: parseInt(newCategoryId),
                 name: newProductName,
@@ -134,7 +135,7 @@ const Products = () => {
     };
 
     const handleShowAllProducts = () => {
-        axios
+        api
             .get('http://localhost:8080/product/get')
             .then((response) => {
                 setData(response.data);

@@ -3,13 +3,14 @@ import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import { FaList } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
+import api from "../Utils/api";
 
 const Bills = () => {
     const [data, setData] = useState([]);
     const [showBills, setShowBills] = useState(false);
 
     const handleShowAllBills = () => {
-        axios
+        api
             .get("http://localhost:8080/bill/getBills")
             .then(response => {
                 setData(response.data);

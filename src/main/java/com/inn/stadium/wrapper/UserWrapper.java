@@ -20,8 +20,6 @@ public class UserWrapper {
     public UserWrapper(){
 
     }
-
-
     public UserWrapper(Integer id, String name, String email, String contactNumber, String status) {
         this.id = id;
         this.name = name;
@@ -29,4 +27,12 @@ public class UserWrapper {
         this.contactNumber = contactNumber;
         this.status = status;
     }
+    public UserWrapper(Integer id, String name, String email, String contactNumber) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.contactNumber = contactNumber;
+    }
+
+
 }

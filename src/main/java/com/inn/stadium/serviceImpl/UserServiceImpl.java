@@ -10,6 +10,7 @@ import com.inn.stadium.repository.UserDao;
 import com.inn.stadium.service.UserService;
 import com.inn.stadium.utils.EmailUtils;
 import com.inn.stadium.utils.StadiumUtils;
+import com.inn.stadium.wrapper.ProductWrapper;
 import com.inn.stadium.wrapper.UserWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -205,6 +206,17 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
         return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<UserWrapper> getUserById(Integer id) {
+        try {
+            return new ResponseEntity<>(userDao.getUserById(id),HttpStatus.OK);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new UserWrapper(),HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
 
