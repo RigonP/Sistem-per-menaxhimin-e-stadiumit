@@ -39,7 +39,6 @@ public class ProductRestImpl  implements ProductRest {
             e.printStackTrace();
         }
 
-
         return new ResponseEntity<>(new ArrayList<>(),HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

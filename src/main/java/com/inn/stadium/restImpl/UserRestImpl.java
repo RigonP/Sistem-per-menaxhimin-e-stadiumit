@@ -4,6 +4,7 @@ import com.inn.stadium.konstantet.StadiumConstants;
 import com.inn.stadium.rest.UserRest;
 import com.inn.stadium.service.UserService;
 import com.inn.stadium.utils.StadiumUtils;
+import com.inn.stadium.wrapper.ProductWrapper;
 import com.inn.stadium.wrapper.UserWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -93,5 +94,16 @@ public class UserRestImpl implements UserRest {
             e.printStackTrace();
         }
         return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<UserWrapper> getUserById(Integer id) {
+        try {
+            return userService.getUserById(id);
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<>(new UserWrapper(),HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

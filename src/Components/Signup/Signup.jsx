@@ -173,11 +173,11 @@ const SignupForm = () => {
 
     return (
 
-        <div>
+        <div className="background">
             <div>
                 <Header/>
             </div>
-        <form onSubmit={handleSubmit} className="signup-form" style={{marginTop : "100px"}}>
+        <form onSubmit={handleSubmit} className="signup-form" >
             {isSubmitted ? (
                 <SuccessMessage />
             ) : (

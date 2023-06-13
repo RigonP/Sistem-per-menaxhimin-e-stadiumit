@@ -5,7 +5,6 @@ import Eventet from './Components/Eventet/Eventet'
 import Contact from './Components/ContactForm/Contact';
 import Fans from './Components/Fans/Fans'
 import Shop from './Components/Shop/Shop'
-import Cart from './Components/Cart/Cart'
 import Tours from './Components/Tours/Tours'
 import { Routes, Route} from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
@@ -20,10 +19,9 @@ import axios from "axios";
 import { BrowserRouter , Navigate } from 'react-router-dom';
 import ArritjaKetu from './Components/Tours/ArritjaKetu';
 import Autobuset from './Components/Tours/Autobuset';
-import UserProfilePage from "./Components/UserProfilePage/UserProfilePage";
+import UserProfilePage from "./Components/UserProfilePage/ProfilePage";
 import {AuthProvider} from "./Components/Authentication/AuthContext";
-import VirtualTour from "./Components/Tours/VirtualTour"; 
-import { ShopContextProvider } from "./Components/Context/shop-context";
+import VirtualTour from "./Components/Tours/VirtualTour";
 
 
 
@@ -31,7 +29,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <ShopContextProvider>
         <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/stadiumi' element={<Stadiumi />} />
@@ -47,13 +44,11 @@ const App = () => {
       <Route path='/signup' element={<Signup />}/>
       <Route path='/login' element={<Login />}/>
       <Route path='/kits' element={<Kits/>}/>
-      <Route path='/cart' element={<Cart/>}/>
       <Route path='/forgotPassword' element={<ForgotPasswordPage />}/>
       <Route path='/changePassword' element={<ChangePasswordPage />}/>
       <Route path ='/dashboard' element={<DashboardAdmin />}/>
-      <Route path='/userPage' element={<UserProfilePage />}/>
+      <Route path='/userProfile' element={<UserProfilePage />}/>
         </Routes>
-        </ShopContextProvider>
       </AuthProvider>
   </BrowserRouter>
   )

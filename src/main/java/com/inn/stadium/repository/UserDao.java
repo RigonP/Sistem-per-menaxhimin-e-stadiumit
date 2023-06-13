@@ -1,6 +1,7 @@
 package com.inn.stadium.repository;
 
 import com.inn.stadium.POJO.User;
+import com.inn.stadium.wrapper.ProductWrapper;
 import com.inn.stadium.wrapper.UserWrapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -18,4 +19,6 @@ public interface UserDao extends JpaRepository<User, Integer> {
     @Modifying
     Integer updateStatus(@Param("status")String status, @Param("id") Integer id);
     User findByEmail(String email);
+
+    UserWrapper getUserById(@Param("id") Integer id);
 }

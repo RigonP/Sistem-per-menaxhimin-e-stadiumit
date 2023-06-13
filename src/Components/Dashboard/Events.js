@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
 import { FaShoppingCart } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
+import api from "../Utils/api";
 
 const Events = () => {
     const [data, setData] = useState([]);
@@ -14,7 +15,7 @@ const Events = () => {
     const [newEventDescription, setNewEventDescription] = useState('');
     const [newEventEventType, setNewEventEventType] = useState('');
     const [newEventDate, setNewEventDate] = useState('');
-    const [newEventLocation, setNewEventLocation] = useState('');
+    const [newEventLocation, setNewEventLocation] = useState('')
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -24,7 +25,7 @@ const Events = () => {
     };
 
     const updateEventStatus = (id, status) => {
-        axios
+        api
             .post(`http://localhost:8080/events/updateStatus`, { id, status })
             .then((response) => {
                 const updatedStatus = response.data === 'true';
@@ -49,50 +50,37 @@ const Events = () => {
             });
     };
 
-    const updateEvent = (categoryId, titulli, description, location, date, eventType, id) => {
-        axios
+    const updateEvent = (categoryId, titulli, description, date,location, eventType, id) => {
+        api
             .post('http://localhost:8080/events/update', {
                 categoryId: parseInt(categoryId),
                 titulli: titulli,
                 description: description,
-                location: location,
                 date: date,
+                location: location,
                 eventType: eventType,
                 id: parseInt(id),
             })
             .then((response) => {
                 console.log(response);
+                handleShowAllEvents(); // Refresh the event list after successful update
                 setEditedData({}); // Clear the edited data
                 setSuccessMessage('Event updated successfully.');
                 setTimeout(() => {
                     setSuccessMessage(null);
                 }, 3000); // Hide success message after 3 seconds
-
-                // Fetch updated data after successful update
-                axios
-                    .get('http://localhost:8080/events/get')
-                    .then((response) => {
-                        setData(response.data);
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                        setErrorMessage('Failed to fetch events.');
-                        setTimeout(() => {
-                            setSuccessMessage(null);
-                        }, 3000); // Hide success message after 3 seconds
-                    });
             })
             .catch((error) => {
                 console.error(error);
                 setErrorMessage('Failed to update the event.');
                 setTimeout(() => {
-                    setErrorMessage(null);
+                    setSuccessMessage(null);
                 }, 3000); // Hide success message after 3 seconds
             });
-    };
+        };
 
     const handleDeleteEvent = (id) => {
-        axios
+        api
             .post(`http://localhost:8080/events/delete/${id}`)
             .then((response) => {
                 console.log(response);
@@ -123,7 +111,7 @@ const Events = () => {
             // Input is empty, do not proceed
             return;
         }
-        axios
+        api
             .post('http://localhost:8080/events/add', {
                 categoryId: parseInt(newCategoryId),
                 titulli: newEventTitle,
@@ -138,9 +126,9 @@ const Events = () => {
                 setNewCategoryId(''); // Clear the input fields
                 setNewEventTitle('');
                 setNewEventDescription('');
-                setNewEventEventType('');
                 setNewEventDate('');
                 setNewEventLocation('');
+                setNewEventEventType('');
                 setShowAddForm(false); // Hide the add form
                 setSuccessMessage('Event added successfully.');
                 setTimeout(() => {
@@ -157,7 +145,7 @@ const Events = () => {
     };
 
     const handleShowAllEvents = () => {
-        axios
+        api
             .get('http://localhost:8080/events/get')
             .then((response) => {
                 setData(response.data);
@@ -202,10 +190,10 @@ const Events = () => {
                                 <th>ID</th>
                                 <th>Title</th>
                                 <th>Description</th>
-                                <th>Event Type</th>
                                 <th>Date</th>
-                                <th>Status</th>
                                 <th>Location</th>
+                                <th>Event Type</th>
+                                <th>Status</th>
                                 <th>Category ID</th>
                                 <th>Category Name</th>
                                 <th>Change Status</th>
@@ -246,18 +234,6 @@ const Events = () => {
                                             <input
                                                 style={{ paddingLeft: '10px', width: '50px', height: '50px' }}
                                                 type="text"
-                                                value={editedData.eventType}
-                                                onChange={(e) => setEditedData({ ...editedData, eventType: e.target.value })}
-                                            />
-                                        ) : (
-                                            event.eventType
-                                        )}
-                                    </td>
-                                    <td>
-                                        {editedData.id === event.id ? (
-                                            <input
-                                                style={{ paddingLeft: '10px', width: '50px', height: '50px' }}
-                                                type="text"
                                                 value={editedData.date}
                                                 onChange={(e) => setEditedData({ ...editedData, date: e.target.value })}
                                             />
@@ -265,7 +241,6 @@ const Events = () => {
                                             event.date
                                         )}
                                     </td>
-                                    <td>{event.status}</td>
                                     <td>
                                         {editedData.id === event.id ? (
                                             <input
@@ -278,7 +253,19 @@ const Events = () => {
                                             event.location
                                         )}
                                     </td>
-
+                                    <td>
+                                        {editedData.id === event.id ? (
+                                            <input
+                                                style={{ paddingLeft: '10px', width: '50px', height: '50px' }}
+                                                type="text"
+                                                value={editedData.eventType}
+                                                onChange={(e) => setEditedData({ ...editedData, eventType: e.target.value })}
+                                            />
+                                        ) : (
+                                            event.eventType
+                                        )}
+                                    </td>
+                                    <td>{event.status}</td>
                                     <td>
                                         {editedData.id === event.id ? (
                                             <input
@@ -305,7 +292,7 @@ const Events = () => {
                                             <Button
                                                 style={{ borderColor: 'darkgreen', color: 'darkgreen' }}
                                                 onClick={() =>
-                                                    updateEvent(editedData.categoryId, editedData.titulli, editedData.description, editedData.eventType,editedData.date,editedData.location ,editedData.id)
+                                                    updateEvent(editedData.categoryId, editedData.titulli, editedData.description, editedData.date ,editedData.location,editedData.eventType,editedData.id)
                                                 }
                                             >
                                                 Update
@@ -358,13 +345,6 @@ const Events = () => {
                                 <input
                                     style={{ width: '180px', height: '50px' }}
                                     type="text"
-                                    placeholder="Event Type"
-                                    value={newEventEventType}
-                                    onChange={(e) => setNewEventEventType(e.target.value)}
-                                />
-                                <input
-                                    style={{ width: '180px', height: '50px' }}
-                                    type="text"
                                     placeholder="Date"
                                     value={newEventDate}
                                     onChange={(e) => setNewEventDate(e.target.value)}
@@ -375,6 +355,13 @@ const Events = () => {
                                     placeholder="Location"
                                     value={newEventLocation}
                                     onChange={(e) => setNewEventLocation(e.target.value)}
+                                />
+                                <input
+                                    style={{ width: '180px', height: '50px' }}
+                                    type="text"
+                                    placeholder="Event Type"
+                                    value={newEventEventType}
+                                    onChange={(e) => setNewEventEventType(e.target.value)}
                                 />
                                 <div style={{ paddingTop: '10px' }}>
                                     <Button
