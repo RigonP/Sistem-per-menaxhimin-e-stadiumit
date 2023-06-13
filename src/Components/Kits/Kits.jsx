@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import './kits.css';
-import Cart from "../Cart/Cart";
 import ProductFilter from '../FilterKits/Products';
 import {ShopContext, ShopContextProvider } from '../Context/shop-context';
 import { PRODUCTS } from '../FilterKits/productsdata';
@@ -11,7 +10,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 export const Kits = () => {
-    const { cartItems } = useContext(ShopContext);
+//     const { cartItems } = useContext(ShopContext);
 
 
     return (
@@ -46,11 +45,11 @@ export const Kits = () => {
             </div>
 
 
-            <ShopContextProvider>
+
             <div className="container">
                 <ProductFilter products={PRODUCTS} />
             </div>
-            </ShopContextProvider>
+
             
                  
 

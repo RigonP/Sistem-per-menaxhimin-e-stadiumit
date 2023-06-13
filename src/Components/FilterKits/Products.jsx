@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import {ShopContext} from '../Context/shop-context'
+// import {ShopContext} from '../Context/shop-context'
 import { PRODUCTS } from './productsdata';
 import { useContext } from 'react';
 import axios from 'axios';
@@ -7,9 +7,9 @@ import axios from 'axios';
 
 export const ProductFilter = (props) => {
   const {id, image, title, price, color, size, matchwear} = props.data ?? {};
-  const {addToCart, cartItems} = useContext(ShopContext);
+//   const {addToCart, cartItems} = useContext(ShopContext);
 
-  const cartItemAmount = cartItems[id];
+//   const cartItemAmount = cartItems[id];
 
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
@@ -79,9 +79,9 @@ export const ProductFilter = (props) => {
      setFilteredData(filteredProducts)
   };
 
-  const handleBuyNow = (productId) => {
-    addToCart(productId);
-  };
+//   const handleBuyNow = (productId) => {
+//     addToCart(productId);
+//   };
 
   console.log(PRODUCTS);
 
@@ -144,14 +144,16 @@ return (
               <div className="card-body">
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text">{product.price}</p>
-                <button className="btn btn-outline-light" onClick={() => handleBuyNow(product.id)}>Buy now {cartItems[product.id] > 0 && <>({cartItems[product.id]})</>}</button>
+//                 <button className="btn btn-outline-light"> Buy Now </button>
               </div>
             </div>
           </div>
           ))}
         </div>
     </div>
-  </div>
+    </div>
+
+
 );
 };
 

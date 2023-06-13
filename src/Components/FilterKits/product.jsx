@@ -1,16 +1,16 @@
-import React from 'react';
-import { PRODUCTS } from './productsdata';
-import '../Kits/kits.css'
-
-
-export const Product = (props) => {
-    const {id, image, title, price, color, size, matchwear} = props.data;
-    return(
-        <div></div>
-    )
-}
-
-export default Product;
+// import React from 'react';
+// import { PRODUCTS } from './productsdata';
+// import '../Kits/kits.css'
+//
+//
+// export const Product = (props) => {
+//     const {id, image, title, price, color, size, matchwear} = props.data;
+//     return(
+//         <div></div>
+//     )
+// }
+//
+// export default Product;
 
 {/* <div className="container snap-scroll-container">
       <div className="row">
