@@ -10,6 +10,8 @@ import Cookies from 'js-cookie';
 
 
 
+
+
 function InputField(props) {
     const { label, name, value, onChange, required } = props;
     return (
@@ -105,6 +107,34 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
 
+    const [errors, setErrors] = useState({
+        email: '',
+        password: 'Sorry, your password was incorrect. Please double-check your password.',
+    });
+    const validateForm = () => {
+        let isValid = true;
+        const updatedErrors = { ...errors };
+
+        // Validate email
+        if (!formData.email) {
+            updatedErrors.email = 'Email is required.';
+            isValid = false;
+        } else {
+            updatedErrors.email = '';
+        }
+
+        // Validate password
+        if (!formData.password) {
+            updatedErrors.password = 'Password is required.';
+            isValid = false;
+        } else {
+            updatedErrors.password = '';
+        }
+
+        setErrors(updatedErrors);
+        return isValid;
+    };
+
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -130,6 +160,10 @@ const LoginForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setNonExistingUserError(false);
+
+        if (!validateForm()) {
+            return; // If the form is not valid, don't submit it
+        }
         try {
             const response = await api.post('http://localhost:8080/user/login', formData);
             console.log(response.data);
@@ -166,16 +200,27 @@ const LoginForm = () => {
     return (
         <div>
             <Header />
-            <form onSubmit={handleSubmit} className="signup-form" style={{ marginTop: '100px', marginBottom: '0px' }}>
+
+            {errors.password && (
+                <div className="error-message" style={{display : "flex" ,margin : "auto", alignItems: "center", justifyContent : "center" , marginTop : "100px" , marginBottom : "0px",fontSize: '15px', color: 'red' }}>
+                    {errors.password}
+                </div>
+            )}
+            <form onSubmit={handleSubmit} className="signup-form" style={{ marginTop: '10px',marginBottom:"0px" }}>
                 <div>
                     <h1 className="signin" style={{ fontWeight: 'bold', paddingBottom: '30px', paddingTop: '20px' }}>
                         Log in
                     </h1>
                     {/* Input fields */}
-                    <InputField label="Email" name="email" value={formData.email} onChange={handleInputChange} required />
-                    {nonExistingUserError && (
+                    <InputField
+                        label="Email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required />
+                    {errors.email &&  (
                         <div className="error-message" style={{ fontSize: '12px', color: 'red' }}>
-                            This user does not exist.
+                            {errors.email}
                         </div>
                     )}
                     {/* Password input */}
@@ -188,6 +233,7 @@ const LoginForm = () => {
                         setShowPassword={setShowPassword}
                         required
                     />
+
                     {/* Submit button */}
                     <button type="submit" className="signup-button" style={{ marginBottom: '10px', marginTop: '5px' }}>
                         Log In
