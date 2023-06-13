@@ -229,7 +229,18 @@ const Products = () => {
                                         )}
                                     </td>
                                     <td>{product.status}</td>
-                                    <td>{product.categoryId}</td>
+                                    <td>
+                                        {editedData.id === product.id ? (
+                                            <input
+                                                style={{ paddingLeft: '10px', width: '50px', height: '50px' }}
+                                                type="number"
+                                                value={editedData.categoryId}
+                                                onChange={(e) => setEditedData({ ...editedData, categoryId: e.target.value })}
+                                            />
+                                        ) : (
+                                            product.categoryId
+                                        )}
+                                    </td>
                                     <td>{product.categoryName}</td>
                                     <td>
                                         <Button

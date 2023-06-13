@@ -1,11 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineStadium } from 'react-icons/md';
 import api from '../Utils/api';
-import {AuthContext} from "../Authentication/AuthContext";
+import { AuthContext } from '../Authentication/AuthContext';
 
 function InputField(props) {
     const { label, name, value, onChange, required } = props;
@@ -76,44 +76,28 @@ const Header = () => {
 };
 
 const Footer = () => {
-    return (
-        <div className="footer" style={{ marginBottom: '0px', paddingBottom: '0px' }}>
-            <div className="links" style={{ margin: 'auto' }}>
-                <a href="#">Stadium</a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    About
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    Blog
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    Jobs
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    Help
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    API
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    Privacy
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    Terms
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    Top Accounts
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    Locations
-                </a>
-                <a href="#" style={{ marginLeft: '30px' }}>
-                    Meta Verified
-                </a>
+    return(
+        <div className="footer" style={{marginBottom : "0px" ,paddingBottom : "0px"}}>
+            <div className="footer" style={{marginBottom : "0px" , paddingBottom: "35px"}}>
+                <div className="links" style={{margin : "auto"}}>
+                    <a href="#" style={{margin:"auto"}}>Stadium</a>
+                    <a href="#" style={{marginLeft:"30px"}}>About</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Blog</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Jobs</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Help</a>
+                    <a href="#" style={{marginLeft:"30px"}}>API</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Privacy</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Terms</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Top Accounts</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Locations</a>
+                    <a href="#" style={{marginLeft:"30px"}}>Meta Verified</a>
+                </div>
             </div>
         </div>
+
     );
-};
+}
+
 const LoginForm = () => {
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
@@ -128,7 +112,7 @@ const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [nonExistingUserError, setNonExistingUserError] = useState(false);
-
+    const [userProfile, setUserProfile] = useState(null);
     const saveLoginStatus = () => {
         localStorage.setItem('isLoggedIn', true);
     };
@@ -162,7 +146,6 @@ const LoginForm = () => {
         }
     };
 
-
     const handleLogout = () => {
         localStorage.removeItem('isLoggedIn');
         navigate('/login');
@@ -175,45 +158,45 @@ const LoginForm = () => {
         }
     }, [navigate]);
 
+
     return (
         <div>
             <Header />
             <form onSubmit={handleSubmit} className="signup-form" style={{ marginTop: '100px', marginBottom: '0px' }}>
-
-                    <div>
-                        <h1 className="signin" style={{ fontWeight: 'bold', paddingBottom: '30px', paddingTop: '20px' }}>
-                            Log in
-                        </h1>
-                        <InputField
-                            label="Email"
-                            name="email"
-                            value={formData.email} onChange={handleInputChange} required />
-                        {nonExistingUserError && (
-                            <div className="error-message" style={{ fontSize: '12px', color: 'red' }}>
-                                This user does not exist.
-                            </div>
-                        )}
-                        <PasswordInput
-                            label="Password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleInputChange}
-                            showPassword={showPassword}
-                            setShowPassword={setShowPassword}
-                            required
-                        />
-                        <button type="submit" className="signup-button" style={{ marginBottom: '10px', marginTop: '5px' }}>
-                            Log In
-                        </button>
-                        <div className="forgot-link" style={{ fontSize: '14px' }}>
-                            <Link to="/forgotPassword"> Forgot Password? </Link>
+                <div>
+                    <h1 className="signin" style={{ fontWeight: 'bold', paddingBottom: '30px', paddingTop: '20px' }}>
+                        Log in
+                    </h1>
+                    {/* Input fields */}
+                    <InputField label="Email" name="email" value={formData.email} onChange={handleInputChange} required />
+                    {nonExistingUserError && (
+                        <div className="error-message" style={{ fontSize: '12px', color: 'red' }}>
+                            This user does not exist.
                         </div>
-
-                        <div className="signup-link" style={{ color: 'black', fontSize: '14px' }}>
-                            Don't have an account? <Link to="/signup">Sign up</Link>
-                        </div>
+                    )}
+                    {/* Password input */}
+                    <PasswordInput
+                        label="Password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        showPassword={showPassword}
+                        setShowPassword={setShowPassword}
+                        required
+                    />
+                    {/* Submit button */}
+                    <button type="submit" className="signup-button" style={{ marginBottom: '10px', marginTop: '5px' }}>
+                        Log In
+                    </button>
+                    {/* Forgot password link */}
+                    <div className="forgot-link" style={{ fontSize: '14px' }}>
+                        <Link to="/forgotPassword"> Forgot Password? </Link>
                     </div>
-
+                    {/* Sign up link */}
+                    <div className="signup-link" style={{ color: 'black', fontSize: '14px' }}>
+                        Don't have an account? <Link to="/signup">Sign up</Link>
+                    </div>
+                </div>
             </form>
             <Footer />
         </div>
@@ -221,4 +204,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-

@@ -7,7 +7,10 @@ import axios from 'axios';
 
 export const ProductFilter = (props) => {
   const {id, image, title, price, color, size, matchwear} = props.data ?? {};
-  const {addToCart} = useContext(ShopContext);
+  const {addToCart, cartItems} = useContext(ShopContext);
+
+  const cartItemAmount = cartItems[id];
+
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedMatchWear, setSelectedMatchWear] = useState('');
@@ -76,6 +79,12 @@ export const ProductFilter = (props) => {
      setFilteredData(filteredProducts)
   };
 
+  const handleBuyNow = (productId) => {
+    addToCart(productId);
+  };
+
+  console.log(PRODUCTS);
+
 
 return (
   <div>
@@ -129,13 +138,13 @@ return (
     <div className="container snap-scroll-container">
       <div className="row">
           {filteredData.map((product) => (
-          <div className="col-md-3">
+          <div className="col-md-3" key={product.id}>
             <div className={`d-inline-block mx-10 card card-style-${product.id}`}>
               <img className="snap-scroll-images" src={product.image} alt="Product" />
               <div className="card-body">
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text">{product.price}</p>
-                <button className="btn btn-outline-light" onClick={() => addToCart(product.id)}>Buy now</button>
+                <button className="btn btn-outline-light" onClick={() => handleBuyNow(product.id)}>Buy now {cartItems[product.id] > 0 && <>({cartItems[product.id]})</>}</button>
               </div>
             </div>
           </div>

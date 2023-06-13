@@ -2,7 +2,6 @@ package com.inn.stadium.rest;
 
 
 import com.inn.stadium.wrapper.EventsWrapper;
-import com.inn.stadium.wrapper.ProductWrapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

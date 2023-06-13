@@ -7,13 +7,13 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
-@NamedQuery(name = "Events.getAllEvents",query = "select new com.inn.stadium.wrapper.EventsWrapper(e.id,e.titulli,e.date,e.location,e.eventType,e.category.id,e.category.name,e.description) from Events e")
+@NamedQuery(name = "Events.getAllEvents",query = "select new com.inn.stadium.wrapper.EventsWrapper(e.id,e.titulli,e.date,e.location,e.eventType,e.status,e.category.id,e.category.name,e.description) from Events e")
 
 @NamedQuery(name = "Events.updateEventStatus",query = "update Events e set e.status=:status where e.id=:id")
 
 @NamedQuery(name = "Events.getEventByCategory",query = "select new com.inn.stadium.wrapper.EventsWrapper(e.id,e.titulli) from Events e where e.category.id=:id and e.status='true'")
 
-@NamedQuery(name = "Events.getEventById",query ="select new com.inn.stadium.wrapper.EventsWrapper(e.id,e.titulli,e.description,e.eventType) from Events e where e.id=:id" )
+@NamedQuery(name = "Events.getEventById",query ="select new com.inn.stadium.wrapper.EventsWrapper(e.id,e.titulli,e.description,e.eventType,e.location,e.date) from Events e where e.id=:id" )
 
 
 

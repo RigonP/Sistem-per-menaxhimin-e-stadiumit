@@ -4,14 +4,11 @@ package com.inn.stadium.serviceImpl;
 import com.inn.stadium.JWT.JwtFilter;
 import com.inn.stadium.POJO.Category;
 import com.inn.stadium.POJO.Events;
-import com.inn.stadium.POJO.Product;
 import com.inn.stadium.konstantet.StadiumConstants;
 import com.inn.stadium.repository.EventsDao;
-import com.inn.stadium.repository.ProductDao;
 import com.inn.stadium.service.EventsService;
 import com.inn.stadium.utils.StadiumUtils;
 import com.inn.stadium.wrapper.EventsWrapper;
-import com.inn.stadium.wrapper.ProductWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -79,11 +76,11 @@ public class EventsServiceImpl implements EventsService {
         }
 
         events.setCategory(category);
-        events.setDate(requestMap.get("date"));
         events.setTitulli(requestMap.get("titulli"));
         events.setDescription(requestMap.get("description"));
         events.setEventType(requestMap.get("eventType"));
         events.setLocation(requestMap.get("location"));
+        events.setDate(requestMap.get("date"));
         return events;
 
     }

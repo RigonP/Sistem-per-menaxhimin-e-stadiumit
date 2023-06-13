@@ -35,4 +35,6 @@ public interface UserRest {
     @PostMapping(path = "/forgotPassword")
     public ResponseEntity<String>forgotPassword(@RequestBody Map<String,String> requestMap);
 
+
+
 }

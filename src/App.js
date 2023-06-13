@@ -23,6 +23,7 @@ import Autobuset from './Components/Tours/Autobuset';
 import UserProfilePage from "./Components/UserProfilePage/UserProfilePage";
 import {AuthProvider} from "./Components/Authentication/AuthContext";
 import VirtualTour from "./Components/Tours/VirtualTour"; 
+import { ShopContextProvider } from "./Components/Context/shop-context";
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <ShopContextProvider>
         <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/stadiumi' element={<Stadiumi />} />
@@ -51,6 +53,7 @@ const App = () => {
       <Route path ='/dashboard' element={<DashboardAdmin />}/>
       <Route path='/userPage' element={<UserProfilePage />}/>
         </Routes>
+        </ShopContextProvider>
       </AuthProvider>
   </BrowserRouter>
   )

@@ -9,10 +9,12 @@ import Category from './Category';
 import '../Dashboard/Dashboard.css';
 import Calendar from 'react-calendar';
 import './Calendar.css';
-import Chart from 'chart.js/auto';
 import './Chart.css';
 import {MdOutlineStadium} from "react-icons/md"
 import Events from "./Events";
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
+
 
 
 
@@ -21,6 +23,34 @@ const Dashboard = () => {
     const [notifications, setNotifications] = useState([]);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const chartRef = useRef(null);
+
+    const scatterData = {
+        datasets: [
+            {
+                label: 'Scatter Data',
+                data: [
+                    { x: 10, y: 20 },
+                    { x: 15, y: 10 },
+                    { x: 8, y: 15 },
+                    { x: 5, y: 25 },
+                    { x: 20, y: 30 },
+                ],
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+            },
+        ],
+    };
+
+    const histogramData = {
+        labels: ['0-10', '10-20', '20-30', '30-40', '40-50'],
+        datasets: [
+            {
+                label: 'Histogram Data',
+                data: [5, 10, 15, 7, 3],
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            },
+        ],
+    };
+
 
     const data = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -67,21 +97,13 @@ const Dashboard = () => {
         }
 
         const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        const topSellingProductsCtx = document.getElementById('topSellingProductsChart').getContext('2d');
+        const scatterCtx = document.getElementById('scatterChart').getContext('2d');
+        const histogramCtx = document.getElementById('histogramChart').getContext('2d');
+
         const revenueChart = new Chart(revenueCtx, {
             type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [
-                    {
-                        label: 'Revenue',
-                        data: [1000, 1500, 1200, 1800, 2000, 1700],
-                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1,
-
-                    },
-                ],
-            },
+            data: data,
             options: {
                 responsive: true,
                 scales: {
@@ -92,35 +114,9 @@ const Dashboard = () => {
             },
         });
 
-        const topSellingProductsCtx = document.getElementById('topSellingProductsChart').getContext('2d');
         const topSellingProductsChart = new Chart(topSellingProductsCtx, {
             type: 'bar',
-            data: {
-                labels: ['Kits', 'Shoes', 'Hoodies', 'Trousers', 'Socks', 'Hats'],
-                datasets: [
-                    {
-                        label: 'Number of Sales',
-                        data: [12, 19, 15, 10, 1, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 206, 86, 0.6)',
-                            'rgba(75, 192, 192, 0.6)',
-                            'rgba(153, 102, 255, 0.6)',
-                            'rgba(255, 159, 64, 0.6)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                        ],
-                        borderWidth: 1,
-                    },
-                ],
-            },
+            data: data2,
             options: {
                 responsive: true,
                 scales: {
@@ -131,8 +127,38 @@ const Dashboard = () => {
             },
         });
 
-        chartRef.current = [revenueChart, topSellingProductsChart];
+        const scatterChart = new Chart(scatterCtx, {
+            type: 'scatter',
+            data: scatterData,
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+
+        const histogramChart = new Chart(histogramCtx, {
+            type: 'bar',
+            data: histogramData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+
+        chartRef.current = [revenueChart, topSellingProductsChart, scatterChart, histogramChart];
     }, []);
+
 
 
 
@@ -218,6 +244,20 @@ const Dashboard = () => {
                                     {/* Other dashboard content */}
                                     <h2>Total Sales</h2>
                                     <canvas id="revenueChart" width="400" height="200"></canvas>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="chartDashboard">
+                                    {/* Other dashboard content */}
+                                    <h2>Scatter Plot</h2>
+                                    <canvas id="scatterChart" width="400" height="200"></canvas>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="chartDashboard">
+                                    {/* Other dashboard content */}
+                                    <h2>Histogram</h2>
+                                    <canvas id="histogramChart" width="400" height="200"></canvas>
                                 </div>
                             </Col>
                             <Col>

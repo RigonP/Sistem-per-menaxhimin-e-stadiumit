@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './kits.css';
 import Cart from "../Cart/Cart";
 import ProductFilter from '../FilterKits/Products';
-import ShopContext, { ShopContextProvider } from '../Context/shop-context';
+import {ShopContext, ShopContextProvider } from '../Context/shop-context';
 import { PRODUCTS } from '../FilterKits/productsdata';
 import MyNavbar from '../ShopNavbar/ShopN';
 import SecondN from '../Navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+
 export const Kits = () => {
+    const { cartItems } = useContext(ShopContext);
+
+
     return (
         <>
-            <ShopContextProvider>
+            
             <SecondN />
             <div className="events">
                 <h2>SHOP</h2>
@@ -40,11 +44,16 @@ export const Kits = () => {
                     <a href='#' className='read-link'>READ MORE</a>
                 </div>
             </div>
-        
+
+
+            <ShopContextProvider>
             <div className="container">
                 <ProductFilter products={PRODUCTS} />
             </div>
             </ShopContextProvider>
+            
+                 
+
         
         </>
     );
