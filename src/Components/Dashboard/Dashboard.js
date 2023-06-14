@@ -16,8 +16,6 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 
-
-
 const Dashboard = () => {
     const navigate = useNavigate();
     const [notifications, setNotifications] = useState([]);

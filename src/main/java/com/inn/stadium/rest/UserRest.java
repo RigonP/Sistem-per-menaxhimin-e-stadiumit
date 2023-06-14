@@ -1,6 +1,5 @@
 package com.inn.stadium.rest;
 
-import com.inn.stadium.wrapper.ProductWrapper;
 import com.inn.stadium.wrapper.UserWrapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +34,6 @@ public interface UserRest {
 
     @GetMapping(path = "/getById/{id}")
     public ResponseEntity<UserWrapper>getUserById(@PathVariable Integer id );
-
 
 
 }

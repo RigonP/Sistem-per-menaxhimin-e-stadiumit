@@ -20,15 +20,18 @@ public class ProductRestImpl  implements ProductRest {
 
     @Autowired
     ProductService productService;
+
     @Override
     public ResponseEntity<String> addNewProduct(Map<String, String> requestMap) {
-        try {
-            return productService.addNewProduct(requestMap);
 
-        }catch (Exception ex){
-            ex.printStackTrace();
+        try {
+
+            productService.addNewProduct(requestMap);
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+        return  StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @Override

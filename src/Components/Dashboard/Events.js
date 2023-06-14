@@ -170,8 +170,8 @@ const Events = () => {
                 <Card.Title className="cardtitledashboard">
                     <FaShoppingCart className="FaShoppingCart" /> Events
                 </Card.Title>
-                {successMessage && <Alert variant="success">{successMessage}</Alert>}
-                {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+                {/*{successMessage && <Alert variant="success">{successMessage}</Alert>}*/}
+                {/*{errorMessage && <Alert variant="danger">{errorMessage}</Alert>}*/}
                 {showEvents && (
                     <Button className="buttondashboard" variant="primary" onClick={() => setShowEvents(false)}>
                         Close

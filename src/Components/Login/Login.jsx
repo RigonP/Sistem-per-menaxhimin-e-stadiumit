@@ -110,6 +110,7 @@ const LoginForm = () => {
     const [errors, setErrors] = useState({
         email: '',
         password: 'Sorry, your password was incorrect. Please double-check your password.',
+
     });
     const validateForm = () => {
         let isValid = true;
@@ -180,6 +181,9 @@ const LoginForm = () => {
                 setNonExistingUserError(true);
             } else if (error.response.status === 401) {
                 setPasswordError(true);
+                setTimeout(() => {
+                    setPasswordError(null);
+                }, 3000); // Hide success message after 3 seconds
             }
         }
     };
@@ -203,7 +207,7 @@ const LoginForm = () => {
 
             {errors.password && (
                 <div className="error-message" style={{display : "flex" ,margin : "auto", alignItems: "center", justifyContent : "center" , marginTop : "100px" , marginBottom : "0px",fontSize: '15px', color: 'red' }}>
-                    {errors.password}
+                    {/*{errors.password}*/}
                 </div>
             )}
             <form onSubmit={handleSubmit} className="signup-form" style={{ marginTop: '10px',marginBottom:"0px" }}>

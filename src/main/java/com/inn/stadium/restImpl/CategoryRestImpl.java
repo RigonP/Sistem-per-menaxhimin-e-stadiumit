@@ -29,8 +29,6 @@ public class CategoryRestImpl implements CategoryRest {
 
             return categoryService.addNewCategory(requestMap);
 
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
