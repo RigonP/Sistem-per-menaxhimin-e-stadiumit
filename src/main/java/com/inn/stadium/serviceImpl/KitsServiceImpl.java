@@ -9,9 +9,8 @@ import com.inn.stadium.service.KitsService;
 import com.inn.stadium.utils.StadiumUtils;
 import com.inn.stadium.wrapper.KitsWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ public class KitsServiceImpl implements KitsService {
     @Override
     public ResponseEntity<List<KitsWrapper>> getAllKits() {
         try {
-            return new ResponseEntity<>(kitsDao.getAllKits(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(kitsDao.getAllKits(), HttpStatus.OK);
         }catch (Exception e){
             e.printStackTrace();
         }

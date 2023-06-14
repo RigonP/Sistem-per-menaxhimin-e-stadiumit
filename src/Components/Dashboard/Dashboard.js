@@ -10,6 +10,7 @@ import '../Dashboard/Dashboard.css';
 import Calendar from 'react-calendar';
 import './Calendar.css';
 import './Chart.css';
+import KitsDashboard from './KitsDashboard'
 import {MdOutlineStadium} from "react-icons/md"
 import Events from "./Events";
 import { Chart, registerables } from 'chart.js';
@@ -229,6 +230,9 @@ const Dashboard = () => {
                         </Col>
                         <Col className="coldashboard">
                             <Events />
+                        </Col>
+                        <Col className="coldashboard">
+                            <KitsDashboard />
                         </Col>
                     </Row>
                     <Row>

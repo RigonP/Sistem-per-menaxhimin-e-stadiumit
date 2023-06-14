@@ -43,10 +43,11 @@ public KitsWrapper(Integer id, String name){
     this.name=name;
 }
 
-public KitsWrapper(Integer id, String name, String description, Integer price){
+public KitsWrapper(Integer id, String name, String description, String player, Integer price){
     this.id=id;
     this.name=name;
     this.description=description;
+    this.player=player;
     this.price=price;
     }
 }

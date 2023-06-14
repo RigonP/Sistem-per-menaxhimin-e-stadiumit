@@ -25,7 +25,7 @@ import java.io.Serializable;
 
 @NamedQuery(
         name = "Kits.getByKitsId",
-        query = "SELECT new com.inn.stadium.wrapper.KitsWrapper(k.id, k.name, k.description, k.price) FROM Kits k WHERE k.id = :id"
+        query = "SELECT new com.inn.stadium.wrapper.KitsWrapper(k.id, k.name, k.description, k.player, k.price) FROM Kits k WHERE k.id = :id"
 )
 
 @Data
