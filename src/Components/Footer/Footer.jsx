@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import './footer.css'
 import video2 from '../../Assets/Kosovo_Flag_Loop.mp4'
 import {FiSend} from 'react-icons/fi'
@@ -9,18 +9,30 @@ import {BsFacebook} from 'react-icons/bs'
 import {FiChevronRight} from 'react-icons/fi'
 import {BiFootball} from 'react-icons/bi'
 import { Link } from "react-router-dom";
-
+import emailjs from 'emailjs-com';
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
 
 const Footer = () => {
-  //create a react hook to add scroll animation
   useEffect(() => {
     Aos.init({duration: 2000})
   },[])
 
+  const form = useRef();
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_gcj4oir', 'template_84ow1h5', form.current, '4DoiBi7SLfO0O-fYc')
+      .then((result) => {
+          console.log(result.text);
+            window.alert('Jeni bërë subcribe me sukses !');
+            form.current.querySelector('input').value = ''
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
 
   return (
@@ -30,6 +42,7 @@ const Footer = () => {
       </div>
 
       <div className="secContent container">
+      <form ref={form} onSubmit={sendEmail}>
         <div className="contactDiv flex">
           <div data-aos="fade-up" className="text">
             <small>Na shkruani</small>
@@ -38,11 +51,12 @@ const Footer = () => {
 
           <div className="inputDiv flex">
             <input data-aos="fade-up"  type="text" placeholder='Shkruani email' />
-            <button  data-aos="fade-up" className='btn flex' type="submit">
+            <button  data-aos="fade-up" className='btn flex' type="submit" value="Send">
               DERGO <FiSend className='icon' />
             </button>
           </div>
         </div>
+        </form>
 
         <div className="footerCard flex">
           <div className="footerIntro flex">
