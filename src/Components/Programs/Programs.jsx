@@ -22,7 +22,7 @@ const Programs = () => {
             <span className='stroke-text'>Visit</span>
         </div>
 
-        <div className="program-categories" data-aos='slide-left'>
+        <div className="program-categories">
             {programsData.map((program) =>(
                 <div className="category">
                     {program.image}
