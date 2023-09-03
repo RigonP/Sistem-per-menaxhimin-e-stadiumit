@@ -21,20 +21,40 @@ const Footer = () => {
 
   const form = useRef();
 
+  function validateEmailSubscribe() {
+    const email = document.getElementById('contact-email').value;
+
+    if (email.length === 0) {
+      alert('Email duhet të plotësohet !');
+      return false;
+    }
+    if (!email.match(/^[a-z0-9]+(-[a-z0-9]+)*@[a-z]+(-[a-z]+)*\.(com|net)$/)) {
+      alert('Email nuk është valid !');
+      return false;
+    }
+    return true;
+  }
+
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_gcj4oir', 'template_84ow1h5', form.current, '4DoiBi7SLfO0O-fYc')
-      .then((result) => {
+    if (validateEmailSubscribe()) {
+      emailjs
+        .sendForm('service_gcj4oir', 'template_84ow1h5', form.current, '4DoiBi7SLfO0O-fYc')
+        .then((result) => {
           console.log(result.text);
-            window.alert('Jeni bërë subcribe me sukses !');
-            form.current.querySelector('input').value = ''
-      }, (error) => {
+          window.alert('Jeni bërë subscribe me sukses !');
+          form.current.querySelector('input').value = '';
+        })
+        .catch((error) => {
           console.log(error.text);
-      });
+        });
+    }
   };
 
-
+  
+    
+  
   return (
     <section className="footer">
       <div className="videoDiv">
@@ -50,12 +70,13 @@ const Footer = () => {
           </div>
 
           <div className="inputDiv flex">
-            <input data-aos="fade-up"  type="text" placeholder='Shkruani email' />
+            <input data-aos="fade-up"  type="text" placeholder='Shkruani email' id="contact-email"/>
             <button  data-aos="fade-up" className='btn flex' type="submit" value="Send">
               DERGO <FiSend className='icon' />
             </button>
           </div>
         </div>
+        <span id="submit-error-footer"></span>
         </form>
 
         <div className="footerCard flex">
@@ -200,6 +221,8 @@ const Footer = () => {
         </div>
       </div>
     </section>
+
+    
   )
 }
 
