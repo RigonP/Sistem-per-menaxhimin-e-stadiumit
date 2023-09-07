@@ -249,6 +249,7 @@ const Dashboard = () => {
                                 </div>
                             </Col>
                             <Col>
+
                                 <div className="chartDashboard">
                                     {/* Other dashboard content */}
                                     <h2>Scatter Plot</h2>
