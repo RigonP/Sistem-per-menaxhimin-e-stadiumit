@@ -63,7 +63,7 @@ const Contact = () => {
             })
             .then((response) => {
                 console.log(response);
-                handleShowAllContact(); // Refresh the contact list after successful update
+                handleShowAllContact(); // Refresh the event list after successful update
                 setEditedData({}); // Clear the edited data
                 setSuccessMessage('Contact updated successfully.');
                 setTimeout(() => {
@@ -84,7 +84,7 @@ const Contact = () => {
             .post(`http://localhost:8080/contact/delete/${id}`)
             .then((response) => {
                 console.log(response);
-                handleShowAllContact(); // Refresh the contact list after successful deletion
+                handleShowAllContact(); // Refresh the event list after successful deletion
                 setSuccessMessage('Contact deleted successfully.');
                 setTimeout(() => {
                     setSuccessMessage(null);
@@ -120,7 +120,7 @@ const Contact = () => {
             })
             .then((response) => {
                 console.log(response);
-                handleShowAllContact(); // Refresh the contact list after successful addition
+                handleShowAllContact(); // Refresh the event list after successful addition
                 //setNewCategoryId(''); // Clear the input fields
                 setNewContactEmail('');
                 setNewContactEmri('');

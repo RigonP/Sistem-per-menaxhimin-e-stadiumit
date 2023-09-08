@@ -13,6 +13,7 @@ import './Chart.css';
 import KitsDashboard from './KitsDashboard'
 import {MdOutlineStadium} from "react-icons/md"
 import Events from "./Events";
+import Contact from "./Contact";
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -231,6 +232,9 @@ const Dashboard = () => {
                         </Col>
                         <Col className="coldashboard">
                             <KitsDashboard />
+                        </Col>
+                        <Col className="coldashboard">
+                            <Contact />
                         </Col>
                     </Row>
                     <Row>
