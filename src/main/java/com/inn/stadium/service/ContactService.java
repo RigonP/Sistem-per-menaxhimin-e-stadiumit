@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.Map;
 
+//Manipulimi me databaze
 public interface ContactService {
     ResponseEntity<String> addNewContact(Map<String, String> requestMap);
 
