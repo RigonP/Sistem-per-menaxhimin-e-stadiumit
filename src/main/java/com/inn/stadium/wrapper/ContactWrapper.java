@@ -27,4 +27,12 @@ public class ContactWrapper {
         this.mesazhi = mesazhi;
         this.status = status;
     }
+
+    public ContactWrapper(Integer id, String emri, String mbiemri, String email) {
+        this.id = id;
+        this.emri = emri;
+        this.mbiemri = mbiemri;
+        this.email = email;
+    }
+
 }
