@@ -177,7 +177,7 @@ const Contact = () => {
                 )}
                 {!showContact && (
                     <Button className="buttondashboard" variant="primary" onClick={handleShowAllContact}>
-                        Show All Contact
+                        Shfaq te gjithe kontaktet
                     </Button>
                 )}
                 {showContact && (
