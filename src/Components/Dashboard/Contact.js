@@ -357,7 +357,7 @@ const Contact = () => {
                                 style={{ borderColor: 'green', color: 'darkgreen' }}
                                 onClick={() => setShowAddForm(true)}
                             >
-                                Add Contact
+                                Shto kontakt
                             </Button>
                         )}
                     </div>
