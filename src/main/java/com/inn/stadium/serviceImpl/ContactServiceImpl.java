@@ -29,7 +29,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ResponseEntity<String> addNewContact(Map<String, String> requestMap) {
         try {
-            if (jwtFilter.isAdmin()) {
+            if (jwtFilter.isAdmin() || jwtFilter.isContactAdmin()) {
                 if (validateContactMap(requestMap, false)) {
                     contactDao.save(getContactFromMap(requestMap, false));
                     return StadiumUtils.getResponseEntity("Kontakti u shtua me sukses!", HttpStatus.OK);
@@ -84,7 +84,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ResponseEntity<String> updateContact(Map<String, String> requestMap) {
         try {
-            if (jwtFilter.isAdmin()) {
+            if (jwtFilter.isAdmin() || jwtFilter.isContactAdmin()) {
                 if (validateContactMap(requestMap, true)) {
                     Optional<Contact> optional = contactDao.findById(Integer.parseInt(requestMap.get("id")));
                     if (!optional.isEmpty()) {
@@ -110,7 +110,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ResponseEntity<String> deleteContact(Integer id) {
         try {
-            if (jwtFilter.isAdmin()) {
+            if (jwtFilter.isAdmin() || jwtFilter.isContactAdmin()) {
                 Optional optional = contactDao.findById(id);
                 if (!optional.isEmpty()){
                     contactDao.deleteById(id);
@@ -129,7 +129,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ResponseEntity<String> updateStatus(Map<String, String> requestMap) {
         try {
-            if(jwtFilter.isAdmin()){
+            if(jwtFilter.isAdmin() || jwtFilter.isContactAdmin()){
                 Optional optional =contactDao.findById(Integer.parseInt(requestMap.get("id")));
                 if(!optional.isEmpty()){
                     contactDao.updateContactStatus(requestMap.get("status"),Integer.parseInt(requestMap.get("id")));
