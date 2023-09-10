@@ -44,13 +44,14 @@ public class REventsServiceImpl implements REventsService {
                 return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED); // Tentim aksesi i paautorizuar
             }
         }catch (Exception e){
-            e.printStackTrace(); //Kapja e execption
+            e.printStackTrace(); //Kapja e exeception
         }
         return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    // Metoda per krijimin e objektit REvents nga një map i te dhenave
     private REvents getEventsFromMap(Map<String, String> requestMap, boolean isAdd) {
-
+        // Krijimi i objektit Category dhe vendosja e ID-se se tij
         Category category = new Category();
         category.setId(Integer.parseInt(requestMap.get("categoryId")));
 
@@ -61,6 +62,7 @@ public class REventsServiceImpl implements REventsService {
             rEvents.setStatus("true");
         }
 
+        // Vendosja e te dhenave te tjera te eventit ne objekt
         rEvents.setCategory(category);
         rEvents.setTitulli(requestMap.get("titulli"));
         rEvents.setData("data");
@@ -82,6 +84,7 @@ public class REventsServiceImpl implements REventsService {
         return false;
     }
 
+    // Metoda per te marre te gjitha eventet
     @Override
     public ResponseEntity<List<REventsWrapper>> getAllEvents() {
         try{
