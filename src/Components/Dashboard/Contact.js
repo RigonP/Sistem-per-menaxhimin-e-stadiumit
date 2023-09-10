@@ -172,7 +172,7 @@ const Contact = () => {
                 {/*{errorMessage && <Alert variant="danger">{errorMessage}</Alert>}*/}
                 {showContact && (
                     <Button className="buttondashboard" variant="primary" onClick={() => setShowContact(false)}>
-                        Close
+                        Mbylle
                     </Button>
                 )}
                 {!showContact && (
