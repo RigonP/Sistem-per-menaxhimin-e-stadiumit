@@ -19,5 +19,6 @@ public interface REventsDao  extends JpaRepository<REvents,Integer> {
 
     List<REventsWrapper>getEventsByCategory(@Param("id") Integer id);
 
+    REventsWrapper getEventsById(@Param("id") Integer id);
 
 }
