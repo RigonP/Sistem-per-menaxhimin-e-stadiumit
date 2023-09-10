@@ -11,6 +11,24 @@ import java.io.Serial;
 import java.io.Serializable;
 
 
+@NamedQuery(
+        name = "REvents.getAllEvents",
+        query = "select new com.inn.stadium.wrapper.REventsWrapper(e.id, e.titulli, e.lokacioni, e.data, e.ora, e.pershkrimi, e.status, e.category.name, e.category.id) from REvents e"
+)
+
+@NamedQuery(
+        name = "REvents.updateEventStatus",
+        query = "update REvents e set e.status = :status where e.id = :id")
+
+@NamedQuery(
+        name = "REvents.getEventsByCategory",
+        query = "select new com.inn.stadium.wrapper.REventsWrapper(e.id, e.titulli) from REvents e where e.category.id = :id and e.status = 'true'")
+
+@NamedQuery(
+        name = "REvents.getEventById",
+        query = "select new com.inn.stadium.wrapper.REventsWrapper(e.id, e.titulli, e.lokacioni, e.data, e.ora, e.pershkrimi) from REvents e where e.id = :id"
+)
+
 @Data
 @Entity
 @DynamicUpdate
