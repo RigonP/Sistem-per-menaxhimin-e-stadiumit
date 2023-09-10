@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 
-@Service
+@Service // Deklarimi i klases si nje sherbim Spring
 public class REventsServiceImpl implements REventsService {
 
     @Autowired
@@ -34,10 +34,10 @@ public class REventsServiceImpl implements REventsService {
     @Override
     public ResponseEntity<String> addNewEvent(Map<String, String> requestMap) {
         try{
-            if(jwtFilter.isAdmin()){
-                if (validateEventsMap(requestMap, false)){
-                    rEventsDao.save(getEventsFromMap(requestMap, false));
-                    return StadiumUtils.getResponseEntity("Eventi u shtua me sukses!", HttpStatus.OK);
+            if(jwtFilter.isAdmin()){ // Verifikimi i autorizimit te perdoruesit si administrator
+                if (validateEventsMap(requestMap, false)){ // Validimi i te dhenave te eventit
+                    rEventsDao.save(getEventsFromMap(requestMap, false)); //Ruajtja e eventit ne databaze
+                    return StadiumUtils.getResponseEntity("Eventi u shtua me sukses!", HttpStatus.OK); // Pergjigje e suksesshme
                 }
                 return StadiumUtils.getResponseEntity(StadiumConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
             }else{
