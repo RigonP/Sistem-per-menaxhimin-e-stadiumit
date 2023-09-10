@@ -1,4 +1,4 @@
 package com.inn.stadium.rest;
 
-public interface REventsRest {
+public interface REventRest {
 }
