@@ -41,10 +41,10 @@ public class REventsServiceImpl implements REventsService {
                 }
                 return StadiumUtils.getResponseEntity(StadiumConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
             }else{
-                return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED);
+                return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED); // Tentim aksesi i paautorizuar
             }
         }catch (Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); //Kapja e execption
         }
         return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -124,7 +124,7 @@ public class REventsServiceImpl implements REventsService {
         try{
             if (jwtFilter.isAdmin()){
                 Optional optional = rEventsDao.findById(id);
-                if(!optional.isEmpty()){
+                if(!optional.isEmpty()){ // Kontrolli nese eventi ekziston
                     rEventsDao.deleteById(id);
                     return StadiumUtils.getResponseEntity("Eventi u fshie me sukses !", HttpStatus.OK);
                 }
