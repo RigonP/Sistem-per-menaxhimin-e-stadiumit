@@ -101,8 +101,8 @@ const Contact = () => {
 
     const addContact = () => {
         if (
-            newContactEmri.trim() === '' ||
             newContactEmail.trim() === '' ||
+            newContactEmri.trim() === '' ||
             newContactMbiemri.trim() === '' ||
             newContactNumriTel.trim() === '' ||
             newContactMesazhi.trim() === ''
@@ -112,9 +112,9 @@ const Contact = () => {
         }
         api
             .post('http://localhost:8080/contact/add', {
+                email: newContactEmail,
                 emri: newContactEmri,
                 mbiemri: newContactMbiemri,
-                email: newContactEmail,
                 numriTel: newContactNumriTel,
                 mesazhi: newContactMesazhi,
             })
@@ -206,6 +206,18 @@ const Contact = () => {
                                             <input
                                                 style={{ width: '180px', height: '50px' }}
                                                 type="text"
+                                                value={editedData.email}
+                                                onChange={(e) => setEditedData({ ...editedData, email: e.target.value })}
+                                            />
+                                        ) : (
+                                            contact.email
+                                        )}
+                                    </td>
+                                    <td>
+                                        {editedData.id === contact.id ? (
+                                            <input
+                                                style={{ width: '180px', height: '50px', fontSize: '12px' }}
+                                                type="text"
                                                 value={editedData.emri}
                                                 onChange={(e) => setEditedData({ ...editedData, emri: e.target.value })}
                                             />
@@ -216,25 +228,13 @@ const Contact = () => {
                                     <td>
                                         {editedData.id === contact.id ? (
                                             <input
-                                                style={{ width: '180px', height: '50px', fontSize: '12px' }}
+                                                style={{ paddingLeft: '10px', width: '50px', height: '50px' }}
                                                 type="text"
                                                 value={editedData.mbiemri}
                                                 onChange={(e) => setEditedData({ ...editedData, mbiemri: e.target.value })}
                                             />
                                         ) : (
                                             contact.mbiemri
-                                        )}
-                                    </td>
-                                    <td>
-                                        {editedData.id === contact.id ? (
-                                            <input
-                                                style={{ paddingLeft: '10px', width: '50px', height: '50px' }}
-                                                type="text"
-                                                value={editedData.email}
-                                                onChange={(e) => setEditedData({ ...editedData, email: e.target.value })}
-                                            />
-                                        ) : (
-                                            contact.email
                                         )}
                                     </td>
                                     <td>
