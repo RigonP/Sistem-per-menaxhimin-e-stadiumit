@@ -13,7 +13,7 @@ public interface REventRest {
 
     // Metoda POST për të shtuar një event të ri
     @PostMapping(path = "/add")
-    public ResponseEntity<String>addNewEvent(@RequestBody Map<String, String> requestMap);
+    public ResponseEntity<String>addNewEvent(@RequestBody Map<String,String> requestMap);
 
     // Metoda GET për të marrë të gjitha eventet
     @GetMapping(path = "/get")
@@ -22,7 +22,7 @@ public interface REventRest {
 
     // Metoda POST për të përditësuar një event
     @PostMapping(path = "update")
-    public ResponseEntity<String>updateEvents(@RequestBody Map<String, String> requestMap);
+    public ResponseEntity<String>updateEvents(@RequestBody Map<String,String> requestMap);
 
 
     // Metoda POST për të fshirë një event me një ID të caktuar
@@ -32,7 +32,7 @@ public interface REventRest {
 
     // Metoda POST për të përditësuar statusin e një eventi
     @PostMapping(path = "updateStatus")
-    public ResponseEntity<String>updateStatus(@RequestBody Map<String, String> requestMap);
+    public ResponseEntity<String>updateStatus(@RequestBody Map<String,String> requestMap);
 
 
     // Metoda GET për të marrë eventet në bazë të kategorisë së dhënë
