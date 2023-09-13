@@ -237,6 +237,9 @@ const Dashboard = () => {
                         <Col className="coldashboard">
                             <Contact />
                         </Col>
+                        <Col className="coldashboard">
+                             <EventetCRUD />
+                        </Col>
                     </Row>
                     <Row>
                             <Col>
