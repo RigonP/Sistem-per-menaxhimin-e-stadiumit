@@ -14,6 +14,7 @@ import KitsDashboard from './KitsDashboard'
 import {MdOutlineStadium} from "react-icons/md"
 import Events from "./Events";
 import Contact from "./Contact";
+import EventetCRUD from "./EventetCRUD"
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
