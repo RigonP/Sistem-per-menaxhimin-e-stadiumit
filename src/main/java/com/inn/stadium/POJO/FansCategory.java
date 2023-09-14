@@ -7,19 +7,20 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serial;
+import java.io.Serializable;
 
 @Data
 @Entity
 @DynamicUpdate
 @DynamicInsert
 @Table(name = "fansCategory")
-public class FansCategory {
+public class FansCategory implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY);
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public Integer id;
 
