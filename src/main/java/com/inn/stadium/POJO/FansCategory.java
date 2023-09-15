@@ -9,6 +9,13 @@ import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 
+@NamedQuery(
+        name = "FansCategory.getAllFansCategory",
+        query = "select t from FansCategory t where t.id in (select p.fansCategory from Fans p)"
+)
+
+
+
 @Data
 @Entity
 @DynamicUpdate
