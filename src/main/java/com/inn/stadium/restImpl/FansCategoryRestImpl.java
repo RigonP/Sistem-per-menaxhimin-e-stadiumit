@@ -1,9 +1,12 @@
 package com.inn.stadium.restImpl;
 
 import com.inn.stadium.POJO.FansCategory;
+import com.inn.stadium.konstantet.StadiumConstants;
 import com.inn.stadium.rest.FansCategoryRest;
 import com.inn.stadium.service.FansCategoryService;
+import com.inn.stadium.utils.StadiumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +23,12 @@ public class FansCategoryRestImpl implements FansCategoryRest {
 
     @Override
     public ResponseEntity<String> addNewFansCategory(Map<String, String> requestMap) {
-        return null;
+        try{
+            return fansCategoryService.addNewFansCategory(requestMap);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @Override
