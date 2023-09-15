@@ -44,6 +44,11 @@ public class FansCategoryRestImpl implements FansCategoryRest {
 
     @Override
     public ResponseEntity<String> updateFansCategory(Map<String, String> requestMap) {
-        return null;
+        try{
+            return fansCategoryService.updateFansCategory(requestMap);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

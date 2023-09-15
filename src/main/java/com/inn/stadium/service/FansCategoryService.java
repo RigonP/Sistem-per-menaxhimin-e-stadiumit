@@ -10,4 +10,6 @@ public interface FansCategoryService {
     ResponseEntity<String> addNewFansCategory(Map<String, String> requestMap);
 
     ResponseEntity<List<FansCategory>> getAllFansCategory(String filterValue);
+
+    ResponseEntity<String> updateFansCategory(Map<String, String> requestMap);
 }
