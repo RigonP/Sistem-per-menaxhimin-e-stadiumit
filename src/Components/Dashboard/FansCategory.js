@@ -60,7 +60,7 @@ const FansCategory = () => {
         }
         api
             .post('http://localhost:8080/fansCategory/add', {
-                name: newFansCategoryEmri,
+                emri: newFansCategoryEmri,
             })
             .then((response) => {
                 console.log(response);
@@ -68,7 +68,16 @@ const FansCategory = () => {
                 setNewFansCategoryEmri(''); // Clear the input field
             })
             .catch((error) => {
-                console.error(error);
+                if (error.response) {
+                  // The request was made, but the server responded with an error status
+                  console.error(`HTTP Error ${error.response.status}: ${error.response.statusText}`);
+                } else if (error.request) {
+                  // The request was made, but no response was received
+                  console.error('No response received from the server.');
+                } else {
+                  // Something happened in setting up the request
+                  console.error('An error occurred while sending the request:', error.message);
+                }
             });
     };
 
@@ -139,7 +148,7 @@ const FansCategory = () => {
                         <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}>
                             <input
                                 type="text"
-                                placeholder="Name"
+                                placeholder="Emri"
                                 value={newFansCategoryEmri}
                                 onChange={(e) => setNewFansCategoryEmri(e.target.value)}
                             />
