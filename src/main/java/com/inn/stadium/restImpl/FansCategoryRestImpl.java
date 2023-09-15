@@ -2,12 +2,22 @@ package com.inn.stadium.restImpl;
 
 import com.inn.stadium.POJO.FansCategory;
 import com.inn.stadium.rest.FansCategoryRest;
+import com.inn.stadium.service.FansCategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
 
+
+@RestController
 public class FansCategoryRestImpl implements FansCategoryRest {
+
+    @Autowired
+    FansCategoryService fansCategoryService;
+
+
     @Override
     public ResponseEntity<String> addNewFansCategory(Map<String, String> requestMap) {
         return null;
