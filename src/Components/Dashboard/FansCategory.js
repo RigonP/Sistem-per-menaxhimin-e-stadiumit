@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
-import { FaShopify } from 'react-icons/fa';
+import { BiCategory } from 'react-icons/bi';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
@@ -89,7 +89,7 @@ const FansCategory = () => {
         <Card className="carddashboard">
             <Card.Body>
                 <Card.Title className="cardtitledashboard">
-                    <FaShopify className="FaShopify" /> Fans Category
+                    <BiCategory className="BiCategory" /> Fans Category
                 </Card.Title>
                 {showFansCategory && (
                     <Button className="buttondashboard" onClick={() => setShowFansCategory(false)}>
