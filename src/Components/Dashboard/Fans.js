@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
-import { MdCategory } from 'react-icons/md';
+import { MdPeopleAlt } from 'react-icons/md';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
@@ -151,7 +151,7 @@ const Fans = () => {
         <Card className="carddashboard">
             <Card.Body>
                 <Card.Title className="cardtitledashboard">
-                    <MdCategory className="MdCategory" /> Fans
+                    <MdPeopleAlt className="MdPeopleAlt" /> Fans
                 </Card.Title>
                 {successMessage && <Alert variant="success">{successMessage}</Alert>}
                 {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
-import { FaShoppingCart } from 'react-icons/fa';
+import { MdOutlineEventAvailable } from 'react-icons/md';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
@@ -198,7 +198,7 @@ const EventetCRUD = () => {
         <Card className="carddashboard">
             <Card.Body>
                 <Card.Title className="cardtitledashboard">
-                    <FaShoppingCart className="FaShoppingCart" /> Eventet
+                    <MdOutlineEventAvailable className="MdOutlineEventAvailable" /> Eventet
                 </Card.Title>
                 {showREvents && (
                     <Button className="buttondashboard" variant="primary" onClick={() => setShowREvents(false)}>
