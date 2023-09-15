@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,12 @@ public class FansCategoryRestImpl implements FansCategoryRest {
 
     @Override
     public ResponseEntity<List<FansCategory>> getAllFansCategory(String filterValue) {
-        return null;
+        try{
+            return fansCategoryService.getAllFansCategory(filterValue);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @Override
