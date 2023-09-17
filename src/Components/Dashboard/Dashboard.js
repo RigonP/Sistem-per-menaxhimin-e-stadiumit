@@ -17,6 +17,7 @@ import Contact from "./Contact";
 import EventetCRUD from "./EventetCRUD"
 import FansCategory from "./FansCategory";
 import Fans from "./Fans";
+import Administrata from "./Administrata"
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -247,6 +248,9 @@ const Dashboard = () => {
                         </Col>
                         <Col className="coldashboard">
                             <Fans />
+                        </Col>
+                        <Col className="coldashboard">
+                            <Administrata />
                         </Col>
                     </Row>
                     <Row>
