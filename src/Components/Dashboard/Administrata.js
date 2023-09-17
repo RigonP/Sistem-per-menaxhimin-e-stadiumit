@@ -267,7 +267,7 @@ const Administrata = () => {
                                 style={{ borderColor: 'green', color: 'darkgreen' }}
                                 onClick={() => setShowAddForm(true)}
                             >
-                                Shto administrata
+                                Shto
                             </Button>
                         )}
                     </div>
