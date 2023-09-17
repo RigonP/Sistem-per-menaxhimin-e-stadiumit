@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
-import { IoMdContact } from 'react-icons/io';
+import { MdManageAccounts } from 'react-icons/md';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
@@ -128,7 +128,7 @@ const Administrata = () => {
         <Card className="carddashboard">
             <Card.Body>
                 <Card.Title className="cardtitledashboard">
-                    <IoMdContact className="IoMdContact" /> Administrata
+                    <MdManageAccounts className="MdManageAccounts" /> Administrata
                 </Card.Title>
                 {/*{successMessage && <Alert variant="success">{successMessage}</Alert>}*/}
                 {/*{errorMessage && <Alert variant="danger">{errorMessage}</Alert>}*/}
