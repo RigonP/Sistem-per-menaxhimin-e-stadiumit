@@ -1,6 +1,7 @@
 package com.inn.stadium.serviceImpl;
 
 import com.inn.stadium.JWT.JwtFilter;
+import com.inn.stadium.POJO.ACategory;
 import com.inn.stadium.POJO.Administrata;
 import com.inn.stadium.POJO.Contact;
 import com.inn.stadium.konstantet.StadiumConstants;
@@ -32,16 +33,17 @@ public class AdministrataServiceImpl implements AdministrataService {
     @Override
     public ResponseEntity<String> addNewAdministrata(Map<String, String> requestMap) {
         try{
-            if(jwtFilter.isAdministrationAdmin() || jwtFilter.isAdmin()){
-                if(validateAdminstrataMap(requestMap, false)){
-                    administrataDao.save(getAdministrataFromMap(requestMap, false));
+            if(jwtFilter.isAdmin()){ // Verifikimi i autorizimit te perdoruesit si administrator
+                if (validateAdminstrataMap(requestMap, false)){ // Validimi i te dhenave te eventit
+                    administrataDao.save(getAdministrataFromMap(requestMap, false)); //Ruajtja e eventit ne databaze
+                    return StadiumUtils.getResponseEntity("Administrata u shtua me sukses!", HttpStatus.OK); // Pergjigje e suksesshme
                 }
                 return StadiumUtils.getResponseEntity(StadiumConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
-            }else {
-                return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED);
+            }else{
+                return StadiumUtils.getResponseEntity(StadiumConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED); // Tentim aksesi i paautorizuar
             }
         }catch (Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); //Kapja e exeception
         }
         return StadiumUtils.getResponseEntity(StadiumConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -59,11 +61,17 @@ public class AdministrataServiceImpl implements AdministrataService {
     }
 
     private Administrata getAdministrataFromMap(Map<String, String> requestMap, boolean isAdd) {
+
+        ACategory acategory = new ACategory();
+
+        acategory.setId(Integer.parseInt(requestMap.get("acategoryId")));
+
         Administrata administrata = new Administrata();
         if (isAdd) {
             administrata.setId(Integer.parseInt(requestMap.get("id")));
         }
 
+        administrata.setAcategory(acategory);
         administrata.setTelefoni(requestMap.get("telefoni"));
         administrata.setEmail(requestMap.get("email"));
         administrata.setFax(requestMap.get("fax"));
@@ -83,7 +91,7 @@ public class AdministrataServiceImpl implements AdministrataService {
     @Override
     public ResponseEntity<String> updateAdministrata(Map<String, String> requestMap) {
         try{
-            if(jwtFilter.isAdministrationAdmin() || jwtFilter.isAdmin()){
+            if(jwtFilter.isAdmin()){
                 if(validateAdminstrataMap(requestMap, true)){
                     Optional<Administrata> optional = administrataDao.findById(Integer.parseInt(requestMap.get("id")));
 
@@ -107,7 +115,7 @@ public class AdministrataServiceImpl implements AdministrataService {
     @Override
     public ResponseEntity<String> deleteAdministrata(Integer id) {
         try{
-            if(jwtFilter.isAdministrationAdmin() || jwtFilter.isAdmin()){
+            if(jwtFilter.isAdmin()){
                 Optional optional = administrataDao.findById(id);
                 if(!optional.isEmpty()){
                     administrataDao.deleteById(id);
@@ -131,5 +139,15 @@ public class AdministrataServiceImpl implements AdministrataService {
             e.printStackTrace();
         }
         return new ResponseEntity<>(new AdministrataWrapper(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<List<AdministrataWrapper>> getByACategory(Integer id) {
+        try{
+            return new ResponseEntity<>(administrataDao.getAdministrataByACategory(id), HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

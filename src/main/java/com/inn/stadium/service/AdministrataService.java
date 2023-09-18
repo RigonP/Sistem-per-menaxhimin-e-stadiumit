@@ -16,4 +16,6 @@ public interface AdministrataService {
     ResponseEntity<String> deleteAdministrata(Integer id);
 
     ResponseEntity<AdministrataWrapper> getAdministrataById(Integer id);
+
+    ResponseEntity<List<AdministrataWrapper>> getByACategory(Integer id);
 }

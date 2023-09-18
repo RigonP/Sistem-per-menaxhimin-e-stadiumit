@@ -10,6 +10,7 @@ import java.util.List;
 public interface AdministrataDao extends JpaRepository<Administrata, Integer> {
 
     List<AdministrataWrapper> getAllAdministrata();
+    List<AdministrataWrapper> getAdministrataByACategory(@Param("id") Integer id);
 
     AdministrataWrapper getAdministrataById(@Param("id") Integer id);
 

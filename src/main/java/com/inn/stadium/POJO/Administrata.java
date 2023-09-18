@@ -9,9 +9,12 @@ import java.io.Serial;
 import java.io.Serializable;
 
 
-@NamedQuery(name = "Administrata.getAllAdministrata",query = "select new com.inn.stadium.wrapper.AdministrataWrapper(c.id,c.telefoni,c.fax,c.email) from Administrata c")
+@NamedQuery(name = "Administrata.getAllAdministrata",query = "select new com.inn.stadium.wrapper.AdministrataWrapper(c.id,c.telefoni,c.fax,c.email, c.acategory.id, c.acategory.name) from Administrata c")
 @NamedQuery(name = "Administrata.getAdministrataById",query ="select new com.inn.stadium.wrapper.AdministrataWrapper(c.id,c.email) from Administrata c where c.id=:id" )
 
+@NamedQuery(
+        name = "Administrata.getAdministrataByACategory",
+        query = "select new com.inn.stadium.wrapper.AdministrataWrapper(p.id,p.email) from Administrata p where p.acategory.id=:id ")
 
 
 @Data
@@ -37,4 +40,9 @@ public class Administrata implements Serializable {
 
     @Column(name = "email")
     private String email;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "acategory_fk", nullable = false)
+    private ACategory acategory;
+
 }

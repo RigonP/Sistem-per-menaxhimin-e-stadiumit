@@ -25,5 +25,7 @@ public interface AdministrataRest {
     @GetMapping(path = "/getById/{id}")
     public ResponseEntity<AdministrataWrapper> getAdministrataById(@PathVariable Integer id);
 
+    @GetMapping(path = "/getByACategory/{id}")
+    public ResponseEntity<List<AdministrataWrapper>> getByACategory (@PathVariable Integer id);
 
 }

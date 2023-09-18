@@ -70,4 +70,14 @@ public class AdministrataRestImpl implements AdministrataRest {
         }
         return new ResponseEntity<>(new AdministrataWrapper(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Override
+    public ResponseEntity<List<AdministrataWrapper>> getByACategory(Integer id) {
+        try {
+            return administrataService.getByACategory(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

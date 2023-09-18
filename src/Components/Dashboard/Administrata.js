@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
@@ -6,25 +5,41 @@ import { MdManageAccounts } from 'react-icons/md';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
-const Administrata = () => {
+const Administrata  = () => {
     const [data, setData] = useState([]);
     const [showAdministrata, setShowAdministrata] = useState(false);
     const [editedData, setEditedData] = useState({});
     const [showAddForm, setShowAddForm] = useState(false);
+    const [newACategoryId, setNewACategoryId] = useState('');
     const [newAdministrataTelefoni, setNewAdministrataTelefoni] = useState('');
     const [newAdministrataFax, setNewAdministrataFax] = useState('');
     const [newAdministrataEmail, setNewAdministrataEmail] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
+    const [acategory, setACategory] = useState([]);
+    useEffect(() => {
+                    const fetchACategory = async () => {
+                        try {
+                            const response = await api.get('http://localhost:8080/acategory/get');
+                            setACategory(response.data);
+                        } catch (error) {
+                            console.error(error);
+                        }
+                    };
+                    fetchACategory();
+                }, []);
+
     const handleEditAdministrata = (id) => {
         const administrataToEdit = data.find((administrata) => administrata.id === id);
         setEditedData(administrataToEdit);
     };
 
-    const updateAdministrata = (telefoni, fax, email, id) => {
+
+    const updateAdministrata= (acategoryId, telefoni, fax, email, id) => {
         api
             .post('http://localhost:8080/administrata/update', {
+                acategoryId: parseInt(acategoryId),
                 telefoni: telefoni,
                 fax: fax,
                 email: email,
@@ -32,7 +47,7 @@ const Administrata = () => {
             })
             .then((response) => {
                 console.log(response);
-                handleShowAllAdministrata(); // Refresh the event list after successful update
+                handleShowAllAdministrata(); // Refresh the product list after successful update
                 setEditedData({}); // Clear the edited data
                 setSuccessMessage('Administrata updated successfully.');
                 setTimeout(() => {
@@ -46,24 +61,24 @@ const Administrata = () => {
                     setSuccessMessage(null);
                 }, 3000); // Hide success message after 3 seconds
             });
-        };
+    };
 
-    const handleDeleteAdministrata= (id) => {
+    const handleDeleteAdministrata = (id) => {
         api
             .post(`http://localhost:8080/administrata/delete/${id}`)
             .then((response) => {
                 console.log(response);
-                handleShowAllAdministrata(); // Refresh the event list after successful deletion
+                handleShowAllAdministrata(); // Refresh the product list after successful deletion
                 setSuccessMessage('Administrata deleted successfully.');
                 setTimeout(() => {
                     setSuccessMessage(null);
-                }, 3000); // Hide success message after
+                }, 3000); // Hide success message after 3 seconds
             })
             .catch((error) => {
                 console.error(error);
-                setErrorMessage('Failed to delete the Administrata.');
+                setErrorMessage('Failed to delete the administrata.');
                 setTimeout(() => {
-                    setErrorMessage(null);
+                    setSuccessMessage(null);
                 }, 3000); // Hide success message after 3 seconds
             });
     };
@@ -72,23 +87,26 @@ const Administrata = () => {
         if (
             newAdministrataTelefoni.trim() === '' ||
             newAdministrataFax.trim() === '' ||
-            newAdministrataEmail.trim() === ''
+            newAdministrataEmail.trim() === '' ||
+            newACategoryId.trim() === ''
         ) {
             // Input is empty, do not proceed
             return;
         }
         api
             .post('http://localhost:8080/administrata/add', {
+                acategoryId: parseInt(newACategoryId),
                 telefoni: newAdministrataTelefoni,
                 fax: newAdministrataFax,
                 email: newAdministrataEmail
             })
             .then((response) => {
                 console.log(response);
-                handleShowAllAdministrata(); // Refresh the event list after successful addition
-                setNewAdministrataEmail('');
-                setNewAdministrataFax('');
+                handleShowAllAdministrata(); // Refresh the product list after successful addition
+                setNewACategoryId(''); // Clear the input fields
                 setNewAdministrataTelefoni('');
+                setNewAdministrataFax('');
+                setNewAdministrataEmail('');
                 setShowAddForm(false); // Hide the add form
                 setSuccessMessage('Administrata added successfully.');
                 setTimeout(() => {
@@ -112,12 +130,17 @@ const Administrata = () => {
                 setShowAdministrata(true);
             })
             .catch((error) => {
-                console.error(error);
-                setErrorMessage('Failed to fetch administrata.');
-                setTimeout(() => {
-                    setSuccessMessage(null);
-                }, 3000); // Hide success message after 3 seconds
-            });
+                            if (error.response) {
+                              // The request was made, but the server responded with an error status
+                              console.error(`HTTP Error ${error.response.status}: ${error.response.statusText}`);
+                            } else if (error.request) {
+                              // The request was made, but no response was received
+                              console.error('No response received from the server.');
+                            } else {
+                              // Something happened in setting up the request
+                              console.error('An error occurred while sending the request:', error.message);
+                            }
+                          });
     };
 
     useEffect(() => {
@@ -130,8 +153,8 @@ const Administrata = () => {
                 <Card.Title className="cardtitledashboard">
                     <MdManageAccounts className="MdManageAccounts" /> Administrata
                 </Card.Title>
-                {/*{successMessage && <Alert variant="success">{successMessage}</Alert>}*/}
-                {/*{errorMessage && <Alert variant="danger">{errorMessage}</Alert>}*/}
+                {successMessage && <Alert variant="success">{successMessage}</Alert>}
+                {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
                 {showAdministrata && (
                     <Button className="buttondashboard" variant="primary" onClick={() => setShowAdministrata(false)}>
                         Mbylle
@@ -139,7 +162,7 @@ const Administrata = () => {
                 )}
                 {!showAdministrata && (
                     <Button className="buttondashboard" variant="primary" onClick={handleShowAllAdministrata}>
-                        Shfaq administraten
+                        Shfaq administratat
                     </Button>
                 )}
                 {showAdministrata && (
@@ -151,6 +174,8 @@ const Administrata = () => {
                                 <th>Telefoni</th>
                                 <th>Fax</th>
                                 <th>Email</th>
+                                <th>ACategory ID</th>
+                                <th>Emri i ACategory</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
@@ -174,7 +199,7 @@ const Administrata = () => {
                                     <td>
                                         {editedData.id === administrata.id ? (
                                             <input
-                                                style={{ width: '180px', height: '50px', fontSize: '12px' }}
+                                                style={{ width: '180px', height: '50px' }}
                                                 type="text"
                                                 value={editedData.fax}
                                                 onChange={(e) => setEditedData({ ...editedData, fax: e.target.value })}
@@ -186,7 +211,7 @@ const Administrata = () => {
                                     <td>
                                         {editedData.id === administrata.id ? (
                                             <input
-                                                style={{ paddingLeft: '10px', width: '50px', height: '50px' }}
+                                                style={{ width: '180px', height: '50px' }}
                                                 type="text"
                                                 value={editedData.email}
                                                 onChange={(e) => setEditedData({ ...editedData, email: e.target.value })}
@@ -195,13 +220,26 @@ const Administrata = () => {
                                             administrata.email
                                         )}
                                     </td>
+                                    <td>
+                                        {editedData.id === administrata.id ? (
+                                            <input
+                                                style={{ paddingLeft: '10px', width: '50px', height: '50px' }}
+                                                type="number"
+                                                value={editedData.acategoryId}
+                                                onChange={(e) => setEditedData({ ...editedData, acategoryId: e.target.value })}
+                                            />
+                                        ) : (
+                                            administrata.acategoryId
+                                        )}
+                                    </td>
+                                    <td>{administrata.acategoryName}</td>
 
                                     <td>
                                         {editedData.id === administrata.id ? (
                                             <Button
                                                 style={{ borderColor: 'darkgreen', color: 'darkgreen' }}
                                                 onClick={() =>
-                                                    updateAdministrata(editedData.telefoni, editedData.fax, editedData.email, editedData.id)
+                                                    updateAdministrata(editedData.acategoryId, editedData.telefoni, editedData.fax, editedData.email, editedData.id)
                                                 }
                                             >
                                                 Update
@@ -230,11 +268,22 @@ const Administrata = () => {
                         </Table>
                         {showAddForm && (
                             <div>
-
+                                <select
+                                    style={{ width: '180px', height: '50px' }}
+                                    value={newACategoryId}
+                                    onChange={(e) => setNewACategoryId(e.target.value)}
+                                >
+                                <option value="">Selekto kategorine:</option>
+                                    {acategory.map((acategory) => (
+                                    <option key={acategory.id} value={acategory.id}>
+                                    {acategory.name}
+                                </option>
+                                ))}
+                                </select>
                                 <input
                                     style={{ width: '180px', height: '50px' }}
                                     type="text"
-                                    placeholder="Telefoni"
+                                    placeholder="Tel"
                                     value={newAdministrataTelefoni}
                                     onChange={(e) => setNewAdministrataTelefoni(e.target.value)}
                                 />
@@ -257,7 +306,7 @@ const Administrata = () => {
                                         style={{ borderColor: 'green', color: 'darkgreen' }}
                                         onClick={addAdministrata}
                                     >
-                                        Shto
+                                        Add
                                     </Button>
                                 </div>
                             </div>
@@ -267,7 +316,7 @@ const Administrata = () => {
                                 style={{ borderColor: 'green', color: 'darkgreen' }}
                                 onClick={() => setShowAddForm(true)}
                             >
-                                Shto
+                                Add Administrata
                             </Button>
                         )}
                     </div>
@@ -277,5 +326,4 @@ const Administrata = () => {
     );
 };
 
-export default Administrata;
-
+export default Administrata ;

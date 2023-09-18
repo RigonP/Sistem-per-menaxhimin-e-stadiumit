@@ -18,6 +18,7 @@ import EventetCRUD from "./EventetCRUD"
 import FansCategory from "./FansCategory";
 import Fans from "./Fans";
 import Administrata from "./Administrata"
+import ACategory from "./ACategory";
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -250,7 +251,10 @@ const Dashboard = () => {
                             <Fans />
                         </Col>
                         <Col className="coldashboard">
-                            <Administrata />
+                            <ACategory />
+                        </Col>
+                        <Col className="coldashboard">
+                            <Administrata  />
                         </Col>
                     </Row>
                     <Row>

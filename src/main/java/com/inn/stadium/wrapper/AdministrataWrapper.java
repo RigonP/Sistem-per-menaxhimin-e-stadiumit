@@ -11,17 +11,21 @@ public class AdministrataWrapper {
     String fax;
     String email;
 
+    Integer acategoryId;
+    String acategoryName;
 
 
     public AdministrataWrapper(){
 
     }
 
-    public AdministrataWrapper(Integer i, String t, String f, String e){
+    public AdministrataWrapper(Integer i, String t, String f, String e, Integer aId, String aN){
         id = i;
         telefoni = t;
         fax = f;
         email = e;
+        acategoryId = aId;
+        acategoryName = aN;
     }
 
     public AdministrataWrapper(Integer i, String m){
