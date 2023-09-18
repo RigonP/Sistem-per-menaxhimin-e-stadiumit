@@ -306,7 +306,7 @@ const Administrata  = () => {
                                         style={{ borderColor: 'green', color: 'darkgreen' }}
                                         onClick={addAdministrata}
                                     >
-                                        Add
+                                        Shto
                                     </Button>
                                 </div>
                             </div>
@@ -316,7 +316,7 @@ const Administrata  = () => {
                                 style={{ borderColor: 'green', color: 'darkgreen' }}
                                 onClick={() => setShowAddForm(true)}
                             >
-                                Add Administrata
+                                Shto Administrata
                             </Button>
                         )}
                     </div>

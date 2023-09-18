@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
-import { FaShopify } from 'react-icons/fa';
+import { FcDepartment } from 'react-icons/fc';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
@@ -80,7 +80,7 @@ const ACategory = () => {
         <Card className="carddashboard">
             <Card.Body>
                 <Card.Title className="cardtitledashboard">
-                    <FaShopify className="FaShopify" /> ACATEGORY
+                    <FcDepartment className="FcDepartment" /> Kategorite e administrates
                 </Card.Title>
                 {showACategory && (
                     <Button className="buttondashboard" onClick={() => setShowACategory(false)}>
@@ -89,7 +89,7 @@ const ACategory = () => {
                 )}
                 {!showACategory && (
                     <Button className="buttondashboard" onClick={handleShowAllACategory}>
-                        Shfaq te gjithe titujt
+                        Shfaq te gjithe kategorite
                     </Button>
                 )}
                 {showACategory && data && data.length > 0 && (
@@ -98,7 +98,7 @@ const ACategory = () => {
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
+                                <th>Emri</th>
                                 <th>Update</th>
                             </tr>
                             </thead>
@@ -145,7 +145,7 @@ const ACategory = () => {
                             />
                             <div style={{ paddingLeft: '20px' }}>
                                 <Button onClick={addACategory} style={{ borderColor: 'green', color: 'darkgreen' }}>
-                                    Add
+                                    Shto
                                 </Button>
                             </div>
                         </div>
