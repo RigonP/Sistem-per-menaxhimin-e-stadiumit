@@ -19,6 +19,7 @@ import FansCategory from "./FansCategory";
 import Fans from "./Fans";
 import Administrata from "./Administrata"
 import ACategory from "./ACategory";
+import Tour from "./Tour";
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -255,6 +256,9 @@ const Dashboard = () => {
                         </Col>
                         <Col className="coldashboard">
                             <Administrata  />
+                        </Col>
+                        <Col className="coldashboard">
+                            <Tour  />
                         </Col>
                     </Row>
                     <Row>
