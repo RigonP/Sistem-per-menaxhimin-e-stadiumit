@@ -5,6 +5,7 @@ import { Card, Button, Table, Alert } from 'react-bootstrap';
 import { GiDetour } from 'react-icons/gi';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
+import TourDetail from './TourDetail'; // Import the TourDetail component
 
 const Tour = () => {
     const [data, setData] = useState([]);
@@ -15,6 +16,19 @@ const Tour = () => {
     const [newTourMbiemri, setNewTourMbiemri] = useState('');
     const [newTourStatusi, setNewTourStatusi] = useState(''); // Initialize with an empty string
 
+    const [selectedTourId, setSelectedTourId] = useState(null);
+      const [inputTourId, setInputTourId] = useState('');
+
+      const handleShowTourDetail = (id) => {
+        setSelectedTourId(id);
+      };
+
+    const handleRetrieveTour = () => {
+        const idToRetrieve = parseInt(inputTourId);
+        if (!isNaN(idToRetrieve)) {
+          handleShowTourDetail(idToRetrieve);
+        }
+      };
 
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -291,6 +305,27 @@ const Tour = () => {
                         )}
                     </div>
                 )}
+                <h2>Get tour by id </h2>
+                        {showTour && (
+                          <div>
+                            <input
+                              style={{ width: '180px', height: '50px' }}
+                              type="text"
+                              placeholder="Shkruani ID-ne"
+                              value={inputTourId}
+                              onChange={(e) => setInputTourId(e.target.value)}
+                            />
+                            <Button variant="primary" onClick={handleRetrieveTour}>
+                              Kerko Tour
+                            </Button>
+                          </div>
+                        )}
+
+                        {selectedTourId && (
+                          <div>
+                            <TourDetail tour={data.find((tour) => tour.id === selectedTourId)} />
+                          </div>
+                        )}
             </Card.Body>
         </Card>
     );

@@ -24,6 +24,6 @@ public interface TourRest {
     @PostMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteTour(@PathVariable Integer id);
 
-    @GetMapping(path = "/getById")
+    @GetMapping(path = "/getById/{id}")
     public ResponseEntity<TourWrapper> getById(@PathVariable Integer id);
 }
