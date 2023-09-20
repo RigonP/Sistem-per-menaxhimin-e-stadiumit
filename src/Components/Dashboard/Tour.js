@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
-import { IoMdContact } from 'react-icons/io';
+import { GiDetour } from 'react-icons/gi';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
@@ -142,7 +142,7 @@ const Tour = () => {
         <Card className="carddashboard">
             <Card.Body>
                 <Card.Title className="cardtitledashboard">
-                    <IoMdContact className="IoMdContact" /> Tour
+                    <GiDetour className="GiDetour" /> Tour
                 </Card.Title>
                 {successMessage && <Alert variant="success">{successMessage}</Alert>}
                 {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
