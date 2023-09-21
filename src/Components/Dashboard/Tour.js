@@ -49,7 +49,11 @@ const Tour = () => {
         }
 
         setSelectedTourId(idToRetrieve);
+
+        // Clear the input field
+        setInputTourId('');
     };
+
 
 
 
