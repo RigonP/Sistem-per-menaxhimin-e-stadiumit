@@ -15,6 +15,8 @@ const Tour = () => {
     const [newTourEmri, setNewTourEmri] = useState('');
     const [newTourMbiemri, setNewTourMbiemri] = useState('');
     const [newTourStatusi, setNewTourStatusi] = useState(''); // Initialize with an empty string
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [selectedTourId, setSelectedTourId] = useState(null);
       const [inputTourId, setInputTourId] = useState('');
@@ -25,13 +27,32 @@ const Tour = () => {
 
     const handleRetrieveTour = () => {
         const idToRetrieve = parseInt(inputTourId);
-        if (!isNaN(idToRetrieve)) {
-          handleShowTourDetail(idToRetrieve);
-        }
-      };
 
-    const [successMessage, setSuccessMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+        if (isNaN(idToRetrieve) || idToRetrieve === null) {
+            // Show an error message for invalid or null ID
+            setErrorMessage('Id e zbrazet ose invalide. Shkruani nje ID valide !.');
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 3000); // Hide error message after 3 seconds
+            return;
+        }
+
+        const tourToRetrieve = data.find((tour) => tour.id === idToRetrieve);
+
+        if (!tourToRetrieve) {
+            // Show an error message for a non-existing ID
+            setErrorMessage(`Tour me ID ${idToRetrieve} nuk ekziston !.`);
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 3000); // Hide error message after 3 seconds
+            return;
+        }
+
+        setSelectedTourId(idToRetrieve);
+    };
+
+
+
 
     const handleEditTour = (id) => {
         const tourToEdit = data.find((tour) => tour.id === id);
@@ -305,7 +326,8 @@ const Tour = () => {
                         )}
                     </div>
                 )}
-                <h2>Get tour by id </h2>
+                <div style={{ paddingTop: '20px' }}>
+                <h2 style={{ fontSize: "20px", fontWeight: "bold" }}>Get tour by id</h2>
                         {showTour && (
                           <div>
                             <input
@@ -316,16 +338,17 @@ const Tour = () => {
                               onChange={(e) => setInputTourId(e.target.value)}
                             />
                             <Button variant="primary" onClick={handleRetrieveTour}>
-                              Kerko Tour
+                              Kerko
                             </Button>
                           </div>
                         )}
 
                         {selectedTourId && (
-                          <div>
+                          <div style={{ paddingTop: '20px' }}>
                             <TourDetail tour={data.find((tour) => tour.id === selectedTourId)} />
                           </div>
                         )}
+                </div>
             </Card.Body>
         </Card>
     );
