@@ -378,11 +378,11 @@ const Tour = () => {
                           </div>
                         )}
                         {showTour && (
-                          <div>
+                          <div style={{ paddingTop: '20px' }}>
                             <input
                                 style={{ width: '180px', height: '50px' }}
                                 type="text"
-                                placeholder="Shkruani emrin e tour-it"
+                                placeholder="Shkruani emrin e tour: "
                                 value={searchTourName}
                                 onChange={(e) => setSearchTourName(e.target.value)}
                             />
@@ -391,7 +391,6 @@ const Tour = () => {
                             </Button>
                           </div>
                         )}
-
                         {selectedTourId && (
                           <div style={{ paddingTop: '20px' }}>
                             <TourDetail tour={data.find((tour) => tour.id === selectedTourId)} />
