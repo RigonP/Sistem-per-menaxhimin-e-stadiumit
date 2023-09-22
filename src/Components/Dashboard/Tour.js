@@ -17,9 +17,11 @@ const Tour = () => {
     const [newTourStatusi, setNewTourStatusi] = useState(''); // Initialize with an empty string
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [searchTourName, setSearchTourName] = useState('');
+
 
     const [selectedTourId, setSelectedTourId] = useState(null);
-      const [inputTourId, setInputTourId] = useState('');
+    const [inputTourId, setInputTourId] = useState('');
 
       const handleShowTourDetail = (id) => {
         setSelectedTourId(id);
@@ -53,6 +55,36 @@ const Tour = () => {
         // Clear the input field
         setInputTourId('');
     };
+
+    const handleRetrieveTourByName = () => {
+        if (searchTourName.trim() === '') {
+            // Show an error message for an empty search name
+            setErrorMessage('Shkruani emrin e tour-it qe doni te gjeni.');
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 3000); // Hide error message after 3 seconds
+            return;
+        }
+
+        const tourToRetrieve = data.find((tour) =>
+            tour.emri.toLowerCase() === searchTourName.toLowerCase()
+        );
+
+        if (!tourToRetrieve) {
+            // Show an error message if no matching tour is found
+            setErrorMessage(`Nuk u gjet tour me emrin: ${searchTourName}`);
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 3000); // Hide error message after 3 seconds
+            return;
+        }
+
+        setSelectedTourId(tourToRetrieve.id);
+
+        // Clear the search input
+        setSearchTourName('');
+    };
+
 
 
 
@@ -342,6 +374,20 @@ const Tour = () => {
                             />
                             <Button variant="primary" onClick={handleRetrieveTour}>
                               Kerko
+                            </Button>
+                          </div>
+                        )}
+                        {showTour && (
+                          <div>
+                            <input
+                                style={{ width: '180px', height: '50px' }}
+                                type="text"
+                                placeholder="Shkruani emrin e tour-it"
+                                value={searchTourName}
+                                onChange={(e) => setSearchTourName(e.target.value)}
+                            />
+                            <Button variant="primary" onClick={handleRetrieveTourByName}>
+                                Kerko me emer
                             </Button>
                           </div>
                         )}
