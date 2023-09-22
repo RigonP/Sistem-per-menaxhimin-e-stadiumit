@@ -331,7 +331,6 @@ const Tour = () => {
                     </div>
                 )}
                 <div style={{ paddingTop: '20px' }}>
-                <h2 style={{ fontSize: "20px", fontWeight: "bold" }}>Get tour by id</h2>
                         {showTour && (
                           <div>
                             <input
