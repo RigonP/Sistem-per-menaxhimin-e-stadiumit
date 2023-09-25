@@ -64,7 +64,7 @@ public class TourServiceImpl implements TourService {
         }
         tour.setEmri(requestMap.get("emri"));
         tour.setMbiemri(requestMap.get("mbiemri"));
-
+        tour.setStatusi(requestMap.get("statusi"));
         return tour;
     }
 

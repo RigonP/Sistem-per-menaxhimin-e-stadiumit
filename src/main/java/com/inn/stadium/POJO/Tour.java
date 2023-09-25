@@ -9,9 +9,15 @@ import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 
-@NamedQuery(name = "Tour.getAllTour",query = "select new com.inn.stadium.wrapper.TourWrapper(c.id,c.emri,c.mbiemri,c.statusi) from Tour c")
+@NamedQuery(
+        name = "Tour.getAllTour",
+        query = "select new com.inn.stadium.wrapper.TourWrapper(c.id,c.emri,c.mbiemri,c.statusi) from Tour c"
+)
 
-@NamedQuery(name = "Tour.getTourById",query ="select new com.inn.stadium.wrapper.TourWrapper(c.id,c.statusi) from Tour c where c.id=:id" )
+@NamedQuery(
+        name = "Tour.getTourById",
+        query ="select new com.inn.stadium.wrapper.TourWrapper(c.id,c.statusi) from Tour c where c.id=:id"
+)
 
 
 @Data
