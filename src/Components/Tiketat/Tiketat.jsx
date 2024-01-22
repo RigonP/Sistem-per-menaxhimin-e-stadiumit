@@ -40,7 +40,7 @@ const Tiketat = () => {
       );
     }
   }
-  
+
   return (
     <>
     <Navbar />
@@ -53,12 +53,12 @@ const Tiketat = () => {
       <h2 data-aos='slide-left'>Shiko pamje realistike të stadiumit</h2>
       <p data-aos='slide-right'>Përjeto eksperiencën më të bukur të fushës së gjelbër !</p>
     </div>
-    
+
     <div className="dropdown" data-aos='fade-up'>
       <select className='selectT' value={selectedType} onChange={handleTypeChange}>
         <option value="">Zgjedhni llojin e eventit:</option>
         {eventTypes.map((type) => (
-          <option key={type.value} value={type.value}> 
+          <option key={type.value} value={type.value}>
             {type.label}
           </option>
         ))}

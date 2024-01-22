@@ -13,6 +13,13 @@ import './Chart.css';
 import KitsDashboard from './KitsDashboard'
 import {MdOutlineStadium} from "react-icons/md"
 import Events from "./Events";
+import Contact from "./Contact";
+import EventetCRUD from "./EventetCRUD"
+import FansCategory from "./FansCategory";
+import Fans from "./Fans";
+import Administrata from "./Administrata"
+import ACategory from "./ACategory";
+import Tour from "./Tour";
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -232,7 +239,27 @@ const Dashboard = () => {
                         <Col className="coldashboard">
                             <KitsDashboard />
                         </Col>
-
+                        <Col className="coldashboard">
+                            <Contact />
+                        </Col>
+                        <Col className="coldashboard">
+                             <EventetCRUD />
+                        </Col>
+                        <Col className="coldashboard">
+                            <FansCategory />
+                        </Col>
+                        <Col className="coldashboard">
+                            <Fans />
+                        </Col>
+                        <Col className="coldashboard">
+                            <ACategory />
+                        </Col>
+                        <Col className="coldashboard">
+                            <Administrata  />
+                        </Col>
+                        <Col className="coldashboard">
+                            <Tour  />
+                        </Col>
                     </Row>
                     <Row>
                             <Col>
@@ -250,6 +277,7 @@ const Dashboard = () => {
                                 </div>
                             </Col>
                             <Col>
+
                                 <div className="chartDashboard">
                                     {/* Other dashboard content */}
                                     <h2>Scatter Plot</h2>
