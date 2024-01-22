@@ -31,9 +31,12 @@ public class JwtFilter  extends OncePerRequestFilter {
 
 
 
+
+
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, javax.servlet.FilterChain filterChain) throws javax.servlet.ServletException, IOException {
 
+        //lejo te kaloj pa authentikim
         if(httpServletRequest.getServletPath().matches("/user/login|/user/forgotPassword|/user/signup")){
 
             filterChain.doFilter(httpServletRequest,httpServletResponse);

@@ -232,6 +232,7 @@ const Dashboard = () => {
                         <Col className="coldashboard">
                             <KitsDashboard />
                         </Col>
+
                     </Row>
                     <Row>
                             <Col>

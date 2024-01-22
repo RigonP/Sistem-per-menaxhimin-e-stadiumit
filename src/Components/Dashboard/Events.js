@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Table, Alert } from 'react-bootstrap';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaInstalod } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
@@ -168,7 +168,7 @@ const Events = () => {
         <Card className="carddashboard">
             <Card.Body>
                 <Card.Title className="cardtitledashboard">
-                    <FaShoppingCart className="FaShoppingCart" /> Events
+                    <FaInstalod className="FaShoppingCart" /> Events
                 </Card.Title>
                 {/*{successMessage && <Alert variant="success">{successMessage}</Alert>}*/}
                 {/*{errorMessage && <Alert variant="danger">{errorMessage}</Alert>}*/}

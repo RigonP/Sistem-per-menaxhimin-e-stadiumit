@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Card, Button, Table, Alert} from 'react-bootstrap';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaTshirt } from 'react-icons/fa';
 import '../Dashboard/Dashboard.css';
 import api from "../Utils/api";
 
@@ -171,10 +171,10 @@ const KitsDashboard = () => {
             <Card className="carddashboard">
                 <Card.Body>
                     <Card.Title className="cardtitledashboard">
-                        <FaShoppingCart className="FaShoppingCart" /> Kits
+                        <FaTshirt className="FaShoppingCart" /> Kits
                     </Card.Title>
                     {successMessage && <Alert variant="success">{successMessage}</Alert>}
-                    {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+                    {/*{errorMessage && <Alert variant="danger">{errorMessage}</Alert>}*/}
                     {showKits && (
                         <Button className="buttondashboard" variant="primary" onClick={() => setShowKits(false)}>
                             Close

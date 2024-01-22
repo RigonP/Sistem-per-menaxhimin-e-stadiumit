@@ -10,7 +10,6 @@ import java.util.Map;
 
 public interface EventsService {
 
-    ResponseEntity<String> addNewEvent(Map<String, String> requestMap);
 
     ResponseEntity<List<EventsWrapper>> getAllEvents();
     
@@ -18,10 +17,11 @@ public interface EventsService {
 
     ResponseEntity <String> deleteEvent(Integer id);
 
-
     ResponseEntity<String> updateStatus(Map<String, String> requestMap);
 
     ResponseEntity<List<EventsWrapper>> getByCategory(Integer id);
 
     ResponseEntity<EventsWrapper> getEventById(Integer id);
+
+    ResponseEntity<String> addNewEvent(Map<String, String> requestMap);
 }
